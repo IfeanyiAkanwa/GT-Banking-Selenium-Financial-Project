@@ -1,5 +1,7 @@
 package TestCases;
 
-public class Login {
+import util.TestBase;
+
+public class Login extends TestBase{
 
 }
