@@ -53,7 +53,7 @@ public class TestBase {
 
 		String myUrl = null;
 		if(testEnv.equalsIgnoreCase("stagingData")) {
-			myUrl = System.getProperty("instance-url", "http://13.56.69.207:8180/simrop");
+			myUrl = System.getProperty("instance-url", "http://gtweb6.gtbank.com:8080/");
 		} else
 		{
 			myUrl = System.getProperty("instance-url", "https://simrop.gloworld.com/simrop/");

@@ -66,7 +66,7 @@ public class SendMail {
             messageBodyPart = new MimeBodyPart();
 
             String file = System.getProperty("user.dir") + groupReport;
-            String fileName = "SIMROP-Report.html";
+            String fileName = "IBANK-Report.html";
             DataSource source = new FileDataSource(file);
             messageBodyPart.setDataHandler(new DataHandler(source));
             messageBodyPart.setFileName(fileName);
