@@ -17,7 +17,9 @@
 			<class name="TestCases.Login">
 				<methods>
 					<include name="accountNumberLoginValidationTest"></include>
+					<include name="emailLoginValidationTest"></include>
 					<include name="validAccountNumberLoginTest"></include>
+					<include name="validEmailLoginTest"></include>
 				</methods>
 			</class>
 		</classes>

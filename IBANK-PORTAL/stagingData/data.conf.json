@@ -8,6 +8,7 @@
 		"validAccNum": "0127605268",
 		"invalidPw": "1256",
 		"validEmail":"sina.ayegbusi@gtbank.com",
-		"wrongCharacterlength": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia"
+		"wrongEmailFormat":"sina@com",
+		"wrongCharacterlength": "SedutperspiciatisundeomnisistenatuserrorsitvoluptatemaccusantiumdoloremquelaudantiumtoamremaperiameaqueipsaquaeabilloinventoreveritatisetquasiarchitectobeataevitaedictasuntexplicaboNemoenimipsamvoluptatemquiavoluptascaboNemoenimipsamvoluptatemquip@gmail.com"
 	}
 }
