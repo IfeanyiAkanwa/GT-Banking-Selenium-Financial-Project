@@ -2,13 +2,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="IBANKSuite" parallel="tests" thread-count="5">
 	<parameter name="groupReport" value="/ibank.html" />
-	<parameter name="toMails" value="kakaageraldine@gmail.com"/>
+	<parameter name="toMails" value="kakaageraldine@gmail.com" />
 	<parameter name="myBrowser" value="chrome" />
 	<parameter name="environment" value="chrome" />
 	<parameter name="server" value="local" />
 	<parameter name="config" value="parallel.conf.json" />
 	<parameter name="downloadPath" value="/home/seluser/Downloads/" />
-	<!-- <parameter name="user" value="valid_Admin_Login" /> -->
+	<parameter name="user" value="valid_Admin_Login" />
 	<parameter name="testEnv" value="stagingData" />
 
 	<test name="Login" preserve-order="true">
@@ -16,12 +16,8 @@
 		<classes>
 			<class name="TestCases.Login">
 				<methods>
-					<include name="loginTest"></include>
-					<!-- <include name="navigateToBlackliNameTest"></include>
-					<include name="singleDeactivateUserTest"></include>
-					<include name="singleActivateUserTest"></include>
-					<include name="bulkDeactivateUserTest"></include>
-					<include name="bulkActivateUserTest"></include> -->
+					<include name="accountNumberLoginValidationTest"></include>
+					<include name="validAccountNumberLoginTest"></include>
 				</methods>
 			</class>
 		</classes>

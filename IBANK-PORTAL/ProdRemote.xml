@@ -12,5 +12,16 @@
 	<parameter name="superUser" value="valid_Super_Admin_Login" />
 	<parameter name="testEnv" value="prodData" />
 
+	<test name="Login" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="TestCases.Login">
+				<methods>
+					<include name="accountNumberLoginValidationTest"></include>
+					<include name="validAccountNumberLoginTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
 	
 </suite>  <!-- Suite -->
