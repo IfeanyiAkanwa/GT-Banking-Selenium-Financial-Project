@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="SIMROPSuite" parallel="tests" thread-count="5">
+<suite name="IBANKSuite" parallel="tests" thread-count="5">
 	<parameter name="groupReport" value="/ibank.html" />
-	<parameter name="toMails" value="kakaageraldine@gmail.com"/>
+	<parameter name="toMails" value="kakaageraldine@gmail.com" />
 	<parameter name="myBrowser" value="chrome" />
 	<parameter name="environment" value="chrome" />
 	<parameter name="server" value="local" />
@@ -16,12 +16,8 @@
 		<classes>
 			<class name="TestCases.Login">
 				<methods>
-					<include name="Login"></include>
-					<include name="navigateToBlackliNameTest"></include>
-					<include name="singleDeactivateUserTest"></include>
-					<include name="singleActivateUserTest"></include>
-					<include name="bulkDeactivateUserTest"></include>
-					<include name="bulkActivateUserTest"></include>
+					<include name="accountNumberLoginValidationTest"></include>
+					<include name="validAccountNumberLoginTest"></include>
 				</methods>
 			</class>
 		</classes>

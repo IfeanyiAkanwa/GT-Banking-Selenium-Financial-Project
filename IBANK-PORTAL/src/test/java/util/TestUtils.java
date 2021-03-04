@@ -20,6 +20,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.RemoteWebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.aventstack.extentreports.ExtentTest;
@@ -624,5 +626,15 @@ public class TestUtils extends TestBase {
 	    Thread.sleep(500);  
 	    getDriver().findElement(element).clear();
 	    getDriver().findElement(element).sendKeys(text);
+	}
+	
+	public static void getStartedPage() throws Exception {
+   	 WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+   	 
+   	 if (getDriver().findElement(By.linkText("Get Started with the new Ibank")).isDisplayed()) {
+			 getDriver().findElement(By.linkText("Get Started with the new Ibank")).click();
+			 wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
+			 Thread.sleep(1000);
+		} 
 	}
 }
