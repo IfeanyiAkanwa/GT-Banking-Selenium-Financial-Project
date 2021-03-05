@@ -157,19 +157,24 @@ public class Login extends TestBase{
 		String pw = (String) envs.get("pw");
 		String validAccNum = (String) envs.get("validAccNum");
 		
+		TestUtils.getStartedPage();
+		
 		// Login with valid Account number and valid password
 		TestUtils.testTitle("Login with valid Account number : (" + validAccNum + ") and valid password: (" + pw + ")");
 		loginTest(testEnv, validAccNum);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.mat-h3.f-w-700.mb-0")));
 		TestUtils.assertSearchText("CSSSELECTOR", "p.mat-h3.f-w-700.mb-0", "Login Successful");
 		TestUtils.assertSearchText("XPATH", "//*[contains(text(),'Hello OYEYINKA, Quickly start up using the frequent transactions section on the dashboard.')]", "Hello OYEYINKA, Quickly start up using the frequent transactions section on the dashboard.");
-		Thread.sleep(500);
+		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
+		Thread.sleep(1000);
+		
+		logoutTest();
 	}
 	
 	@Parameters ("testEnv")
 	@Test
 	public void emailLoginValidationTest(String testEnv) throws Exception {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 		File path = null;
 		File classpathRoot = new File(System.getProperty("user.dir"));
 		if (testEnv.equalsIgnoreCase("StagingData")) {
@@ -187,53 +192,38 @@ public class Login extends TestBase{
 		String invalidPw = (String) envs.get("invalidPw");
 		String wrongEmailFormat = (String) envs.get("wrongEmailFormat");
 		
-		TestUtils.getStartedPage();
-		
-		// Login with empty email addresss and valid password 
-		TestUtils.testTitle("Login with empty email addresss: (  ) and valid password: (" + pw + ")");
-		loginTest(testEnv, "  ");
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.mat-body.small.ng-tns-c3-0")));
-		TestUtils.assertSearchText("CSSSELECTOR", "p.mat-body.small.ng-tns-c3-0", "Bad Request: UserName is required");
-		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
-		Thread.sleep(500);
-		
-		// Login with valid email address and empty password
-		TestUtils.testTitle("Login with valid email address: (" + validEmail + ") and empty password: ( )");
-		getDriver().findElement(By.id("username")).clear();
-		getDriver().findElement(By.id("username")).sendKeys(validEmail);
-	    getDriver().findElement(By.xpath("(//button[@type='button'])[12]")).click();
-	    // Submit button
-	    getDriver().findElement(By.xpath("//button[@type='submit']")).click();
-	    Thread.sleep(500);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.mat-body.small.ng-tns-c3-0")));
-		TestUtils.assertSearchText("CSSSELECTOR", "p.mat-body.small.ng-tns-c3-0", "Bad Request: Password is required");
-		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
-		Thread.sleep(500);
-		
 		// Login with valid email address and invalid password
 		TestUtils.testTitle("Login with valid email address: (" + validEmail + ") and invalid password: (" + invalidPw + ")");
 		getDriver().findElement(By.id("username")).clear();
 		getDriver().findElement(By.id("username")).sendKeys(validEmail);
 		getDriver().findElement(By.xpath("(//button[@type='button'])[12]")).click();
 		// Enter Password
-	    getDriver().findElement(By.xpath("(//button[@type='button'])[3]")).click();
-	    getDriver().findElement(By.xpath("(//button[@type='button'])[2]")).click();
-	    getDriver().findElement(By.xpath("(//button[@type='button'])[7]")).click();
-	    getDriver().findElement(By.xpath("(//button[@type='button'])[11]")).click();
-	    Thread.sleep(500);
-		
+		getDriver().findElement(By.xpath("(//button[@type='button'])[3]")).click();
+		getDriver().findElement(By.xpath("(//button[@type='button'])[2]")).click();
+		getDriver().findElement(By.xpath("(//button[@type='button'])[7]")).click();
+		getDriver().findElement(By.xpath("(//button[@type='button'])[11]")).click();
+		Thread.sleep(500);
+
 		// Submit button
 		getDriver().findElement(By.xpath("//button[@type='submit']")).click();
 		Thread.sleep(500);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.mat-body.small.ng-tns-c3-0")));
-		TestUtils.assertSearchText("CSSSELECTOR", "p.mat-body.small.ng-tns-c3-0", "-Username or Password incorrect.. Please try again");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
+		TestUtils.assertSearchText("XPATH", "//mat-card/p", "-Username or Password incorrect.. Please try again");
+		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
+		Thread.sleep(500);
+		
+		// Login with empty email addresss and valid password 
+		TestUtils.testTitle("Login with empty email addresss: (  ) and valid password: (" + pw + ")");
+		loginTest(testEnv, "  ");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
+		TestUtils.assertSearchText("CSSSELECTOR", "p.mat-body.small.ng-tns-c3-0", "Bad Request: UserName is required");
 		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
 		Thread.sleep(500);
 		
 		// Login with email character Length greater than 256 and valid password
 		TestUtils.testTitle("Login with email character Length greater than 256: (" + wrongCharacterlength + ") and valid password: (" + pw + ")");
 		loginTest(testEnv, wrongCharacterlength);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.mat-body.small.ng-tns-c3-0")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
 		TestUtils.assertSearchText("CSSSELECTOR", "p.mat-body.small.ng-tns-c3-0", "Bad Request: UserName is required");
 		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
 		Thread.sleep(500);
@@ -241,8 +231,21 @@ public class Login extends TestBase{
 		// Login with wrong email format email and valid password
 		TestUtils.testTitle("Login with wrong email format email: (" + wrongEmailFormat	+ ") and valid password: (" + pw + ")");
 		loginTest(testEnv, wrongEmailFormat);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.mat-body.small.ng-tns-c3-0")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
 		TestUtils.assertSearchText("CSSSELECTOR", "p.mat-body.small.ng-tns-c3-0", "-Email or Password incorrect.. Please try again");
+		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
+		Thread.sleep(500);
+		
+		// Login with valid email address and empty password
+		TestUtils.testTitle("Login with valid email address: (" + validEmail + ") and empty password: ( )");
+		getDriver().findElement(By.id("username")).clear();
+		getDriver().findElement(By.id("username")).sendKeys(validEmail);
+		getDriver().findElement(By.xpath("(//button[@type='button'])[12]")).click();
+		// Submit button
+		getDriver().findElement(By.xpath("//button[@type='submit']")).click();
+		Thread.sleep(500);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
+		TestUtils.assertSearchText("CSSSELECTOR", "p.mat-body.small.ng-tns-c3-0", "Bad Request: Password is required");
 		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
 		Thread.sleep(500);
 	}	
@@ -271,6 +274,22 @@ public class Login extends TestBase{
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
 		TestUtils.assertSearchText("XPATH", "//*[contains(text(),'Login Successful')]", "Login Successful");
 		TestUtils.assertSearchText("XPATH", "//*[contains(text(),'Hello OLUSHINA, Quickly start up using the frequent transactions section on the dashboard.')]", "Hello OLUSHINA, Quickly start up using the frequent transactions section on the dashboard.");
-		Thread.sleep(500);
+		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
+		Thread.sleep(1000);
+		
+		logoutTest();
+	}
+	
+	public void logoutTest() throws Exception {
+		 WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		 TestUtils.testTitle("Logout");
+		 getDriver().findElement(By.xpath("//button[3]/span/mat-icon")).click();
+		 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span/button/span")));
+		 TestUtils.assertSearchText("XPATH", "//h2", "You have been logged out!");
+		 getDriver().findElement(By.xpath("//span/button/span")).click();
+		 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1")));
+		 TestUtils.assertSearchText("XPATH", "//h1", "Login");
+		 Thread.sleep(1000);
+		
 	}
 }
