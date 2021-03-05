@@ -32,12 +32,13 @@ import org.testng.annotations.Parameters;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.browserstack.local.Local;
 
 public class TestBase {
 	public static ExtentReports reports;
-	public static ExtentSparkReporter  htmlReporter;
+	public static ExtentHtmlReporter  htmlReporter;
 	private static ThreadLocal<ExtentTest> parentTest = new ThreadLocal<ExtentTest>();
 	public static ThreadLocal<ExtentTest> testInfo = new ThreadLocal<ExtentTest>();
 	private static OptionsManager optionsManager = new OptionsManager();
@@ -68,7 +69,7 @@ public class TestBase {
     @Parameters({"groupReport","testEnv"})
 	public void setUp( String groupReport, String testEnv) throws Exception {
 
-		htmlReporter = new ExtentSparkReporter (new File(System.getProperty("user.dir") + groupReport));
+		htmlReporter = new ExtentHtmlReporter (new File(System.getProperty("user.dir") + groupReport));
 		reports = new ExtentReports();
 		reports.setSystemInfo("TEST ENVIRONMENT", myUrl(testEnv));
 		reports.attachReporter(htmlReporter);

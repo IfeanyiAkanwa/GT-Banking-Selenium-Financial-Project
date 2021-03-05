@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="IBANKSuite" parallel="tests" thread-count="5">
+<suite name="IBANKSuite" parallel="tests" thread-count="1">
 	<parameter name="groupReport" value="/ibank.html" />
 	<parameter name="toMails" value="kakaageraldine@gmail.com" />
 	<parameter name="myBrowser" value="chrome" />
@@ -17,7 +17,18 @@
 			<class name="TestCases.Login">
 				<methods>
 					<include name="accountNumberLoginValidationTest"></include>
+					<include name="emailLoginValidationTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Login2" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="TestCases.Login">
+				<methods>
 					<include name="validAccountNumberLoginTest"></include>
+					<include name="validEmailLoginTest"></include>
 				</methods>
 			</class>
 		</classes>
