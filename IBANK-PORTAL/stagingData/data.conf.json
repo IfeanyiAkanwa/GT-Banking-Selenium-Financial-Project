@@ -9,6 +9,10 @@
 		"invalidPw": "1256",
 		"validEmail":"sina.ayegbusi@gtbank.com",
 		"wrongEmailFormat":"sina@com",
+		"validPhoneNum":"08023305565",
+		"phoNumGreaterThan11Digits":"080233055653456465",
+		"phoNumLessThan11Digits":"0802565",
+		"wrongmailFormat":"sina@com",
 		"wrongCharacterlength": "SedutperspiciatisundeomnisistenatuserrorsitvoluptatemaccusantiumdoloremquelaudantiumtoamremaperiameaqueipsaquaeabilloinventoreveritatisetquasiarchitectobeataevitaedictasuntexplicaboNemoenimipsamvoluptatemquiavoluptascaboNemoenimipsamvoluptatemquip@gmail.com"
 	}
 }

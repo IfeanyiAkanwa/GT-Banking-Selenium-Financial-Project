@@ -214,7 +214,7 @@ public class TestBase {
     public void cleanup(String toMails, String groupReport) {
 
         toAddress = System.getProperty("email_list", toMails);
-        SendMail.ComposeGmail("SIMROP Report <seamfix.test.report@gmail.com>", toAddress, groupReport);
+        SendMail.ComposeGmail("IBANK Report <gtbankuct.test.report@gmail.com>", toAddress, groupReport);
 
     }
 }
