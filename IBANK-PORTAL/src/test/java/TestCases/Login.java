@@ -33,7 +33,7 @@ public class Login extends TestBase{
 	    Thread.sleep(500);
 	    
 	    // Submit button
-	    getDriver().findElement(By.xpath("//button[@type='submit']")).click();
+	    TestUtils.clickElement("XPATH", "//button[@type='submit']");
 	    Thread.sleep(500);
 	    
 	}
@@ -216,7 +216,7 @@ public class Login extends TestBase{
 		TestUtils.testTitle("Login with empty email addresss: (  ) and valid password: (" + pw + ")");
 		loginTest(testEnv, "  ");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
-		TestUtils.assertSearchText("CSSSELECTOR", "p.mat-body.small.ng-tns-c3-0", "Bad Request: UserName is required");
+		TestUtils.assertSearchText("XPATH", "//mat-card/p", "Bad Request: UserName is required");
 		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
 		Thread.sleep(500);
 		
@@ -224,7 +224,7 @@ public class Login extends TestBase{
 		TestUtils.testTitle("Login with email character Length greater than 256: (" + wrongCharacterlength + ") and valid password: (" + pw + ")");
 		loginTest(testEnv, wrongCharacterlength);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
-		TestUtils.assertSearchText("CSSSELECTOR", "p.mat-body.small.ng-tns-c3-0", "Bad Request: UserName is required");
+		TestUtils.assertSearchText("XPATH", "//mat-card/p", "Bad Request: UserName is required");
 		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
 		Thread.sleep(500);
 		
@@ -232,7 +232,7 @@ public class Login extends TestBase{
 		TestUtils.testTitle("Login with wrong email format email: (" + wrongEmailFormat	+ ") and valid password: (" + pw + ")");
 		loginTest(testEnv, wrongEmailFormat);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
-		TestUtils.assertSearchText("CSSSELECTOR", "p.mat-body.small.ng-tns-c3-0", "-Email or Password incorrect.. Please try again");
+		TestUtils.assertSearchText("XPATH", "//mat-card/p", "-Email or Password incorrect.. Please try again");
 		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
 		Thread.sleep(500);
 		
@@ -245,7 +245,7 @@ public class Login extends TestBase{
 		getDriver().findElement(By.xpath("//button[@type='submit']")).click();
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
-		TestUtils.assertSearchText("CSSSELECTOR", "p.mat-body.small.ng-tns-c3-0", "Bad Request: Password is required");
+		TestUtils.assertSearchText("XPATH", "//mat-card/p", "Bad Request: Password is required");
 		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
 		Thread.sleep(500);
 	}	
@@ -291,5 +291,114 @@ public class Login extends TestBase{
 		 TestUtils.assertSearchText("XPATH", "//h1", "Login");
 		 Thread.sleep(1000);
 		
+	}
+	
+	@Parameters ("testEnv")
+	@Test
+	public void phoneNumberLoginValidationTest(String testEnv) throws Exception {
+		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+		File path = null;
+		File classpathRoot = new File(System.getProperty("user.dir"));
+		if (testEnv.equalsIgnoreCase("StagingData")) {
+			path = new File(classpathRoot, "stagingData/data.conf.json");
+		} else {
+			path = new File(classpathRoot, "prodData/data.conf.json");
+		}
+		JSONParser parser = new JSONParser();
+		JSONObject config = (JSONObject) parser.parse(new FileReader(path));
+		JSONObject envs = (JSONObject) config.get("Login");
+
+		String pw = (String) envs.get("pw");
+		String validPhoneNum = (String) envs.get("validPhoneNum");
+		String phoNumGreaterThan11Digits = (String) envs.get("phoNumGreaterThan11Digits");
+		String invalidPw = (String) envs.get("invalidPw");
+		String phoNumLessThan11Digits = (String) envs.get("phoNumLessThan11Digits");
+		
+		// Login with valid phone number and invalid password
+		TestUtils.testTitle("Login with valid phone number: (" + validPhoneNum + ") and invalid password: (" + invalidPw + ")");
+		getDriver().findElement(By.id("username")).clear();
+		getDriver().findElement(By.id("username")).sendKeys(validPhoneNum);
+		getDriver().findElement(By.xpath("(//button[@type='button'])[12]")).click();
+		// Enter Password
+		getDriver().findElement(By.xpath("(//button[@type='button'])[3]")).click();
+		getDriver().findElement(By.xpath("(//button[@type='button'])[2]")).click();
+		getDriver().findElement(By.xpath("(//button[@type='button'])[7]")).click();
+		getDriver().findElement(By.xpath("(//button[@type='button'])[11]")).click();
+		Thread.sleep(500);
+
+		// Submit button
+		getDriver().findElement(By.xpath("//button[@type='submit']")).click();
+		Thread.sleep(500);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
+		TestUtils.assertSearchText("XPATH", "//mat-card/p", "-Username or Password incorrect.. Please try again");
+		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
+		Thread.sleep(500);
+		
+		// Login with empty phone number and valid password 
+		TestUtils.testTitle("Login with empty phone number: (  ) and valid password: (" + pw + ")");
+		loginTest(testEnv, "  ");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
+		TestUtils.assertSearchText("CSSSELECTOR", "p.mat-body.small.ng-tns-c3-0", "Bad Request: UserName is required");
+		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
+		Thread.sleep(500);
+		
+		// Login with phone number Length greater than 11 digits and valid password
+		TestUtils.testTitle("Login with phone number Length greater than 11 digits: (" + phoNumGreaterThan11Digits + ") and valid password: (" + pw + ")");
+		loginTest(testEnv, phoNumGreaterThan11Digits);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
+		TestUtils.assertSearchText("CSSSELECTOR", "p.mat-body.small.ng-tns-c3-0", "-UserId or Password incorrect.. Please try again");
+		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
+		Thread.sleep(500);
+		
+		// Login with phone number Length less than 11 digits and valid password
+		TestUtils.testTitle("Login with phone number Length less than 11 digits: (" + phoNumLessThan11Digits	+ ") and valid password: (" + pw + ")");
+		loginTest(testEnv, phoNumLessThan11Digits);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
+		TestUtils.assertSearchText("CSSSELECTOR", "p.mat-body.small.ng-tns-c3-0", "-UserId or Password incorrect.. Please try again");
+		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
+		Thread.sleep(500);
+		
+		// Login with valid Phone Number and empty password
+		TestUtils.testTitle("Login with valid phone number: (" + validPhoneNum + ") and empty password: ( )");
+		getDriver().findElement(By.id("username")).clear();
+		getDriver().findElement(By.id("username")).sendKeys(validPhoneNum);
+		getDriver().findElement(By.xpath("(//button[@type='button'])[12]")).click();
+		// Submit button
+		getDriver().findElement(By.xpath("//button[@type='submit']")).click();
+		Thread.sleep(500);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
+		TestUtils.assertSearchText("CSSSELECTOR", "p.mat-body.small.ng-tns-c3-0", "Bad Request: Password is required");
+		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
+		Thread.sleep(500);
+	}	
+	
+	@Parameters ("testEnv")
+	@Test
+	public void validPhoneNumberLoginTest(String testEnv) throws Exception {
+		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		File path = null;
+		File classpathRoot = new File(System.getProperty("user.dir"));
+		if (testEnv.equalsIgnoreCase("StagingData")) {
+			path = new File(classpathRoot, "stagingData/data.conf.json");
+		} else {
+			path = new File(classpathRoot, "prodData/data.conf.json");
+		}
+		JSONParser parser = new JSONParser();
+		JSONObject config = (JSONObject) parser.parse(new FileReader(path));
+		JSONObject envs = (JSONObject) config.get("Login");
+
+		String pw = (String) envs.get("pw");
+		String validPhoneNum = (String) envs.get("validPhoneNum");
+		
+		// Login with valid Account number and valid password
+		TestUtils.testTitle("Login with valid Phone number : (" + validPhoneNum + ") and valid password: (" + pw + ")");
+		loginTest(testEnv, validPhoneNum);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
+		TestUtils.assertSearchText("XPATH", "//*[contains(text(),'Login Successful')]", "Login Successful");
+		TestUtils.assertSearchText("XPATH", "//*[contains(text(),'Hello OLUSHINA, Quickly start up using the frequent transactions section on the dashboard.')]", "Hello OLUSHINA, Quickly start up using the frequent transactions section on the dashboard.");
+		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
+		Thread.sleep(1000);
+		
+		logoutTest();
 	}
 }

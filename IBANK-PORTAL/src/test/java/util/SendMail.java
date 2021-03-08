@@ -75,7 +75,7 @@ public class SendMail {
             System.out.println("Sending...");
             message.setContent(multipart);
 
-            Transport.send(message, "gtbankuat.test.report@gmail.com", "Bankole1!!");
+            Transport.send(message, "gtbankuct.test.report@gmail.com", "Bankole1!!");
             System.out.println("Sent.");
         } catch (MessagingException ex) {
             throw new RuntimeException(ex);
