@@ -18,6 +18,7 @@
 				<methods>
 					<include name="accountNumberLoginValidationTest"></include>
 					<include name="phoneNumberLoginValidationTest"></include>
+					<include name="userIDLoginValidationTest"></include>
 					<include name="emailLoginValidationTest"></include>
 				</methods>
 			</class>
@@ -31,6 +32,7 @@
 					<include name="validAccountNumberLoginTest"></include>
 					<include name="validEmailLoginTest"></include>
 					<include name="validPhoneNumberLoginTest"></include>
+					<include name="validUserIDLoginTest"></include>
 				</methods>
 			</class>
 		</classes>

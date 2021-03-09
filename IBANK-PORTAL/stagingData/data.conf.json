@@ -3,8 +3,8 @@
 		"accNumLessThan10Digits": "025738382",
 		"pw": "123456",
 		"accNumGreaterThan10Digits": "025438382588",
-		"alphanumericAccNum": "6777gfsfsu",
-		"specialCharAccnum": "$#%36*1245?",
+		"alphanumericNum": "6777gfsfsu",
+		"specialCharnum": "$#%36*1245?",
 		"validAccNum": "0127605268",
 		"invalidPw": "1256",
 		"validEmail":"sina.ayegbusi@gtbank.com",
@@ -13,6 +13,9 @@
 		"phoNumGreaterThan11Digits":"080233055653456465",
 		"phoNumLessThan11Digits":"0802565",
 		"wrongmailFormat":"sina@com",
+		"validUserID":"20515477501",
+		"userIDGreaterThan12Digits":"080233045655653456465",
+		"userIDLessThan9Digits":"0802565",
 		"wrongCharacterlength": "SedutperspiciatisundeomnisistenatuserrorsitvoluptatemaccusantiumdoloremquelaudantiumtoamremaperiameaqueipsaquaeabilloinventoreveritatisetquasiarchitectobeataevitaedictasuntexplicaboNemoenimipsamvoluptatemquiavoluptascaboNemoenimipsamvoluptatemquip@gmail.com"
 	}
 }

@@ -633,8 +633,8 @@ public class TestUtils extends TestBase {
    	 
    	 if (getDriver().findElement(By.linkText("Get Started with the new Ibank")).isDisplayed()) {
 			 getDriver().findElement(By.linkText("Get Started with the new Ibank")).click();
-			 wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
 			 Thread.sleep(1000);
+			 wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
 		} else if (getDriver().findElement(By.id("username")).isDisplayed()) {
 			 getDriver().findElement(By.xpath("(//button[@type='button'])[12]")).click();
 		}
