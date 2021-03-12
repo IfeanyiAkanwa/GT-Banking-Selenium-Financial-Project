@@ -20,6 +20,8 @@
 					<include name="phoneNumberLoginValidationTest"></include>
 					<include name="userIDLoginValidationTest"></include>
 					<include name="emailLoginValidationTest"></include>
+					<include name="loginLinksValidationTest"></include>
+					<include name="rememberMeValidationTest"></include>
 				</methods>
 			</class>
 		</classes>

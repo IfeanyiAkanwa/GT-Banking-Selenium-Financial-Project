@@ -2,12 +2,12 @@ package TestCases;
 
 import java.io.File;
 import java.io.FileReader;
-
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -41,7 +41,7 @@ public class Login extends TestBase{
 	@Parameters ("testEnv")
 	@Test
 	public void accountNumberLoginValidationTest(String testEnv) throws Exception {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 		File path = null;
 		File classpathRoot = new File(System.getProperty("user.dir"));
 		if (testEnv.equalsIgnoreCase("StagingData")) {
@@ -67,7 +67,7 @@ public class Login extends TestBase{
 		TestUtils.testTitle("Login with Account number less than 10 digits: (" + accNumLessThan10Digits + ") and valid password: (" + pw + ")");
 		loginTest(testEnv, accNumLessThan10Digits);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.mat-body.small.ng-tns-c3-0")));
-		TestUtils.assertSearchText("CSSSELECTOR", "p.mat-body.small.ng-tns-c3-0", "-Username or Password incorrect.. Please try again");
+		TestUtils.assertSearchText("XPATH", "//mat-card/p", "-Username or Password incorrect.. Please try again");
 		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
 		Thread.sleep(500);
 		
@@ -75,15 +75,15 @@ public class Login extends TestBase{
 		TestUtils.testTitle("Login with Account number greater than 10 digits: (" + accNumGreaterThan10Digits + ") and valid password: (" + pw + ")");
 		loginTest(testEnv, accNumGreaterThan10Digits);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.mat-body.small.ng-tns-c3-0")));
-		TestUtils.assertSearchText("CSSSELECTOR", "p.mat-body.small.ng-tns-c3-0", "-UserId or Password incorrect.. Please try again");
+		TestUtils.assertSearchText("XPATH", "//mat-card/p", "-UserId or Password incorrect.. Please try again");
 		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
 		Thread.sleep(500);
 
 		// Login with alphanumeric Account number and valid password
 		TestUtils.testTitle("Login with Alphanumeric Account number: (" + alphanumericNum + ") and valid password: (" + pw + ")");
 		loginTest(testEnv, alphanumericNum);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.mat-body.small.ng-tns-c3-0")));
-		TestUtils.assertSearchText("CSSSELECTOR", "p.mat-body.small.ng-tns-c3-0", "-Unable to validate Username or Password.. Please try again");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
+		TestUtils.assertSearchText("XPATH", "//mat-card/p", "-Unable to validate Username or Password.. Please try again");
 		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
 		Thread.sleep(500);
 		
@@ -91,15 +91,15 @@ public class Login extends TestBase{
 		TestUtils.testTitle("Login with Account number containing Special characters: (" + specialCharnum + ") and valid password: (" + pw + ")");
 		loginTest(testEnv, specialCharnum);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.mat-body.small.ng-tns-c3-0")));
-		TestUtils.assertSearchText("CSSSELECTOR", "p.mat-body.small.ng-tns-c3-0", "-Unable to validate Username or Password.. Please try again");
+		TestUtils.assertSearchText("XPATH", "//mat-card/p", "-Unable to validate Username or Password.. Please try again");
 		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
 		Thread.sleep(500);
 		
 		// Login with empty Account number and valid password
 		TestUtils.testTitle("Login with empty Account number: (  ) and valid password: (" + pw + ")");
 		loginTest(testEnv, "  ");
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.mat-body.small.ng-tns-c3-0")));
-		TestUtils.assertSearchText("CSSSELECTOR", "p.mat-body.small.ng-tns-c3-0", "Bad Request: UserName is required");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
+		TestUtils.assertSearchText("XPATH", "//mat-card/p", "Bad Request: UserName is required");
 		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
 		Thread.sleep(500);
 		
@@ -111,8 +111,8 @@ public class Login extends TestBase{
 	    // Submit button
 	    getDriver().findElement(By.xpath("//button[@type='submit']")).click();
 	    Thread.sleep(500);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.mat-body.small.ng-tns-c3-0")));
-		TestUtils.assertSearchText("CSSSELECTOR", "p.mat-body.small.ng-tns-c3-0", "Bad Request: Password is required");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
+		TestUtils.assertSearchText("XPATH", "//mat-card/p", "Bad Request: Password is required");
 		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
 		Thread.sleep(500);
 		
@@ -142,7 +142,7 @@ public class Login extends TestBase{
 	@Parameters ("testEnv")
 	@Test
 	public void validAccountNumberLoginTest(String testEnv) throws Exception {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 		File path = null;
 		File classpathRoot = new File(System.getProperty("user.dir"));
 		if (testEnv.equalsIgnoreCase("StagingData")) {
@@ -281,7 +281,7 @@ public class Login extends TestBase{
 	}
 	
 	public void logoutTest() throws Exception {
-		 WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		 WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 		 TestUtils.testTitle("Logout");
 		 getDriver().findElement(By.xpath("//button[3]/span/mat-icon")).click();
 		 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span/button/span")));
@@ -375,7 +375,7 @@ public class Login extends TestBase{
 	@Parameters ("testEnv")
 	@Test
 	public void validPhoneNumberLoginTest(String testEnv) throws Exception {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 		File path = null;
 		File classpathRoot = new File(System.getProperty("user.dir"));
 		if (testEnv.equalsIgnoreCase("StagingData")) {
@@ -522,10 +522,150 @@ public class Login extends TestBase{
 		loginTest(testEnv, validUserID);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
 		TestUtils.assertSearchText("XPATH", "//*[contains(text(),'Login Successful')]", "Login Successful");
-		TestUtils.assertSearchText("XPATH", "//*[contains(text(),'Hello OLUSHINA, Quickly start up using the frequent transactions section on the dashboard.')]", "Hello OLUSHINA, Quickly start up using the frequent transactions section on the dashboard.");
+		Thread.sleep(500);
+		TestUtils.assertSearchText("XPATH", "//mat-card/p", "Hello OLUSHINA, Quickly start up using the frequent transactions section on the dashboard.");
 		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
 		Thread.sleep(1000);
 		
 		logoutTest();
+	}
+	
+	@Parameters ("testEnv")
+	@Test
+	public void loginLinksValidationTest() throws Exception {
+		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+		
+		// Keypad
+		TestUtils.testTitle("To confirm that there are only numbers, Clear button and Delete buttons on the Keypad");
+		
+		TestUtils.assertSearchText("XPATH", "//figure/button/span[contains(text(),'1')]", "1");
+		TestUtils.assertSearchText("XPATH", "//figure/button/span[contains(text(),'2')]", "2");
+		TestUtils.assertSearchText("XPATH", "//figure/button/span[contains(text(),'3')]", "3");
+		TestUtils.assertSearchText("XPATH", "//figure/button/span[contains(text(),'4')]", "4");
+		TestUtils.assertSearchText("XPATH", "//figure/button/span[contains(text(),'5')]", "5");
+		TestUtils.assertSearchText("XPATH", "//figure/button/span[contains(text(),'6')]", "6");
+		TestUtils.assertSearchText("XPATH", "//figure/button/span[contains(text(),'7')]", "7");
+		TestUtils.assertSearchText("XPATH", "//figure/button/span[contains(text(),'8')]", "8");
+		TestUtils.assertSearchText("XPATH", "//figure/button/span[contains(text(),'9')]", "9");
+		TestUtils.assertSearchText("XPATH", "//figure/button/span[contains(text(),'0')]", "0");
+		TestUtils.assertSearchText("XPATH", "(//button[@type='button'])[12]", "CLR");
+		TestUtils.assertSearchText("XPATH", "(//button[@type='button'])[13]", "DEL");
+		    
+		// Register Here
+		TestUtils.testTitle("To confirm that user is directed to the Register Here page from Login page");
+		getDriver().findElement(By.xpath("//a[contains(text(),'Register here')]")).click();
+		Thread.sleep(500);
+		TestUtils.assertSearchText("XPATH", "//h1", "Get Login Details");
+		TestUtils.assertSearchText("XPATH", "//form/button/span", "Register");
+		Thread.sleep(500);
+		
+		//Navigate back to Login
+		TestUtils.testTitle("To confirm that user is directed to the Login page from Register Here page");
+		getDriver().findElement(By.linkText("Login here")).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
+		Thread.sleep(500);
+		TestUtils.assertSearchText("XPATH", "//h1", "Login");
+		
+		// Forgot Password
+		TestUtils.testTitle("To confirm that user is directed to the forgot Password page from Login page");
+		getDriver().findElement(By.xpath("//a[contains(text(),'Forgot Password?')]")).click();
+		Thread.sleep(500);
+		TestUtils.assertSearchText("XPATH", "//h1", "Recover Password");
+		Thread.sleep(500);
+
+		// Navigate back to Login
+		TestUtils.testTitle("To confirm that user is directed to the Login page from Forgot Password page");
+		getDriver().findElement(By.linkText("Login here")).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
+		Thread.sleep(500);
+		TestUtils.assertSearchText("XPATH", "//h1", "Login");
+		
+		// GTBank.com
+		TestUtils.testTitle("To confirm that user is directed to the GTBank.com website from Login page");
+		TestUtils.switchToNewTab(By.xpath("//a[contains(text(),'GTBank.com')]"), "Guaranty Trust Bank | GTBank"); 
+		Thread.sleep(500);
+
+		// Terms and Conditions
+		TestUtils.testTitle("To confirm that user is directed to the Terms and Conditions page from Login page");
+		TestUtils.switchToNewTab(By.xpath("//a[contains(text(),'Terms and Conditions')]"), "Terms and Conditions | GTBank");
+		Thread.sleep(500);
+		
+		// Privacy Policy
+		TestUtils.testTitle("To confirm that user is directed to the Privacy Policy page from Login page");
+		TestUtils.switchToNewTab(By.xpath("//a[contains(text(),'Privacy Policy')]"), "Privacy Policy | GTBank");
+		Thread.sleep(1000);
+		
+	}
+	
+	@Parameters ("testEnv")
+	@Test
+	public void rememberMeValidationTest(String testEnv) throws Exception {
+		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+		
+		File path = null;
+		File classpathRoot = new File(System.getProperty("user.dir"));
+		if (testEnv.equalsIgnoreCase("StagingData")) {
+			path = new File(classpathRoot, "stagingData/data.conf.json");
+		} else {
+			path = new File(classpathRoot, "prodData/data.conf.json");
+		}
+		JSONParser parser = new JSONParser();
+		JSONObject config = (JSONObject) parser.parse(new FileReader(path));
+		JSONObject envs = (JSONObject) config.get("Login");
+
+		String pw = (String) envs.get("pw");
+		String validPhoneNum = (String) envs.get("validPhoneNum");
+		
+		// Masked Password
+		TestUtils.testTitle("To confirm that password is visible when user clicks on the eye Icon");
+		// Enter Password
+		getDriver().findElement(By.xpath("(//button[@type='button'])[12]")).click();
+		getDriver().findElement(By.xpath("//figure/button/span[contains(text(),'1')]")).click();
+		getDriver().findElement(By.xpath("//figure/button/span[contains(text(),'2')]")).click();
+		getDriver().findElement(By.xpath("//figure/button/span[contains(text(),'3')]")).click();
+		getDriver().findElement(By.xpath("//figure/button/span[contains(text(),'4')]")).click();
+		getDriver().findElement(By.xpath("//figure/button/span[contains(text(),'5')]")).click();
+		getDriver().findElement(By.xpath("//figure/button/span[contains(text(),'6')]")).click();
+		Thread.sleep(500);
+
+		// Click on the eye icon
+		getDriver().findElement(By.xpath("//span/mat-icon")).click();
+		Thread.sleep(1000);
+
+		String pass = getDriver().findElement(By.id("password")).getAttribute("value");
+		testInfo.get().info(pass);
+
+		// Remember Me button
+		TestUtils.testTitle("To confirm that the Login ID is saved when the 'Remember me' checkbox is checked");
+		testInfo.get().info("Login with valid Phone Number: <b>" + validPhoneNum + "</b> and password: <b>" + pw + "</b>");
+		getDriver().findElement(By.id("username")).clear();
+	    getDriver().findElement(By.id("username")).sendKeys(validPhoneNum);
+	    
+	    // Enter Password
+	    getDriver().findElement(By.xpath("(//button[@type='button'])[12]")).click();
+	    getDriver().findElement(By.xpath("//figure/button/span[contains(text(),'1')]")).click();
+	    getDriver().findElement(By.xpath("//figure/button/span[contains(text(),'2')]")).click();
+	    getDriver().findElement(By.xpath("//figure/button/span[contains(text(),'3')]")).click();
+	    getDriver().findElement(By.xpath("//figure/button/span[contains(text(),'4')]")).click();
+	    getDriver().findElement(By.xpath("//figure/button/span[contains(text(),'5')]")).click();
+	    getDriver().findElement(By.xpath("//figure/button/span[contains(text(),'6')]")).click();
+	    Thread.sleep(500);
+	    
+	    // Check the remember me checkbox
+	    getDriver().findElement(By.xpath("//label/div")).click();
+	    Thread.sleep(500);
+	    
+	    // Submit button
+	    TestUtils.clickElement("XPATH", "//button[@type='submit']");
+	    Thread.sleep(500);
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
+	    TestUtils.assertSearchText("XPATH", "//*[contains(text(),'Login Successful')]", "Login Successful");
+		Thread.sleep(500);
+		
+		logoutTest();
+		TestUtils.testTitle("Assert Phone Number after Login");
+		String userName = getDriver().findElement(By.id("username")).getAttribute("value");
+		testInfo.get().info(userName);
+	    
 	}
 }

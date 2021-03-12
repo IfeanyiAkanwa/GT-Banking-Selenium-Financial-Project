@@ -58,7 +58,7 @@ public class SendMail {
 
             message.setSubject("iBank Automated Test Result");
             MimeBodyPart messageBodyPart = new MimeBodyPart();
-            messageBodyPart.setText("Hello," + "\n" +"Attached to this mail is the report of an automated test on iBank.");
+            messageBodyPart.setText("Hello," + "\n" +"Attached to this mail is the report of an automated test on iBank portal.  \nKindly download to view content. \n\nRegards, \nQuality Assurance");
 
             Multipart multipart = new MimeMultipart();
             multipart.addBodyPart(messageBodyPart);
