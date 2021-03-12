@@ -639,4 +639,31 @@ public class TestUtils extends TestBase {
 			 getDriver().findElement(By.xpath("(//button[@type='button'])[12]")).click();
 		}
 	}
+	
+	/**
+	 * @param By element - locator of the element
+	 * @param title - Title of the page
+	 * @description Switches to a new tab from original tab, closes new tab and goes back to the original one
+	 */
+	public static void switchToNewTab(By element, String title) {
+		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+		
+		String oldTab = getDriver().getWindowHandle();
+		getDriver().findElement(element).click();
+	    ArrayList<String> newTab = new ArrayList<String>(getDriver().getWindowHandles());
+	    newTab.remove(oldTab);
+	    
+	    // change focus to new tab
+	    getDriver().switchTo().window(newTab.get(0));
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//strong")));
+	    Assert.assertEquals(getDriver().getTitle(), title);
+	    testInfo.get().info(getDriver().getTitle());
+	    
+	    // Close new tab
+	    getDriver().close();
+	    
+	    // change focus back to old tab
+	    getDriver().switchTo().window(oldTab);
+	}
+
 }

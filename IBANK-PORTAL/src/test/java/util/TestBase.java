@@ -33,7 +33,6 @@ import org.testng.annotations.Parameters;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.browserstack.local.Local;
 
 public class TestBase {
@@ -65,6 +64,7 @@ public class TestBase {
 	
 	public static String gridUrl = System.getProperty("grid-url", "https://selenium.seamfix.com/wd/hub");
 	
+	@SuppressWarnings("deprecation")
 	@BeforeSuite
     @Parameters({"groupReport","testEnv"})
 	public void setUp( String groupReport, String testEnv) throws Exception {
