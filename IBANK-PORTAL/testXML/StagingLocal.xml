@@ -8,13 +8,12 @@
 	<parameter name="server" value="local" />
 	<parameter name="config" value="parallel.conf.json" />
 	<parameter name="downloadPath" value="/home/seluser/Downloads/" />
-	<parameter name="user" value="valid_Admin_Login" />
 	<parameter name="testEnv" value="stagingData" />
 
 	<test name="Login" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
-			<class name="TestCases.Login">
+			<class name="testCases.Login">
 				<methods>
 					<include name="accountNumberLoginValidationTest"></include>
 					<include name="phoneNumberLoginValidationTest"></include>
@@ -29,12 +28,24 @@
 	<test name="Login2" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
-			<class name="TestCases.Login">
+			<class name="testCases.Login">
 				<methods>
 					<include name="validAccountNumberLoginTest"></include>
 					<include name="validEmailLoginTest"></include>
 					<include name="validPhoneNumberLoginTest"></include>
 					<include name="validUserIDLoginTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="LandingPage" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.LandingPage">
+				<methods>
+					<include name="Login"></include>
+					<include name="navigateToLandingPageTest"></include>
+					<include name="navigateToDashboardTest"></include>
 				</methods>
 			</class>
 		</classes>

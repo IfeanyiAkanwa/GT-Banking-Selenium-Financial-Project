@@ -23,6 +23,7 @@ import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -633,8 +634,8 @@ public class TestUtils extends TestBase {
    	 
    	 if (getDriver().findElement(By.linkText("Get Started with the new Ibank")).isDisplayed()) {
 			 getDriver().findElement(By.linkText("Get Started with the new Ibank")).click();
-			 Thread.sleep(1000);
 			 wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
+			 Thread.sleep(1000);
 		} else if (getDriver().findElement(By.id("username")).isDisplayed()) {
 			 getDriver().findElement(By.xpath("(//button[@type='button'])[12]")).click();
 		}
@@ -666,4 +667,35 @@ public class TestUtils extends TestBase {
 	    getDriver().switchTo().window(oldTab);
 	}
 
+	@Test
+	public static void raterTest(String module) throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+		
+		TestUtils.testTitle("Submit feedback for " + module);
+		getDriver().findElement(By.xpath("//gtibank-notifications/button")).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2")));
+		Thread.sleep(500);
+		String name = getDriver().findElement(By.xpath("//h2")).getText();
+		TestUtils.assertSearchText("XPATH", "//h2", name);
+		
+		// Select stars
+		getDriver().findElement(By.xpath("//span[8]")).click();
+		Thread.sleep(500);
+		
+		// Enter Comment
+		getDriver().findElement(By.id("Remark")).clear();
+		getDriver().findElement(By.id("Remark")).sendKeys("Excellent");
+		
+		// Select stars
+		getDriver().findElement(By.xpath("//div[3]/div/button/span")).click();
+		Thread.sleep(500);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
+		TestUtils.assertSearchText("XPATH", "//*[contains(text(),'Feedback Sent Successfully')]", "Feedback Sent Successfully");
+		TestUtils.assertSearchText("XPATH", "//mat-card/p", "We have recieved your feedback. Thank you.");
+		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
+		Thread.sleep(500);
+		
+		
+	}
+	
 }
