@@ -1,4 +1,4 @@
-package TestCases;
+package testCases;
 
 import java.io.File;
 import java.io.FileReader;
@@ -17,7 +17,7 @@ import util.TestUtils;
 public class Login extends TestBase{
 
 	@Parameters ("testEnv")
-	public void loginTest(String testEnv, String userName) throws Exception {
+	public static void loginTest(String testEnv, String userName) throws Exception {
 		
 		getDriver().findElement(By.id("username")).clear();
 	    getDriver().findElement(By.id("username")).sendKeys(userName);
@@ -517,7 +517,7 @@ public class Login extends TestBase{
 		String pw = (String) envs.get("pw");
 		String validUserID = (String) envs.get("validUserID");
 		
-		// Login with valid Account number and valid password
+		// Login with valid User ID and valid password
 		TestUtils.testTitle("Login with valid User ID : (" + validUserID + ") and valid password: (" + pw + ")");
 		loginTest(testEnv, validUserID);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
