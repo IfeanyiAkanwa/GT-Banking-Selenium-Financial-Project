@@ -50,5 +50,17 @@
 			</class>
 		</classes>
 	</test>
-	
+	<test name="ForgotPassword" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.ForgotPassword">
+				<methods>
+					<include name="navigateToForgotPasswordTest"></include>
+					<include name="forgotPasswordValidationTest"></include>
+					<include name="validForgotPasswordTest"></include>
+					<include name="forgotPasswordLinksValidationTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
 </suite>  <!-- Suite -->

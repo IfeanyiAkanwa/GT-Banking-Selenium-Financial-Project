@@ -630,15 +630,20 @@ public class TestUtils extends TestBase {
 	}
 	
 	public static void getStartedPage() throws Exception {
-   	 WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-   	 
-   	 if (getDriver().findElement(By.linkText("Get Started with the new Ibank")).isDisplayed()) {
-			 getDriver().findElement(By.linkText("Get Started with the new Ibank")).click();
-			 wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
-			 Thread.sleep(1000);
-		} else if (getDriver().findElement(By.id("username")).isDisplayed()) {
-			 getDriver().findElement(By.xpath("(//button[@type='button'])[12]")).click();
+		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+		try {
+			if (getDriver().findElement(By.linkText("Get Started with the new Ibank")).isDisplayed()) {
+				getDriver().findElement(By.linkText("Get Started with the new Ibank")).click();
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
+				Thread.sleep(1000);
+			} 
+		} catch (Exception e) {
+			if (getDriver().findElement(By.id("username")).isDisplayed()) {
+				getDriver().findElement(By.xpath("(//button[@type='button'])[12]")).click();
+				Thread.sleep(1000);
+			}
 		}
+
 	}
 	
 	/**
