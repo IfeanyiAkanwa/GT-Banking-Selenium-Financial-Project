@@ -1,7 +1,6 @@
 package util;
 
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 
@@ -52,7 +51,7 @@ public class OptionsManager {
         //Use No Proxy Settings
         profile.setPreference("network.proxy.type", 0);
         //Set Firefox profile to capabilities
-        options.setCapability(FirefoxDriver.PROFILE, profile);
+        options.setProfile(profile);
         return options;
     }
 }

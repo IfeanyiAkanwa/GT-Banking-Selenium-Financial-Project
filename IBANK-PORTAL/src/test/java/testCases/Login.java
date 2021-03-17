@@ -633,7 +633,7 @@ public class Login extends TestBase{
 		Thread.sleep(1000);
 
 		String pass = getDriver().findElement(By.id("password")).getAttribute("value");
-		testInfo.get().info(pass);
+		testInfo.get().info("<b> Password: </b>" + pass);
 
 		// Remember Me button
 		TestUtils.testTitle("To confirm that the Login ID is saved when the 'Remember me' checkbox is checked");

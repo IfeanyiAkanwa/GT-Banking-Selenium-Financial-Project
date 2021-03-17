@@ -18,5 +18,12 @@
 		"userIDLessThan9Digits":"0802565",
 		"wrongCharacterlength": "SedutperspiciatisundeomnisistenatuserrorsitvoluptatemaccusantiumdoloremquelaudantiumtoamremaperiameaqueipsaquaeabilloinventoreveritatisetquasiarchitectobeataevitaedictasuntexplicaboNemoenimipsamvoluptatemquiavoluptascaboNemoenimipsamvoluptatemquip@gmail.com"
 	},
-	
+	"ForgotPassword": {
+		"validSecretAnswer": "test",
+		"validUsername": "20513226601",
+		"alphanumericNum": "6777gfsfsu",
+		"specialCharnum": "$#%31245?",
+		"invalidSecretAnswer": "$#%36",
+		"invalidUsername": "$#%36"
+	}
 }
