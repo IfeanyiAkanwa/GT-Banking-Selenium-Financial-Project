@@ -25,5 +25,11 @@
 		"specialCharnum": "$#%31245?",
 		"invalidSecretAnswer": "$#%36",
 		"invalidUsername": "$#%36"
+	},
+	"ForgotSecretAnswer": {
+		"validUsername": "205132266",
+		"alphanumericNum": "6777gfsfsu",
+		"specialCharnum": "$#%31245?",
+		"invalidUsername": "$#%36"
 	}
 }

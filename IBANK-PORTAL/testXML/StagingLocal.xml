@@ -63,4 +63,17 @@
 			</class>
 		</classes>
 	</test>
+	<test name="ForgotSecretAnswer" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.ForgotSecretAnswer">
+				<methods>
+					<include name="navigateToForgotSecretAnswerPageTest"></include>
+					<include name="forgotSecretAnswerValidationTest"></include>
+					<include name="validForgotSecretAnswerTest"></include>
+					<include name="forgotSecretAnswerLinksValidationTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
 </suite>  <!-- Suite -->
