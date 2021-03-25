@@ -1,9 +1,11 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>IBANK-PORTAL</groupId>
-  <artifactId>IBANK-PORTAL</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <description>Automation testing</description>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>IBANK-PORTAL</groupId>
+	<artifactId>IBANK-PORTAL</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<description>Automation testing</description>
 	<build>
 		<testSourceDirectory>src/test/java</testSourceDirectory>
 		<plugins>
@@ -40,14 +42,14 @@
 			<version>4.1.6</version>
 		</dependency>
 		<dependency>
-            <groupId>com.googlecode.json-simple</groupId>
-            <artifactId>json-simple</artifactId>
-            <version>1.1.1</version>
-        </dependency>
-		<dependency> 
-			<groupId>com.sun.mail</groupId> 
-			<artifactId>javax.mail</artifactId> 
-			<version>1.6.1</version> 
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+			<version>1.6.1</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
 		<dependency>
@@ -56,9 +58,15 @@
 			<version>2.3.29</version>
 		</dependency>
 		<dependency>
-  			<groupId>com.google.guava</groupId>
+			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>22.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.browserstack/browserstack-local-java -->
+		<dependency>
+			<groupId>com.browserstack</groupId>
+			<artifactId>browserstack-local-java</artifactId>
+			<version>1.0.3</version>
 		</dependency>
 	</dependencies>
 </project>
