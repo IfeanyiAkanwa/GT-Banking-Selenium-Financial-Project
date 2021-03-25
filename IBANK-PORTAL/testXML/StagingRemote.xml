@@ -14,10 +14,79 @@
 	<test name="Login" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
-			<class name="TestCases.Login">
+			<class name="testCases.Login">
 				<methods>
 					<include name="accountNumberLoginValidationTest"></include>
+					<include name="phoneNumberLoginValidationTest"></include>
+					<include name="userIDLoginValidationTest"></include>
+					<include name="emailLoginValidationTest"></include>
+					<include name="loginLinksValidationTest"></include>
+					<include name="rememberMeValidationTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Login2" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.Login">
+				<methods>
 					<include name="validAccountNumberLoginTest"></include>
+					<include name="validEmailLoginTest"></include>
+					<include name="validPhoneNumberLoginTest"></include>
+					<include name="validUserIDLoginTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="LandingPage" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.LandingPage">
+				<methods>
+					<include name="Login"></include>
+					<include name="navigateToLandingPageTest"></include>
+					<include name="navigateToDashboardTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="ForgotPassword" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.ForgotPassword">
+				<methods>
+					<include name="navigateToForgotPasswordTest"></include>
+					<include name="forgotPasswordValidationTest"></include>
+					<include name="validForgotPasswordTest"></include>
+					<include name="forgotPasswordLinksValidationTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="ForgotSecretAnswer" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.ForgotSecretAnswer">
+				<methods>
+					<include name="navigateToForgotSecretAnswerPageTest"></include>
+					<include name="forgotSecretAnswerValidationTest"></include>
+					<include name="validForgotSecretAnswerTest"></include>
+					<include name="forgotSecretAnswerLinksValidationTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Dashboard" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.Dashboard">
+				<methods>
+					<include name="Login"></include>
+					<include name="navigateToDashboardTest"></include>
+					<include name="assertCardCountTest"></include>
+					<include name="menuBarValidationTest"></include>
+					<include name="profileImageUploadTest"></include>
 				</methods>
 			</class>
 		</classes>

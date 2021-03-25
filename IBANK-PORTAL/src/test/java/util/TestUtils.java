@@ -10,6 +10,7 @@ import java.util.*;
 
 import org.apache.commons.codec.binary.Base64;
 import org.codehaus.plexus.util.FileUtils;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.JavascriptExecutor;
@@ -59,7 +60,7 @@ public class TestUtils extends TestBase {
 	 * @param type
 	 * @param element
 	 * @throws InterruptedException
-	 * @description to scroll to a particular element on the page.
+	 * @description to scroll down to a particular element on the page.
 	 */
 	public static void scrollToElement(String type, String element) throws InterruptedException {
 		JavascriptExecutor jse = (JavascriptExecutor) getDriver();
@@ -559,10 +560,11 @@ public class TestUtils extends TestBase {
         testInfo.get().info(w);
 	}
 	
-	/*
-	* param by - locator of the element where you enter the path of the file
-	* param fileName – name of the file to be uploaded
-	*/
+	/**
+	 * @param by
+	 * @param fileName
+	 * @description to upload images and files locally and remotely
+	 */
 	public static void uploadFile(By by, String fileName) {
 		try {
 			WebElement element = getDriver().findElement(by);
@@ -672,7 +674,10 @@ public class TestUtils extends TestBase {
 	    getDriver().switchTo().window(oldTab);
 	}
 
-	@Test
+	/**
+	 * @param module - name of the module
+	 * @description Sends feedback for the module
+	 */
 	public static void raterTest(String module) throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 		
@@ -694,13 +699,29 @@ public class TestUtils extends TestBase {
 		// Select stars
 		getDriver().findElement(By.xpath("//div[3]/div/button/span")).click();
 		Thread.sleep(500);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.mat-body.small.ng-tns-c3-0")));
 		TestUtils.assertSearchText("XPATH", "//*[contains(text(),'Feedback Sent Successfully')]", "Feedback Sent Successfully");
-		TestUtils.assertSearchText("XPATH", "//mat-card/p", "We have recieved your feedback. Thank you.");
+		TestUtils.assertSearchText("XPATH", "//gtb-notification/mat-card/p", "We have recieved your feedback. Thank you.");
+		Thread.sleep(1000);
 		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
 		Thread.sleep(500);
 		
 		
+	}
+	
+	public static void imageAlertSwitch() {
+		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+		
+		try {
+            wait.until(ExpectedConditions.alertIsPresent());
+            Alert alert = 	getDriver().switchTo().alert();	
+    		String text = alert.getText();
+    		testInfo.get().log(Status.INFO,  text+ " found");
+            alert.accept();
+            Assert.assertTrue(alert.getText().contains("Image updated successfully"));
+        } catch (Exception e) {
+            //exception handling
+        }
 	}
 	
 }

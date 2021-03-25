@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.Status;
+
 import util.TestBase;
 import util.TestUtils;
 
@@ -125,7 +127,8 @@ public class ForgotPassword extends TestBase {
 		Thread.sleep(1000);
 
 		String ans = getDriver().findElement(By.id("secretAnswer")).getAttribute("value");
-		testInfo.get().info("<b> Secret Answwer: </b>" + ans);
+	    testInfo.get().log(Status.INFO, "<b> Secret Answer: </b>" + ans+ " found");
+		
 	}
 	
 	@Parameters ("testEnv")
