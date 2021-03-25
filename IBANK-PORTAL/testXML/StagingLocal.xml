@@ -10,7 +10,7 @@
 	<parameter name="downloadPath" value="/home/seluser/Downloads/" />
 	<parameter name="testEnv" value="stagingData" />
 
-	<!-- <test name="Login" preserve-order="true">
+	<test name="Login" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
 			<class name="testCases.Login">
@@ -37,8 +37,8 @@
 				</methods>
 			</class>
 		</classes>
-	</test> -->
-	<!-- <test name="LandingPage" preserve-order="true">
+	</test>
+	<test name="LandingPage" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
 			<class name="testCases.LandingPage">
@@ -75,7 +75,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test> -->
+	</test>
 	<test name="Dashboard" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
@@ -83,11 +83,11 @@
 				<methods>
 					<include name="Login"></include>
 					<include name="navigateToDashboardTest"></include>
-					<!-- <include name="assertCardCountTest"></include>
+					<include name="assertCardCountTest"></include>
 					<include name="menuBarValidationTest"></include>
-					<include name="profileImageUploadTest"></include> -->
+					<include name="profileImageUploadTest"></include>
 					<include name="frequentTransactionsTest"></include>
-					<!-- <include name="iRequireTest"></include> -->
+					<include name="iRequireTest"></include>
 				</methods>
 			</class>
 		</classes>
