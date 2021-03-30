@@ -201,8 +201,13 @@ public class TestBase {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.mat-h3.f-w-700.mb-0")));
 		TestUtils.assertSearchText("XPATH", "//*[contains(text(),'Login Successful')]", "Login Successful");
 		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
-		Assert.assertEquals(getDriver().getTitle(), "Landing | GTB-iBank");
+	//	Assert.assertEquals(getDriver().getTitle(), "Landing | GTB-iBank");
 		Thread.sleep(1000);
+		
+		// Click on Proceed to Internet Banking button
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("clearLoader")));
+		getDriver().findElement(By.id("clearLoader")).click();
+		Thread.sleep(500);
 	}
 	
 	@AfterClass
