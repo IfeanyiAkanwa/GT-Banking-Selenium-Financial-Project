@@ -681,7 +681,7 @@ public class TestUtils extends TestBase {
 	public static void raterTest(String module) throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 		
-		TestUtils.testTitle("Submit feedback for " + module);
+		TestUtils.testTitle("Submit Rater feedback for " + module);
 		getDriver().findElement(By.xpath("//gtibank-notifications/button")).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2")));
 		Thread.sleep(500);
@@ -722,6 +722,33 @@ public class TestUtils extends TestBase {
         } catch (Exception e) {
             //exception handling
         }
+	}
+	
+	@Test
+	public static void accOfficerValidationTest() throws InterruptedException {
+		
+		TestUtils.testTitle("To confirm that the Account Officer button auto hides the account officer section when clicked");
+		
+		// Click on Account officer panel
+		getDriver().findElement(By.xpath("//mat-expansion-panel-header")).click();
+		Thread.sleep(500);
+		if (getDriver().findElement(By.xpath("//h3")).isDisplayed()) {
+			testInfo.get().error("<b> Account officer section is not hidden </b>");
+		} else {
+			testInfo.get().info("<b> Account officer section is hidden </b>");
+		}
+		
+		TestUtils.testTitle("To confirm that the Secure Email page is displayed when user clicks on the Send Mail button");
+		
+		// Click on Account officer panel
+		getDriver().findElement(By.xpath("//mat-expansion-panel-header")).click();
+		Thread.sleep(500);
+		// Click on Send Mail button
+		getDriver().findElement(By.xpath("//mat-action-row/a/span/mat-icon")).click();
+		Thread.sleep(1000);
+		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Secure Email')]", "Secure Email");
+		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Create a request using a secured email channel");
+		Thread.sleep(500);
 	}
 	
 }
