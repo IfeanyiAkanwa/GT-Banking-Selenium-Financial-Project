@@ -92,4 +92,17 @@
 			</class>
 		</classes>
 	</test>
+	<test name="ProfileUnprofileAccount" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.ProfileUnprofileAccount">
+				<methods>
+					<include name="Login"></include>
+					<include name="naviagteToProfileUnprofileAccountTest"></include>
+					<include name="assertNumberOfAccountsTest"></include>
+					<include name="addAccountsToProfileList"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
 </suite>  <!-- Suite -->
