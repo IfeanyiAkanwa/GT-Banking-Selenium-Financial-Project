@@ -17,6 +17,11 @@ public class Dashboard extends TestBase{
 		
 		TestUtils.testTitle("Navigate to Dashboard");
 		
+		// Click on Proceed to Internet Banking button
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("clearLoader")));
+		getDriver().findElement(By.id("clearLoader")).click();
+		Thread.sleep(500);
+		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Dashboard')]")));
 		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Dashboard')]", "Dashboard");
 		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Quickly perform task from the dashboard or view reports.");
@@ -191,218 +196,206 @@ public class Dashboard extends TestBase{
 		Thread.sleep(1000);
 		
 		// To confirm that records are displayed on GTBank Transfers section
-		TestUtils.testTitle("To confirm that records are displayed on GTBank Transfers section");
-		try {
-			testInfo.get().info("<b> Assert total number of records </b>");
-			int recordCount = getDriver().findElements(By.xpath("//*[@id=\"mat-tab-content-1-0\"]/div/frequent-transfers/span/div/div/mat-grid-list/div/mat-grid-tile/figure/mat-card")).size();
-			//int recordCount = getDriver().findElements(By.cssSelector("mat-grid-list.m-3.animated.fadeIn.mat-grid-list")).size();
-			if (TestUtils.isElementPresent("XPATH", "//mat-card/button/span/mat-icon")) {
-				testInfo.get().info("Total number of Records displayed: <b>" + recordCount + "</b>");
-			} else {
-				testInfo.get().error("Table is empty.");
-				TestUtils.assertSearchText("XPATH", "//frequent-transfers/div/p", "- No transfer record");
-				Thread.sleep(500);
-			}
-			
-		} catch (Exception e) {
-			TestUtils.assertSearchText("XPATH", "//frequent-transfers/div/p", "- No transfer record");
-			Thread.sleep(500);
-		}
+//		TestUtils.testTitle("To confirm that records are displayed on GTBank Transfers section");
+//		try {
+//			testInfo.get().info("<b> Assert total number of records </b>");
+//			int recordCount = getDriver().findElements(By.xpath("//*[@id=\"mat-tab-content-1-0\"]/div/frequent-transfers/span/div/div/mat-grid-list/div/mat-grid-tile/figure/mat-card")).size();
+//			//int recordCount = getDriver().findElements(By.cssSelector("mat-grid-list.m-3.animated.fadeIn.mat-grid-list")).size();
+//			if (TestUtils.isElementPresent("XPATH", "//mat-card/button/span/mat-icon")) {
+//				testInfo.get().info("Total number of Records displayed: <b>" + recordCount + "</b>");
+//			} else {
+//				testInfo.get().error("Table is empty.");
+//				TestUtils.assertSearchText("XPATH", "//frequent-transfers/div/p", "- No transfer record");
+//				Thread.sleep(500);
+//			}
+//			
+//		} catch (Exception e) {
+//			TestUtils.assertSearchText("XPATH", "//frequent-transfers/div/p", "- No transfer record");
+//			Thread.sleep(500);
+//		}
 		
 		// To confirm that user is directed to Transfer page when the user clicks on the 'Go to Transfer' button on GTBank Transfer view
-//		TestUtils.testTitle("To confirm that user is directed to Transfer page when the user clicks on the 'Go to Transfer' button on GTBank Transfer view");
-//		try {
-//			getDriver().findElement(By.xpath("//frequent-transfers/div/button")).click();
-//			Thread.sleep(500);
-//			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Transfers')]")));
-//			TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Transfers')]", "Transfers");
-//			TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Transfer money between your accounts or other accounts.");
-//			Thread.sleep(500);
-//			
-//			// Click on Dashboard
-//			getDriver().findElement(By.xpath("//a/span[2]")).click();
-//			Thread.sleep(1000);
-//		} catch (Exception e) {
-//			getDriver().findElement(By.xpath("//mat-card/button/span/mat-icon")).click();
-//			Thread.sleep(500);
-//			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'GTBank Transfers')]")));
-//			TestUtils.assertSearchText("XPATH", "//a[contains(text(),'GTBank Transfers')]", "GTBank Transfers");
-//			TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Send money to GTBank Account Holders");
-//			Thread.sleep(500);
-//			
-//			// Click on Dashboard
-//			getDriver().findElement(By.xpath("//a/span[2]")).click();
-//			Thread.sleep(1000);
-//		}
-//		
-//		
-//		// To confirm that records are displayed on Other Banks Transfers section
+		TestUtils.testTitle("To confirm that user is directed to Transfer page when the user clicks on the 'Go to Transfer' button on GTBank Transfer view");
+		try {
+			getDriver().findElement(By.xpath("//frequent-transfers/div/button")).click();
+			Thread.sleep(500);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Transfers')]")));
+			TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Transfers')]", "Transfers");
+			TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Transfer money between your accounts or other accounts.");
+			Thread.sleep(500);
+			
+			// Click on Dashboard
+			getDriver().findElement(By.xpath("//a/span[2]")).click();
+			Thread.sleep(1000);
+		} catch (Exception e) {
+			getDriver().findElement(By.xpath("//mat-card/button/span/mat-icon")).click();
+			Thread.sleep(500);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'GTBank Transfers')]")));
+			TestUtils.assertSearchText("XPATH", "//a[contains(text(),'GTBank Transfers')]", "GTBank Transfers");
+			TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Send money to GTBank Account Holders");
+			Thread.sleep(500);
+			
+			// Click on Dashboard
+			getDriver().findElement(By.xpath("//a/span[2]")).click();
+			Thread.sleep(1000);
+		}
+		
+		
+		// To confirm that records are displayed on Other Banks Transfers section
+		TestUtils.testTitle("To confirm that records are displayed on GTBank Transfers section");
+		TestUtils.assertSearchText("XPATH", "//frequent-transfers/div/p", "- No transfer record");
+		Thread.sleep(500);
+	
+		
+		// To confirm that user is directed to Transfer page when the user clicks on the 'Go to Transfer' button on GTBank Transfer view
+		TestUtils.testTitle("To confirm that user is directed to Transfer page when the user clicks on the 'Go to Transfer' button on Other Banks Transfer view");
+		// Click on Other Banks Transfer
+		getDriver().findElement(By.xpath("//div[2]/div/div/div[2]")).click();
+		Thread.sleep(1000);
+		try {
+			getDriver().findElement(By.xpath("//frequent-transfers/div/button")).click();
+			Thread.sleep(500);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Transfers')]")));
+			TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Transfers')]", "Transfers");
+			TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Transfer money between your accounts or other accounts.");
+			Thread.sleep(500);
+
+			// Click on Dashboard
+			getDriver().findElement(By.xpath("//a/span[2]")).click();
+			Thread.sleep(1000);
+		} catch (Exception e) {
+			getDriver().findElement(By.xpath("//mat-card/button/span/mat-icon")).click();
+			Thread.sleep(500);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Other Banks')]")));
+			TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Other Banks')]", "Other Banks");
+			TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Send money to anyone. Its Quick and Easy");
+			Thread.sleep(500);
+
+			// Click on Dashboard
+			getDriver().findElement(By.xpath("//a/span[2]")).click();
+			Thread.sleep(1000);
+		}
+		
+		// To confirm that records are displayed on Bills Payment section
 //		TestUtils.testTitle("To confirm that records are displayed on GTBank Transfers section");
-//		TestUtils.assertSearchText("XPATH", "//frequent-transfers/div/p", "- No transfer record");
-//		Thread.sleep(500);
-//	
-//		
-//		// To confirm that user is directed to Transfer page when the user clicks on the 'Go to Transfer' button on GTBank Transfer view
-//		TestUtils.testTitle("To confirm that user is directed to Transfer page when the user clicks on the 'Go to Transfer' button on Other Banks Transfer view");
-//		// Click on Other Banks Transfer
-//		getDriver().findElement(By.xpath("//div[2]/div/div/div[2]")).click();
-//		Thread.sleep(1000);
 //		try {
-//			getDriver().findElement(By.xpath("//frequent-transfers/div/button")).click();
-//			Thread.sleep(500);
-//			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Transfers')]")));
-//			TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Transfers')]", "Transfers");
-//			TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Transfer money between your accounts or other accounts.");
-//			Thread.sleep(500);
-//
-//			// Click on Dashboard
-//			getDriver().findElement(By.xpath("//a/span[2]")).click();
-//			Thread.sleep(1000);
+//			testInfo.get().info("<b> Assert total number of records </b>");
+//			int recordCount = getDriver().findElements(By.xpath("//span/div/div")).size();
+//			//int recordCount = getDriver().findElements(By.cssSelector("mat-grid-list.m-3.animated.fadeIn.mat-grid-list")).size();
+//			if (TestUtils.isElementPresent("XPATH", "//mat-card/button/span/mat-icon")) {
+//				testInfo.get().info("Total number of Records displayed: <b>" + recordCount + "</b>");
+//			} else {
+//				testInfo.get().error("Table is empty.");
+//				TestUtils.assertSearchText("XPATH", "//frequent-transfers/div/p", "- No transfer record");
+//				Thread.sleep(500);
+//			}
+//			
 //		} catch (Exception e) {
-//			getDriver().findElement(By.xpath("//mat-card/button/span/mat-icon")).click();
+//			TestUtils.assertSearchText("XPATH", "//frequent-transfers/div/p", "- No transfer record");
 //			Thread.sleep(500);
-//			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Other Banks')]")));
-//			TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Other Banks')]", "Other Banks");
-//			TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Send money to anyone. Its Quick and Easy");
-//			Thread.sleep(500);
-//
-//			// Click on Dashboard
-//			getDriver().findElement(By.xpath("//a/span[2]")).click();
-//			Thread.sleep(1000);
 //		}
-//		
-//		// To confirm that records are displayed on Bills Payment section
-////		TestUtils.testTitle("To confirm that records are displayed on GTBank Transfers section");
-////		try {
-////			testInfo.get().info("<b> Assert total number of records </b>");
-////			int recordCount = getDriver().findElements(By.xpath("//span/div/div")).size();
-////			//int recordCount = getDriver().findElements(By.cssSelector("mat-grid-list.m-3.animated.fadeIn.mat-grid-list")).size();
-////			if (TestUtils.isElementPresent("XPATH", "//mat-card/button/span/mat-icon")) {
-////				testInfo.get().info("Total number of Records displayed: <b>" + recordCount + "</b>");
-////			} else {
-////				testInfo.get().error("Table is empty.");
-////				TestUtils.assertSearchText("XPATH", "//frequent-transfers/div/p", "- No transfer record");
-////				Thread.sleep(500);
-////			}
-////			
-////		} catch (Exception e) {
-////			TestUtils.assertSearchText("XPATH", "//frequent-transfers/div/p", "- No transfer record");
-////			Thread.sleep(500);
-////		}
-//		
-//		// To confirm that user is directed to Bills and Payments page when the user clicks on the 'Make New Payment' button on Bills Payment view
-//		TestUtils.testTitle("To confirm that user is directed to Bills and Payments page when the user clicks on the 'Make New Payment' button on Bills Payment view");
-//		// Click on Bills Payment
-//		getDriver().findElement(By.xpath("//div[2]/div/div/div[3]")).click();
-//		Thread.sleep(1000);
-//		try {
-//			getDriver().findElement(By.xpath("//gtibank-payment-history-cards/div/button")).click();
-//			Thread.sleep(500);
-//			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Payment Categories')]")));
-//			TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Payment Categories')]", "Payment Categories");
-//			TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Select a payment category to begin or user the search box to find a specific product.");
-//			Thread.sleep(500);
-//
-//			// Click on Dashboard
-//			getDriver().findElement(By.xpath("//a/span[2]")).click();
-//			Thread.sleep(1000);
-//		} catch (Exception e) {
-//			getDriver().findElement(By.xpath("//mat-card/button/span/mat-icon")).click();
-//			Thread.sleep(500);
-//			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Payment Categories')]")));
-//			TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Payment Categories')]", "Payment Categories");
-//			TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Select a payment category to begin or user the search box to find a specific product.");
-//			Thread.sleep(500);
-//
-//			// Click on Dashboard
-//			getDriver().findElement(By.xpath("//a/span[2]")).click();
-//			Thread.sleep(1000);
-//		}
-//		
-//		// To confirm that records are displayed on Airtime Purchase section
-////		TestUtils.testTitle("To confirm that records are displayed on GTBank Transfers section");
-////		try {
-////			testInfo.get().info("<b> Assert total number of records </b>");
-////			int recordCount = getDriver().findElements(By.xpath("//span/div/div")).size();
-////			//int recordCount = getDriver().findElements(By.cssSelector("mat-grid-list.m-3.animated.fadeIn.mat-grid-list")).size();
-////			if (TestUtils.isElementPresent("XPATH", "//mat-card/button/span/mat-icon")) {
-////				testInfo.get().info("Total number of Records displayed: <b>" + recordCount + "</b>");
-////			} else {
-////				testInfo.get().error("Table is empty.");
-////				TestUtils.assertSearchText("XPATH", "//frequent-transfers/div/p", "- No transfer record");
-////				Thread.sleep(500);
-////			}
-////			
-////		} catch (Exception e) {
-////			TestUtils.assertSearchText("XPATH", "//frequent-transfers/div/p", "- No transfer record");
-////			Thread.sleep(500);
-////		}
-//		
-//		// To confirm that user is directed to Airtime/Data Topup page when the user clicks on the 'Click for Airtime Topup' button on Airtime Purchase view
-//		TestUtils.testTitle("To confirm that user is directed to Airtime/Data Topup page when the user clicks on the 'Click for Airtime Topup' button on Airtime Purchase view");
-//		// Click on Airtime Purchase
-//		getDriver().findElement(By.xpath("//div[4]")).click();
-//		Thread.sleep(1000);
-//		try {
-//			getDriver().findElement(By.xpath("//app-gtibank-frequent-topup/div/button")).click();
-//			Thread.sleep(500);
-//			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Airtime/Data Topup')]")));
-//			TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Airtime/Data Topup')]", "Airtime/Data Topup");
-//			TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Topup your airtime or data bundle");
-//			Thread.sleep(500);
-//
-//			// Click on Dashboard
-//			getDriver().findElement(By.xpath("//a/span[2]")).click();
-//			Thread.sleep(1000);
-//		} catch (Exception e) {
-//			getDriver().findElement(By.xpath("//figure/mat-card")).click();
-//			Thread.sleep(500);
-//			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'MTN Airtime')]")));
-//			TestUtils.assertSearchText("XPATH", "//a[contains(text(),'MTN Airtime')]", "MTN Airtime");
-//			TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Buy MTN Airtime or Data");
-//			Thread.sleep(500);
-//
-//			// Click on Dashboard
-//			getDriver().findElement(By.xpath("//a/span[2]")).click();
-//			Thread.sleep(1000);
-//		}
-//		
-//		// To confirm that records are displayed on Data Purchase section
+		
+		// To confirm that user is directed to Bills and Payments page when the user clicks on the 'Make New Payment' button on Bills Payment view
+		TestUtils.testTitle("To confirm that user is directed to Bills and Payments page when the user clicks on the 'Make New Payment' button on Bills Payment view");
+		// Click on Bills Payment
+		getDriver().findElement(By.xpath("//div[2]/div/div/div[3]")).click();
+		Thread.sleep(1000);
+		try {
+			getDriver().findElement(By.xpath("//gtibank-payment-history-cards/div/button")).click();
+			Thread.sleep(500);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Payment Categories')]")));
+			TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Payment Categories')]", "Payment Categories");
+			TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Select a payment category to begin or user the search box to find a specific product.");
+			Thread.sleep(500);
+
+			// Click on Dashboard
+			getDriver().findElement(By.xpath("//a/span[2]")).click();
+			Thread.sleep(1000);
+		} catch (Exception e) {
+			getDriver().findElement(By.xpath("//mat-card/button/span/mat-icon")).click();
+			Thread.sleep(500);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Payment Categories')]")));
+			TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Payment Categories')]", "Payment Categories");
+			TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Select a payment category to begin or user the search box to find a specific product.");
+			Thread.sleep(500);
+
+			// Click on Dashboard
+			getDriver().findElement(By.xpath("//a/span[2]")).click();
+			Thread.sleep(1000);
+		}
+		
+		// To confirm that records are displayed on Airtime Purchase section
 //		TestUtils.testTitle("To confirm that records are displayed on GTBank Transfers section");
-//		TestUtils.assertSearchText("XPATH", "//app-gtibank-frequent-topup/div/p", "No records found for frequent topup.");
-//		Thread.sleep(500);
-//		
-//		
-//		// To confirm that user is directed to Airtime/Data Topup page when the user clicks on the 'Click for Data Topup' button on Data Purchase view
-//		TestUtils.testTitle("To confirm that user is directed to Airtime/Data Topup page when the user clicks on the 'Click for Data Topup' button on Data Purchase view");
-//		// Click on Data Purchase
-//		getDriver().findElement(By.xpath("//div[4]")).click();
-//		Thread.sleep(500);
-//		getDriver().findElement(By.xpath("//div/mat-tab-group/mat-tab-header/div[2]/div/div/div[2]")).click();
-//		Thread.sleep(500);
 //		try {
-//			getDriver().findElement(By.xpath("//app-gtibank-frequent-topup/div/button")).click();
-//			Thread.sleep(500);
-//			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Airtime/Data Topup')]")));
-//			TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Airtime/Data Topup')]", "Airtime/Data Topup");
-//			TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Topup your airtime or data bundle");
-//			Thread.sleep(500);
-//
-//			// Click on Dashboard
-//			getDriver().findElement(By.xpath("//a/span[2]")).click();
-//			Thread.sleep(1000);
+//			testInfo.get().info("<b> Assert total number of records </b>");
+//			int recordCount = getDriver().findElements(By.xpath("//span/div/div")).size();
+//			//int recordCount = getDriver().findElements(By.cssSelector("mat-grid-list.m-3.animated.fadeIn.mat-grid-list")).size();
+//			if (TestUtils.isElementPresent("XPATH", "//mat-card/button/span/mat-icon")) {
+//				testInfo.get().info("Total number of Records displayed: <b>" + recordCount + "</b>");
+//			} else {
+//				testInfo.get().error("Table is empty.");
+//				TestUtils.assertSearchText("XPATH", "//frequent-transfers/div/p", "- No transfer record");
+//				Thread.sleep(500);
+//			}
+//			
 //		} catch (Exception e) {
-//			getDriver().findElement(By.xpath("//figure/mat-card")).click();
+//			TestUtils.assertSearchText("XPATH", "//frequent-transfers/div/p", "- No transfer record");
 //			Thread.sleep(500);
-//			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'MTN Airtime')]")));
-//			TestUtils.assertSearchText("XPATH", "//a[contains(text(),'MTN Airtime')]", "MTN Airtime");
-//			TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Buy MTN Airtime or Data");
-//			Thread.sleep(500);
-//
-//			// Click on Dashboard
-//			getDriver().findElement(By.xpath("//a/span[2]")).click();
-//			Thread.sleep(1000);
 //		}
+		
+		// To confirm that user is directed to Airtime/Data Topup page when the user clicks on the 'Click for Airtime Topup' button on Airtime Purchase view
+		TestUtils.testTitle("To confirm that user is directed to Airtime/Data Topup page when the user clicks on the 'Click for Airtime Topup' button on Airtime Purchase view");
+		// Click on Airtime Purchase
+		getDriver().findElement(By.xpath("//div[4]")).click();
+		Thread.sleep(1000);
+		getDriver().findElement(By.xpath("//app-gtibank-frequent-topup/div/button")).click();
+		Thread.sleep(500);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Airtime/Data Topup')]")));
+		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Airtime/Data Topup')]", "Airtime/Data Topup");
+		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Topup your airtime or data bundle");
+		Thread.sleep(500);
+
+		// Click on Dashboard
+		getDriver().findElement(By.xpath("//a/span[2]")).click();
+		Thread.sleep(1000);
+		
+		
+		// To confirm that records are displayed on Data Purchase section
+		// Click on Data Purchase
+		getDriver().findElement(By.xpath("//div[4]")).click();
+		Thread.sleep(500);
+		getDriver().findElement(By.xpath("//div/mat-tab-group/mat-tab-header/div[2]/div/div/div[2]")).click();
+		Thread.sleep(500);
+		TestUtils.testTitle("To confirm that records are displayed on GTBank Transfers section");
+		TestUtils.assertSearchText("XPATH", "//app-gtibank-frequent-topup/div/p", "No records found for frequent topup.");
+		Thread.sleep(500);
+		
+		
+		// To confirm that user is directed to Airtime/Data Topup page when the user clicks on the 'Click for Data Topup' button on Data Purchase view
+		TestUtils.testTitle("To confirm that user is directed to Airtime/Data Topup page when the user clicks on the 'Click for Data Topup' button on Data Purchase view");
+		try {
+			getDriver().findElement(By.xpath("//app-gtibank-frequent-topup/div/button")).click();
+			Thread.sleep(500);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Airtime/Data Topup')]")));
+			TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Airtime/Data Topup')]", "Airtime/Data Topup");
+			TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Topup your airtime or data bundle");
+			Thread.sleep(500);
+
+			// Click on Dashboard
+			getDriver().findElement(By.xpath("//a/span[2]")).click();
+			Thread.sleep(1000);
+		} catch (Exception e) {
+			getDriver().findElement(By.xpath("//figure/mat-card")).click();
+			Thread.sleep(500);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'MTN Airtime')]")));
+			TestUtils.assertSearchText("XPATH", "//a[contains(text(),'MTN Airtime')]", "MTN Airtime");
+			TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Buy MTN Airtime or Data");
+			Thread.sleep(500);
+
+			// Click on Dashboard
+			getDriver().findElement(By.xpath("//a/span[2]")).click();
+			Thread.sleep(1000);
+		}
 	}
 	
 	@Test

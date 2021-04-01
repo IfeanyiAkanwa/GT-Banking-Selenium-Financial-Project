@@ -523,7 +523,7 @@ public class Login extends TestBase{
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
 		TestUtils.assertSearchText("XPATH", "//*[contains(text(),'Login Successful')]", "Login Successful");
 		Thread.sleep(500);
-		TestUtils.assertSearchText("XPATH", "//mat-card/p", "Hello OLUSHINA, Quickly start up using the frequent transactions section on the dashboard.");
+		TestUtils.assertSearchText("XPATH", "//mat-card/p", "Hello OLUSOLA, Quickly start up using the frequent transactions section on the dashboard.");
 		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
 		Thread.sleep(1000);
 		
@@ -614,7 +614,7 @@ public class Login extends TestBase{
 		JSONObject envs = (JSONObject) config.get("Login");
 
 		String pw = (String) envs.get("pw");
-		String validPhoneNum = (String) envs.get("validPhoneNum");
+		String validUserID = (String) envs.get("validUserID");
 		
 		// Masked Password
 		TestUtils.testTitle("To confirm that password is visible when user clicks on the eye Icon");
@@ -637,9 +637,9 @@ public class Login extends TestBase{
 
 		// Remember Me button
 		TestUtils.testTitle("To confirm that the Login ID is saved when the 'Remember me' checkbox is checked");
-		testInfo.get().info("Login with valid Phone Number: <b>" + validPhoneNum + "</b> and password: <b>" + pw + "</b>");
+		testInfo.get().info("Login with valid Phone Number: <b>" + validUserID + "</b> and password: <b>" + pw + "</b>");
 		getDriver().findElement(By.id("username")).clear();
-	    getDriver().findElement(By.id("username")).sendKeys(validPhoneNum);
+	    getDriver().findElement(By.id("username")).sendKeys(validUserID);
 	    
 	    // Enter Password
 	    getDriver().findElement(By.xpath("(//button[@type='button'])[12]")).click();

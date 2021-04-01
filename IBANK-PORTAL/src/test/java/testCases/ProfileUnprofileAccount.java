@@ -17,10 +17,10 @@ public class ProfileUnprofileAccount extends TestBase{
 		
 		TestUtils.testTitle("Navigate to Profile and Unprofile Accounts");
 		
-		/*// Click on Proceed to Internet Banking button
+		// Click on Proceed to Internet Banking button
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("clearLoader")));
 		getDriver().findElement(By.id("clearLoader")).click();
-		Thread.sleep(500);*/
+		Thread.sleep(500);
 		
 		// Click on Accounts
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[2]/li/a")));
