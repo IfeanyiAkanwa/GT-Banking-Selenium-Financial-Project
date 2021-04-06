@@ -105,4 +105,16 @@
 			</class>
 		</classes>
 	</test>
+	<test name="Accounts" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.Accounts">
+				<methods>
+					<include name="Login"></include>
+					<include name="navigateToAccountsTest"></include>
+					<include name="accountSubModuleCheckTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
 </suite>  <!-- Suite -->
