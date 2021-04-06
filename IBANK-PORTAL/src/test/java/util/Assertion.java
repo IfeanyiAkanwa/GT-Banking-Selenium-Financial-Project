@@ -105,4 +105,41 @@ public class Assertion extends TestBase {
 			testInfo.get().error("Picture is empty");
 		} 
 	}
+	
+	public static void assertAccountOfficersDetails() throws InterruptedException {
+
+		String name = getDriver().findElement(By.xpath("//h3")).getText();
+		String address = getDriver().findElement(By.xpath("//mat-expansion-panel/div/div/div/span")).getText();
+
+		String empty = "N/A";
+		Map<String, String> fields = new HashMap<>();
+		fields.put("Name", name);
+		fields.put("Address", address);
+
+		for (Map.Entry<String, String> entry : fields.entrySet()) {
+			try {
+				Assert.assertNotEquals(entry.getValue(), empty);
+				Assert.assertNotEquals(entry.getValue(), null);
+				testInfo.get().log(Status.INFO, "<b>" + entry.getKey() + " : </b>" + entry.getValue());
+			} catch (Error e) {
+				testInfo.get().error("<b>" + entry.getKey() + " : </b>" + entry.getValue());
+			}
+
+		}
+	}
+
+	public static void accountOfficersProfileImageDisplayTest() throws InterruptedException {
+
+		WebElement img = getDriver().findElement(By.xpath("//mat-expansion-panel/div/div/div/div"));
+	
+		String deviceImg = img.getAttribute("style");
+		String validImage = "assets/images/user-card/AcctMgr.png";
+		String emptyImage = "assets/images/placeholder.png";
+
+		if (deviceImg.contains(validImage)) {
+			testInfo.get().info("Picture is displayed");
+		} else if (deviceImg.contains(emptyImage)) {
+			testInfo.get().error("Picture is empty");
+		} 
+	}
 }

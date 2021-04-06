@@ -738,11 +738,19 @@ public class TestUtils extends TestBase {
 			testInfo.get().info("<b> Account officer section is hidden </b>");
 		}
 		
-		TestUtils.testTitle("To confirm that the Secure Email page is displayed when user clicks on the Send Mail button");
-		
 		// Click on Account officer panel
 		getDriver().findElement(By.xpath("//mat-expansion-panel-header")).click();
 		Thread.sleep(500);
+		
+		TestUtils.testTitle("To confirm that the Account Officer's name and Address is displayed");
+		Assertion.assertAccountOfficersDetails();
+		Thread.sleep(500);
+		
+		TestUtils.testTitle("To confirm that the Account Officer's profile image is displayed");
+		Assertion.accountOfficersProfileImageDisplayTest();
+		Thread.sleep(500);
+		
+		TestUtils.testTitle("To confirm that the Secure Email page is displayed when user clicks on the Send Mail button");
 		// Click on Send Mail button
 		getDriver().findElement(By.xpath("//mat-action-row/a/span/mat-icon")).click();
 		Thread.sleep(1000);
