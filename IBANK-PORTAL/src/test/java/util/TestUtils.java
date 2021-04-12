@@ -716,9 +716,14 @@ public class TestUtils extends TestBase {
             wait.until(ExpectedConditions.alertIsPresent());
             Alert alert = 	getDriver().switchTo().alert();	
     		String text = alert.getText();
-    		testInfo.get().log(Status.INFO,  text+ " found");
-            alert.accept();
-            Assert.assertTrue(alert.getText().contains("Image updated successfully"));
+            alert.accept(); 
+            if(text.contains("Error, Invalid File Format")) {
+            	testInfo.get().log(Status.INFO,  text+ " found");
+            Assert.assertTrue(text.contains("Error, Invalid File Format"));
+            } else if (text.contains("Image updated successfully")) {
+            	testInfo.get().log(Status.INFO,  text+ " found");
+                Assert.assertTrue(text.contains("Image updated successfully"));
+            }
         } catch (Exception e) {
             //exception handling
         }

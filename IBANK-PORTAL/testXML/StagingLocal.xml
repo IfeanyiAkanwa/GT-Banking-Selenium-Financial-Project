@@ -117,4 +117,16 @@
 			</class>
 		</classes>
 	</test>
+	<test name="SecureEmail" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.SecureEmail">
+				<methods>
+					<include name="Login"></include>
+					<include name="navigateToSecureEmailTest"></include>
+					<include name="secureEmailRequestFormValidationTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
 </suite>  <!-- Suite -->
