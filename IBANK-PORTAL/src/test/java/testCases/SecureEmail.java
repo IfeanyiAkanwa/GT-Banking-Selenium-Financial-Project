@@ -35,6 +35,7 @@ public class SecureEmail extends TestBase{
 		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Secure Email')]", "Secure Email");
 		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Create a request using a secured email channel");
 		Thread.sleep(500);
+		
 	}
 	
 	@Test
