@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -612,12 +613,50 @@ public class TestUtils extends TestBase {
 	
 	public static String convertDate2(String returnedDate) throws ParseException {
 		SimpleDateFormat sdf;
-		sdf = new SimpleDateFormat("MM/dd/yy, hh:mm a");
-		SimpleDateFormat sdff = new SimpleDateFormat("yyyy-MM-dd");
-		String formattedDate = sdff.format(sdf.parse(returnedDate));
-		testInfo.get().info("Date returned: " +formattedDate);
-		return formattedDate;
+		try {
+			sdf = new SimpleDateFormat("MM/dd/yy, hh:mm a");
+			SimpleDateFormat sdff = new SimpleDateFormat("yyyy-MM-dd");
+			String formattedDate = sdff.format(sdf.parse(returnedDate));
+			testInfo.get().info("Date returned: " + formattedDate);
+			return formattedDate;
+		} catch (Exception e) {
+			sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
+			SimpleDateFormat sdff = new SimpleDateFormat("MMMM d, yyyy");
+			String formattedDate = sdff.format(sdf.parse(returnedDate));
+			testInfo.get().info("Date returned: " + formattedDate);
+			return formattedDate;
 		}
+	}
+	
+	public static String getPreviousWeekDateFromCurrentDate() throws ParseException {
+		// get Calendar instance
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(new Date());
+
+		// substract 7 days
+		cal.set(Calendar.DAY_OF_MONTH, cal.get(Calendar.DAY_OF_MONTH) - 7);
+
+		// convert to date
+		Date myDate = cal.getTime();
+		DateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
+		String strDate = dateFormat.format(myDate);
+		return convertDate2(strDate);
+	}
+
+	public static String getTodaysDate() throws ParseException {
+		
+		// Get Calender Instance
+		Calendar today = Calendar.getInstance();
+		
+		// Get Today's date
+		today.set(Calendar.HOUR_OF_DAY, 0);
+		Date myDate = today.getTime();
+		
+		// Convert to String 
+		DateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
+		String endDate = dateFormat.format(myDate);
+		return convertDate2(endDate);
+	}
 	
 	/**
 	 * @param element

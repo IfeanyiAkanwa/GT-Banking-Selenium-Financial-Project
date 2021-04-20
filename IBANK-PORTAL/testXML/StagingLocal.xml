@@ -10,7 +10,7 @@
 	<parameter name="downloadPath" value="/home/seluser/Downloads/" />
 	<parameter name="testEnv" value="stagingData" />
 
-	<test name="Login" preserve-order="true">
+	<!-- <test name="Login" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
 			<class name="testCases.Login">
@@ -125,6 +125,19 @@
 					<include name="Login"></include>
 					<include name="navigateToSecureEmailTest"></include>
 					<include name="secureEmailRequestFormValidationTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test> -->
+	<test name="AccountStatement" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.AccountStatement">
+				<methods>
+					<include name="Login"></include>
+					<include name="navigateToAccountStatementTest"></include>
+					<!-- <include name="accountStatementValidationTest"></include> -->
+					<include name="sendAccountStatementTest"></include>
 				</methods>
 			</class>
 		</classes>

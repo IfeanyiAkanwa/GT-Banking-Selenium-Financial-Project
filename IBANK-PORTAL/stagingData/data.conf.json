@@ -34,5 +34,11 @@
 		"alphanumericNum": "6777gfsfsu",
 		"specialCharnum": "$#%31245?",
 		"invalidUsername": "$#%36"
+	},
+	"AccountStatement": {
+		"startDate": "March 17, 2021",
+		"endDate": "April 19, 2021",
+		"specialCharnum": "$#%31245?",
+		"invalidUsername": "$#%36"
 	}
 }
