@@ -146,9 +146,5 @@ public class SecureEmail extends TestBase{
 		Thread.sleep(1000);
 		
 	}
-	
-	 public void name() {
-		
-	}
 
 }

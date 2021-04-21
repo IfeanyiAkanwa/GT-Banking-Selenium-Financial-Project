@@ -774,7 +774,7 @@ public class TestUtils extends TestBase {
 		TestUtils.testTitle("To confirm that the Account Officer button auto hides the account officer section when clicked");
 		
 		// Click on Account officer panel
-		getDriver().findElement(By.xpath("//mat-expansion-panel-header")).click();
+		getDriver().findElement(By.xpath("//mat-panel-title")).click();
 		Thread.sleep(500);
 		if (getDriver().findElement(By.xpath("//h3")).isDisplayed()) {
 			testInfo.get().error("<b> Account officer section is not hidden </b>");

@@ -18,9 +18,7 @@
 		"userIDLessThan9Digits":"0802565",
 		"wrongCharacterlength": "SedutperspiciatisundeomnisistenatuserrorsitvoluptatemaccusantiumdoloremquelaudantiumtoamremaperiameaqueipsaquaeabilloinventoreveritatisetquasiarchitectobeataevitaedictasuntexplicaboNemoenimipsamvoluptatemquiavoluptascaboNemoenimipsamvoluptatemquip@gmail.com"
 	},
-	"validLogin": {
-		"validUsername": "205132266"
-	},
+	
 	"ForgotPassword": {
 		"validSecretAnswer": "test",
 		"validUsername": "20513226601",
@@ -32,12 +30,6 @@
 	"ForgotSecretAnswer": {
 		"validUsername": "205132266",
 		"alphanumericNum": "6777gfsfsu",
-		"specialCharnum": "$#%31245?",
-		"invalidUsername": "$#%36"
-	},
-	"AccountStatement": {
-		"startDate": "March 17, 2021",
-		"endDate": "April 19, 2021",
 		"specialCharnum": "$#%31245?",
 		"invalidUsername": "$#%36"
 	}
