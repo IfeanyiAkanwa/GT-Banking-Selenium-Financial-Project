@@ -142,4 +142,28 @@ public class Assertion extends TestBase {
 			testInfo.get().error("Picture is empty");
 		} 
 	}
+	
+	public static void assertAccountStatementTransactionDetails() throws InterruptedException {
+
+		String amount = getDriver().findElement(By.xpath("//h3")).getText();
+		String date = getDriver().findElement(By.xpath("//mat-card/div[2]/p")).getText();
+		String transDetails = getDriver().findElement(By.xpath("//mat-card/p")).getText();
+
+		String empty = "N/A";
+		Map<String, String> fields = new HashMap<>();
+		fields.put("Amount", amount);
+		fields.put("Date/Time", date);
+		fields.put("Transaction Details", transDetails);
+		
+		for (Map.Entry<String, String> entry : fields.entrySet()) {
+			try {
+				Assert.assertNotEquals(entry.getValue(), empty);
+				Assert.assertNotEquals(entry.getValue(), null);
+				testInfo.get().log(Status.INFO, "<b>" + entry.getKey() + " : </b>" + entry.getValue());
+			} catch (Error e) {
+				testInfo.get().error("<b>" + entry.getKey() + " : </b>" + entry.getValue());
+			}
+
+		}
+	}
 }

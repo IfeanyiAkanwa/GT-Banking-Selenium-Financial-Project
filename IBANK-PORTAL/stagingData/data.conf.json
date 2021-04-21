@@ -18,9 +18,7 @@
 		"userIDLessThan9Digits":"0802565",
 		"wrongCharacterlength": "SedutperspiciatisundeomnisistenatuserrorsitvoluptatemaccusantiumdoloremquelaudantiumtoamremaperiameaqueipsaquaeabilloinventoreveritatisetquasiarchitectobeataevitaedictasuntexplicaboNemoenimipsamvoluptatemquiavoluptascaboNemoenimipsamvoluptatemquip@gmail.com"
 	},
-	"validLogin": {
-		"validUsername": "205132266"
-	},
+	
 	"ForgotPassword": {
 		"validSecretAnswer": "test",
 		"validUsername": "20513226601",
