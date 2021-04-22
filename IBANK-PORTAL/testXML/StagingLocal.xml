@@ -143,4 +143,18 @@
 			</class>
 		</classes>
 	</test>
+	<test name="OpenDomiciliaryAccount" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.OpenDomiciliaryAccount">
+				<methods>
+					<include name="Login"></include>
+					<include name="navigateToOpenDomAccountTest"></include>
+					<include name="openDomAccountValidationTest"></include>
+					<!-- <include name="sendAccountStatementTest"></include>
+					<include name="downloadAccountStatementTest"></include> -->
+				</methods>
+			</class>
+		</classes>
+	</test>
 </suite>  <!-- Suite -->

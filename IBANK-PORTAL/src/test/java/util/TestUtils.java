@@ -735,8 +735,13 @@ public class TestUtils extends TestBase {
 		getDriver().findElement(By.id("Remark")).clear();
 		getDriver().findElement(By.id("Remark")).sendKeys("Excellent");
 		
-		// Select stars
-		getDriver().findElement(By.xpath("//div[3]/div/button/span")).click();
+		// Submit button
+		try {
+			getDriver().findElement(By.xpath("//div[3]/div/button/span")).click();
+		} catch (Exception e) {
+			getDriver().findElement(By.xpath("//form/div[3]/div/button/span")).click();
+		}
+		
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.mat-body.small.ng-tns-c3-0")));
 		TestUtils.assertSearchText("XPATH", "//*[contains(text(),'Feedback Sent Successfully')]", "Feedback Sent Successfully");

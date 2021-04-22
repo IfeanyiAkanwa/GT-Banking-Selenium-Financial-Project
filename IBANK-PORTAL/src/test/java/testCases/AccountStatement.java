@@ -59,7 +59,7 @@ public class AccountStatement extends TestBase {
 		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Manage your accounts, view balance and do more.");
 		Thread.sleep(500);
 		
-		// Click on Secure Email
+		// Click on Account Statement
 		TestUtils.testTitle("Navigate back to Account Statement view");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
 		getDriver().findElement(By.xpath("//mat-card/p")).click();
