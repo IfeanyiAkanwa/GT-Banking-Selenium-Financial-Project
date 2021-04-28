@@ -1,8 +1,17 @@
 package testCases;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import util.TestBase;
@@ -90,6 +99,103 @@ public class OpenDomiciliaryAccount extends TestBase{
 		
 		// Account officer
 		TestUtils.accOfficerValidationTest();
+		
+	}
+	
+	@Parameters ("testEnv")
+	@Test
+	public void duplicateDomAccountTest(String testEnv) throws Exception {
+		
+		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+		File path = null;
+		File classpathRoot = new File(System.getProperty("user.dir"));
+		if (testEnv.equalsIgnoreCase("StagingData")) {
+			path = new File(classpathRoot, "stagingData/data.conf.json");
+		} else {
+			path = new File(classpathRoot, "prodData/data.conf.json");
+		}
+		JSONParser parser = new JSONParser();
+		JSONObject config = (JSONObject) parser.parse(new FileReader(path));
+		JSONObject envs = (JSONObject) config.get("OpenDomiciliaryAccount");
+
+		String validSecretAnswer = (String) envs.get("validSecretAnswer");
+		
+		TestUtils.testTitle("To confirm that user cannot open more than one Dollar account");
+		
+		// Select Dollar currency
+		getDriver().findElement(By.xpath("//ng-select/div/span")).click();
+		Thread.sleep(500);
+		getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div")).click();
+		Thread.sleep(500);
+		
+		// Enter Secret Answer
+		getDriver().findElement(By.xpath("//tr[4]/td[2]/div")).sendKeys(validSecretAnswer);
+		
+		// Click on Terms and Conditions checkbox
+		getDriver().findElement(By.xpath("//label")).click();
+		Thread.sleep(500);
+		
+		// Click on Submit button
+		getDriver().findElement(By.id("validate")).click();
+		Thread.sleep(500);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3")));
+		TestUtils.assertSearchText("XPATH", "//h3", "Open Dom Account");
+		TestUtils.assertSearchText("XPATH", "//ibank-notifications/div/div/div/div/div/p", "You Already Have a Dollar Domiciliary Account");
+		getDriver().findElement(By.xpath("//div[2]/button")).click();
+		Thread.sleep(500);
+		
+		TestUtils.testTitle("To confirm that user cannot open more than one Euro account");
+		
+		// Select Euro currency
+		getDriver().findElement(By.className("ng-clear")).click();
+		Thread.sleep(500);
+		getDriver().findElement(By.xpath("//ng-select/div/span")).click();
+		Thread.sleep(500);
+		getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div[3]")).click();
+		Thread.sleep(500);
+		
+		// Enter Secret Answer
+		getDriver().findElement(By.xpath("//tr[4]/td[2]/div")).sendKeys(validSecretAnswer);
+		
+		// Click on Terms and Conditions checkbox
+		getDriver().findElement(By.xpath("//label")).click();
+		Thread.sleep(500);
+		
+		// Click on Submit button
+		getDriver().findElement(By.id("validate")).click();
+		Thread.sleep(500);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3")));
+		TestUtils.assertSearchText("XPATH", "//h3", "Open Dom Account");
+		TestUtils.assertSearchText("XPATH", "//ibank-notifications/div/div/div/div/div/p", "You Already Have a Euros Domiciliary Account");
+		getDriver().findElement(By.xpath("//div[2]/button")).click();
+		Thread.sleep(500);
+		
+		TestUtils.testTitle("To confirm that user cannot open more than one Pounds account");
+		
+		// Select Pounds currency
+		getDriver().findElement(By.className("ng-clear")).click();
+		Thread.sleep(500);
+		getDriver().findElement(By.xpath("//ng-select/div/span")).click();
+		Thread.sleep(500);
+		getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div[2]")).click();
+		Thread.sleep(500);
+		
+		// Enter Secret Answer
+		getDriver().findElement(By.xpath("//tr[4]/td[2]/div")).sendKeys(validSecretAnswer);
+		
+		// Click on Terms and Conditions checkbox
+		getDriver().findElement(By.xpath("//label")).click();
+		Thread.sleep(500);
+		
+		// Click on Submit button
+		getDriver().findElement(By.id("validate")).click();
+		Thread.sleep(500);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3")));
+		TestUtils.assertSearchText("XPATH", "//h3", "Open Dom Account");
+		TestUtils.assertSearchText("XPATH", "//ibank-notifications/div/div/div/div/div/p", "You Already Have a Pounds Domiciliary Account");
+		getDriver().findElement(By.xpath("//div[2]/button")).click();
+		Thread.sleep(500);
+		
 		
 	}
 }
