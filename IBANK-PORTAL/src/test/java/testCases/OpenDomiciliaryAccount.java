@@ -1,13 +1,10 @@
 package testCases;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -123,13 +120,14 @@ public class OpenDomiciliaryAccount extends TestBase{
 		TestUtils.testTitle("To confirm that user cannot open more than one Dollar account");
 		
 		// Select Dollar currency
-		getDriver().findElement(By.xpath("//ng-select/div/span")).click();
+		getDriver().findElement(By.xpath("//ng-select/div")).click();
 		Thread.sleep(500);
 		getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div")).click();
 		Thread.sleep(500);
 		
 		// Enter Secret Answer
-		getDriver().findElement(By.xpath("//tr[4]/td[2]/div")).sendKeys(validSecretAnswer);
+		getDriver().findElement(By.xpath("//div[2]/input")).clear();
+		getDriver().findElement(By.xpath("//div[2]/input")).sendKeys(validSecretAnswer);
 		
 		// Click on Terms and Conditions checkbox
 		getDriver().findElement(By.xpath("//label")).click();
@@ -147,15 +145,16 @@ public class OpenDomiciliaryAccount extends TestBase{
 		TestUtils.testTitle("To confirm that user cannot open more than one Euro account");
 		
 		// Select Euro currency
-		getDriver().findElement(By.className("ng-clear")).click();
+		//getDriver().findElement(By.className("ng-clear-wrapper ng-star-inserted")).click();
 		Thread.sleep(500);
-		getDriver().findElement(By.xpath("//ng-select/div/span")).click();
+		getDriver().findElement(By.xpath("//ng-select/div")).click();
 		Thread.sleep(500);
 		getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div[3]")).click();
 		Thread.sleep(500);
 		
 		// Enter Secret Answer
-		getDriver().findElement(By.xpath("//tr[4]/td[2]/div")).sendKeys(validSecretAnswer);
+		getDriver().findElement(By.xpath("//div[2]/input")).clear();
+		getDriver().findElement(By.xpath("//div[2]/input")).sendKeys(validSecretAnswer);
 		
 		// Click on Terms and Conditions checkbox
 		getDriver().findElement(By.xpath("//label")).click();
@@ -173,15 +172,16 @@ public class OpenDomiciliaryAccount extends TestBase{
 		TestUtils.testTitle("To confirm that user cannot open more than one Pounds account");
 		
 		// Select Pounds currency
-		getDriver().findElement(By.className("ng-clear")).click();
+		//getDriver().findElement(By.className("ng-clear-wrapper ng-star-inserted")).click();
 		Thread.sleep(500);
-		getDriver().findElement(By.xpath("//ng-select/div/span")).click();
+		getDriver().findElement(By.xpath("//ng-select/div")).click();
 		Thread.sleep(500);
 		getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div[2]")).click();
 		Thread.sleep(500);
 		
 		// Enter Secret Answer
-		getDriver().findElement(By.xpath("//tr[4]/td[2]/div")).sendKeys(validSecretAnswer);
+		getDriver().findElement(By.xpath("//div[2]/input")).clear();
+		getDriver().findElement(By.xpath("//div[2]/input")).sendKeys(validSecretAnswer);
 		
 		// Click on Terms and Conditions checkbox
 		getDriver().findElement(By.xpath("//label")).click();
@@ -195,7 +195,6 @@ public class OpenDomiciliaryAccount extends TestBase{
 		TestUtils.assertSearchText("XPATH", "//ibank-notifications/div/div/div/div/div/p", "You Already Have a Pounds Domiciliary Account");
 		getDriver().findElement(By.xpath("//div[2]/button")).click();
 		Thread.sleep(500);
-		
-		
+	
 	}
 }
