@@ -150,9 +150,8 @@
 				<methods>
 					<include name="Login"></include>
 					<include name="navigateToOpenDomAccountTest"></include>
+					<include name="duplicateDomAccountTest"></include>
 					<include name="openDomAccountValidationTest"></include>
-					<!-- <include name="sendAccountStatementTest"></include>
-					<include name="downloadAccountStatementTest"></include> -->
 				</methods>
 			</class>
 		</classes>

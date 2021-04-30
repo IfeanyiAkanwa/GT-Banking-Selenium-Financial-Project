@@ -197,7 +197,7 @@ public class TestBase {
 		
 		TestUtils.testTitle("Login with valid User ID : (" + validUserID + ") and valid password: (" + pw + ")");
 		Login.loginTest(testEnv, validUserID);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.mat-h3.f-w-700.mb-0")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.mat-body.small.ng-tns-c3-0")));
 		TestUtils.assertSearchText("XPATH", "//*[contains(text(),'Login Successful')]", "Login Successful");
 		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
 		//Assert.assertEquals(getDriver().getTitle(), "Landing | GTB-iBank");

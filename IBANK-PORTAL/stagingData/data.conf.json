@@ -32,5 +32,9 @@
 		"alphanumericNum": "6777gfsfsu",
 		"specialCharnum": "$#%31245?",
 		"invalidUsername": "$#%36"
+	},
+	
+	"OpenDomiciliaryAccount": {
+	"validSecretAnswer": "test"
 	}
 }
