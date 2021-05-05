@@ -36,5 +36,12 @@
 	
 	"OpenDomiciliaryAccount": {
 	"validSecretAnswer": "test"
+	},
+	
+	"OpenAdditionalAccount": {
+		"numericSecretAnswer": "56236",
+		"specialCharSecretAnswer": "#$@^*@*",
+		"invalidSecretAnswer": "hj6347",
+		"validSecretAnswer": "test"
 	}
 }

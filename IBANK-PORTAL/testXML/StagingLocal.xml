@@ -10,7 +10,7 @@
 	<parameter name="downloadPath" value="/home/seluser/Downloads/" />
 	<parameter name="testEnv" value="stagingData" />
 
-	<test name="Login" preserve-order="true">
+	<!-- <test name="Login" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
 			<class name="testCases.Login">
@@ -152,6 +152,20 @@
 					<include name="navigateToOpenDomAccountTest"></include>
 					<include name="duplicateDomAccountTest"></include>
 					<include name="openDomAccountValidationTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test> -->
+	<test name="OpenAdditionalAccount" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.OpenAdditionalAccount">
+				<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToOpenAdditionalAccountTest"></include>
+					<include name="openAdditionalAccountValidationTest"></include>
+					<include name="createAdditionalAccountTest"></include>
 				</methods>
 			</class>
 		</classes>
