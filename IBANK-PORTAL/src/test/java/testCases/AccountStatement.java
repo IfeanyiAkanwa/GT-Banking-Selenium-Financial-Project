@@ -1,10 +1,5 @@
 package testCases;
 
-import java.io.File;
-import java.io.FileReader;
-
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -26,11 +21,6 @@ public class AccountStatement extends TestBase {
 		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 		
 		TestUtils.testTitle("Navigate to Account Statement");
-		
-		// Click on Proceed to Internet Banking button
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("clearLoader")));
-		getDriver().findElement(By.id("clearLoader")).click();
-		Thread.sleep(500);
 		
 		// Click on Accounts
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[2]/li/a")));

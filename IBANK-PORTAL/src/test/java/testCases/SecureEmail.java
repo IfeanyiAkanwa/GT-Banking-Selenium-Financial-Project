@@ -19,11 +19,6 @@ public class SecureEmail extends TestBase{
 		
 		TestUtils.testTitle("Navigate to Secure Email");
 		
-		// Click on Proceed to Internet Banking button
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("clearLoader")));
-		getDriver().findElement(By.id("clearLoader")).click();
-		Thread.sleep(500);
-		
 		// Click on Accounts
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[2]/li/a")));
 		getDriver().findElement(By.xpath("//ul[2]/li/a")).click();

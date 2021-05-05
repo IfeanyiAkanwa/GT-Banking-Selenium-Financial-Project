@@ -16,12 +16,6 @@ public class Dashboard extends TestBase{
 		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 		
 		TestUtils.testTitle("Navigate to Dashboard");
-		
-		// Click on Proceed to Internet Banking button
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("clearLoader")));
-		getDriver().findElement(By.id("clearLoader")).click();
-		Thread.sleep(500);
-		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Dashboard')]")));
 		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Dashboard')]", "Dashboard");
 		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Quickly perform task from the dashboard or view reports.");

@@ -82,6 +82,7 @@
 			<class name="testCases.Dashboard">
 				<methods>
 					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
 					<include name="navigateToDashboardTest"></include>
 					<include name="assertCardCountTest"></include>
 					<include name="menuBarValidationTest"></include>
@@ -98,6 +99,7 @@
 			<class name="testCases.ProfileUnprofileAccount">
 				<methods>
 					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
 					<include name="naviagteToProfileUnprofileAccountTest"></include>
 					<include name="assertNumberOfAccountsTest"></include>
 					<include name="addAccountsToProfileList"></include>
@@ -111,6 +113,7 @@
 			<class name="testCases.Accounts">
 				<methods>
 					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
 					<include name="navigateToAccountsTest"></include>
 					<include name="accountSubModuleCheckTest"></include>
 				</methods>
@@ -123,6 +126,7 @@
 			<class name="testCases.SecureEmail">
 				<methods>
 					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
 					<include name="navigateToSecureEmailTest"></include>
 					<include name="secureEmailRequestFormValidationTest"></include>
 				</methods>
@@ -135,6 +139,7 @@
 			<class name="testCases.AccountStatement">
 				<methods>
 					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
 					<include name="navigateToAccountStatementTest"></include>
 					<include name="accountStatementValidationTest"></include>
 					<include name="sendAccountStatementTest"></include>
@@ -149,9 +154,24 @@
 			<class name="testCases.OpenDomiciliaryAccount">
 				<methods>
 					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
 					<include name="navigateToOpenDomAccountTest"></include>
 					<include name="duplicateDomAccountTest"></include>
 					<include name="openDomAccountValidationTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="OpenAdditionalAcount" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.OpenAdditionalAcount">
+				<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToOpenAdditionalAccountTest"></include>
+					<include name="openAdditionalAccountValidationTest"></include>
+					<include name="createAdditionalAccountTest"></include>
 				</methods>
 			</class>
 		</classes>

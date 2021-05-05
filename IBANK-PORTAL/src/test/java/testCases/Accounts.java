@@ -13,12 +13,8 @@ public class Accounts extends TestBase{
 	@Test
 	public void navigateToAccountsTest() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-		TestUtils.testTitle("Navigate to Accounts");
 		
-		// Click on Proceed to Internet Banking button
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("clearLoader")));
-		getDriver().findElement(By.id("clearLoader")).click();
-		Thread.sleep(500);
+		TestUtils.testTitle("Navigate to Accounts");
 		
 		// Click on Accounts
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Dashboard')]")));

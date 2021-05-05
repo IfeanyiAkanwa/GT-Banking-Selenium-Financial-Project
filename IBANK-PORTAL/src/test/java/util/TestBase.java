@@ -204,6 +204,17 @@ public class TestBase {
 		Thread.sleep(1000);
 	}
 	
+	
+	@Test 
+	public void ClickOnProceedToInternetBankingButtonTest() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+		
+		// Click on Proceed to Internet Banking button
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("clearLoader")));
+		getDriver().findElement(By.id("clearLoader")).click();
+		Thread.sleep(500);
+	}
+	
 	@AfterClass
 	public void afterClass() {
 		 getDriver().quit();
