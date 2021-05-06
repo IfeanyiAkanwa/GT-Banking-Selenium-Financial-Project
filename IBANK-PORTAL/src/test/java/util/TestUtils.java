@@ -746,7 +746,6 @@ public class TestUtils extends TestBase {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.mat-body.small.ng-tns-c3-0")));
 		TestUtils.assertSearchText("XPATH", "//*[contains(text(),'Feedback Sent Successfully')]", "Feedback Sent Successfully");
 		TestUtils.assertSearchText("XPATH", "//gtb-notification/mat-card/p", "We have recieved your feedback. Thank you.");
-		Thread.sleep(1000);
 		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
 		Thread.sleep(500);
 		
@@ -807,5 +806,4 @@ public class TestUtils extends TestBase {
 		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Create a request using a secured email channel");
 		Thread.sleep(500);
 	}
-	
 }

@@ -176,4 +176,18 @@
 			</class>
 		</classes>
 	</test>
+	<test name="AirtimeDataTopup" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.AirtimeDataTopup">
+				<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToAirtimeDataTopupTest"></include>
+					<include name="airtimeDataSubModuleCheckTest"></include>
+					<include name="frequentAirtimeTopupTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
 </suite>  <!-- Suite -->
