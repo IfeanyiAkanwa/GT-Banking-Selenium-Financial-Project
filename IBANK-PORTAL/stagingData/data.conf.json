@@ -43,5 +43,9 @@
 		"specialCharSecretAnswer": "#$@^*@*",
 		"invalidSecretAnswer": "hj6347",
 		"validSecretAnswer": "test"
+	},
+	
+	"StatementToThirdParty": {
+		"applicantName": "Christian Chukwu"
 	}
 }
