@@ -628,6 +628,21 @@ public class TestUtils extends TestBase {
 		}
 	}
 	
+	/**
+	 * @description returns date of 6 months ago from current date and converts the date to MMMM d, yyyy format
+	 */
+	public static String getSixMonthsAgoDateTest() throws ParseException {
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.MONTH, -6);
+		Date result = cal.getTime();
+		DateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
+		String strDate = dateFormat.format(result);
+		return convertDate2(strDate);
+	}
+	
+	/**
+	 * @description returns date of 7 days ago from current date converts the date to MMMM d, yyyy format
+	 */
 	public static String getPreviousWeekDateFromCurrentDate() throws ParseException {
 		// get Calendar instance
 		Calendar cal = Calendar.getInstance();
@@ -643,6 +658,9 @@ public class TestUtils extends TestBase {
 		return convertDate2(strDate);
 	}
 
+	/**
+	 * @description returns today's date and converts the date to MMMM d, yyyy format
+	 */
 	public static String getTodaysDate() throws ParseException {
 		
 		// Get Calender Instance
@@ -746,9 +764,9 @@ public class TestUtils extends TestBase {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.mat-body.small.ng-tns-c3-0")));
 		TestUtils.assertSearchText("XPATH", "//*[contains(text(),'Feedback Sent Successfully')]", "Feedback Sent Successfully");
 		TestUtils.assertSearchText("XPATH", "//gtb-notification/mat-card/p", "We have recieved your feedback. Thank you.");
+		Thread.sleep(1000);
 		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
 		Thread.sleep(500);
-		
 		
 	}
 	

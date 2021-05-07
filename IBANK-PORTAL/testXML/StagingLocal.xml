@@ -190,4 +190,18 @@
 			</class>
 		</classes>
 	</test>
+	<test name="StatementToThirdParty" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.StatementToThirdParty">
+				<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToStatementToThirdPartyTest"></include>
+					<include name="statementToThirdPartyValidationTest"></include>
+					<include name="sendStatementTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
 </suite>  <!-- Suite -->
