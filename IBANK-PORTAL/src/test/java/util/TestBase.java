@@ -62,13 +62,13 @@ public class TestBase {
 			myUrl = System.getProperty("instance-url", "http://gtweb6.gtbank.com:8080/");
 		} else
 		{
-			myUrl = System.getProperty("instance-url", "https://simrop.gloworld.com/simrop/");
+			myUrl = System.getProperty("instance-url", "http://gtweb6.gtbank.com:8080/");
 		}
 
 		return myUrl;
 	}
 	
-	public static String gridUrl = System.getProperty("grid-url", "https://selenium.seamfix.com/wd/hub");
+	public static String gridUrl = System.getProperty("grid-url", "http://localhost:4444/wd/hub");
 	
 	@SuppressWarnings("deprecation")
 	@BeforeSuite

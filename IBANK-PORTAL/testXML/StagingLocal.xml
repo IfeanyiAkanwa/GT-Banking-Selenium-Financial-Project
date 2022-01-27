@@ -7,7 +7,6 @@
 	<parameter name="environment" value="chrome" />
 	<parameter name="server" value="local" />
 	<parameter name="config" value="parallel.conf.json" />
-	<parameter name="downloadPath" value="/home/seluser/Downloads/" />
 	<parameter name="testEnv" value="stagingData" />
 
 	<test name="Login" preserve-order="true">
