@@ -3,11 +3,49 @@
 		"accNumLessThan10Digits": "025738382",
 		"pw": "123456",
 		"accNumGreaterThan10Digits": "025438382588",
-		"alphanumericAccNum": "6777gfsfsu",
-		"specialCharAccnum": "$#%36*1245?",
+		"alphanumericNum": "6777gfsfsu",
+		"specialCharnum": "$#%36*1245?",
 		"validAccNum": "0127605268",
 		"invalidPw": "1256",
 		"validEmail":"sina.ayegbusi@gtbank.com",
-		"wrongCharacterlength": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia"
+		"wrongEmailFormat":"sina@com",
+		"validPhoneNum":"08023305565",
+		"phoNumGreaterThan11Digits":"080233055653456465",
+		"phoNumLessThan11Digits":"0802565",
+		"wrongmailFormat":"sina@com",
+		"validUserID":"205154202",
+		"userIDGreaterThan12Digits":"080233045655653456465",
+		"userIDLessThan9Digits":"0802565",
+		"wrongCharacterlength": "SedutperspiciatisundeomnisistenatuserrorsitvoluptatemaccusantiumdoloremquelaudantiumtoamremaperiameaqueipsaquaeabilloinventoreveritatisetquasiarchitectobeataevitaedictasuntexplicaboNemoenimipsamvoluptatemquiavoluptascaboNemoenimipsamvoluptatemquip@gmail.com"
+	},
+	
+	"ForgotPassword": {
+		"validSecretAnswer": "test",
+		"validUsername": "20513226601",
+		"alphanumericNum": "6777gfsfsu",
+		"specialCharnum": "$#%31245?",
+		"invalidSecretAnswer": "$#%36",
+		"invalidUsername": "$#%36"
+	},
+	"ForgotSecretAnswer": {
+		"validUsername": "205132266",
+		"alphanumericNum": "6777gfsfsu",
+		"specialCharnum": "$#%31245?",
+		"invalidUsername": "$#%36"
+	},
+	
+	"OpenDomiciliaryAccount": {
+	"validSecretAnswer": "test"
+	},
+	
+	"OpenAdditionalAccount": {
+		"numericSecretAnswer": "56236",
+		"specialCharSecretAnswer": "#$@^*@*",
+		"invalidSecretAnswer": "hj6347",
+		"validSecretAnswer": "test"
+	},
+	
+	"StatementToThirdParty": {
+		"applicantName": "Christian Chukwu"
 	}
 }

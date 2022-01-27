@@ -7,18 +7,198 @@
 	<parameter name="environment" value="chrome" />
 	<parameter name="server" value="local" />
 	<parameter name="config" value="parallel.conf.json" />
-	<parameter name="downloadPath" value="/home/seluser/Downloads/" />
-	<parameter name="user" value="valid_Admin_Login" />
-	<parameter name="superUser" value="valid_Super_Admin_Login" />
 	<parameter name="testEnv" value="prodData" />
 
 	<test name="Login" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
-			<class name="TestCases.Login">
+			<class name="testCases.Login">
 				<methods>
 					<include name="accountNumberLoginValidationTest"></include>
+					<include name="phoneNumberLoginValidationTest"></include>
+					<include name="userIDLoginValidationTest"></include>
+					<include name="emailLoginValidationTest"></include>
+					<include name="loginLinksValidationTest"></include>
+					<include name="rememberMeValidationTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Login2" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.Login">
+				<methods>
 					<include name="validAccountNumberLoginTest"></include>
+					<include name="validEmailLoginTest"></include>
+					<include name="validPhoneNumberLoginTest"></include>
+					<include name="validUserIDLoginTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="LandingPage" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.LandingPage">
+				<methods>
+					<include name="Login"></include>
+					<include name="navigateToLandingPageTest"></include>
+					<include name="navigateToDashboardTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="ForgotPassword" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.ForgotPassword">
+				<methods>
+					<include name="navigateToForgotPasswordTest"></include>
+					<include name="forgotPasswordValidationTest"></include>
+					<include name="validForgotPasswordTest"></include>
+					<include name="forgotPasswordLinksValidationTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="ForgotSecretAnswer" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.ForgotSecretAnswer">
+				<methods>
+					<include name="navigateToForgotSecretAnswerPageTest"></include>
+					<include name="forgotSecretAnswerValidationTest"></include>
+					<include name="validForgotSecretAnswerTest"></include>
+					<include name="forgotSecretAnswerLinksValidationTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Dashboard" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.Dashboard">
+				<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToDashboardTest"></include>
+					<include name="assertCardCountTest"></include>
+					<include name="menuBarValidationTest"></include>
+					<include name="profileImageUploadTest"></include>
+					<include name="frequentTransactionsTest"></include>
+					<include name="iRequireTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="ProfileUnprofileAccount" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.ProfileUnprofileAccount">
+				<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="naviagteToProfileUnprofileAccountTest"></include>
+					<include name="assertNumberOfAccountsTest"></include>
+					<include name="addAccountsToProfileList"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Accounts" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.Accounts">
+				<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToAccountsTest"></include>
+					<include name="accountSubModuleCheckTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="SecureEmail" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.SecureEmail">
+				<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToSecureEmailTest"></include>
+					<include name="secureEmailRequestFormValidationTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="AccountStatement" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.AccountStatement">
+				<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToAccountStatementTest"></include>
+					<include name="accountStatementValidationTest"></include>
+					<include name="sendAccountStatementTest"></include>
+					<include name="downloadAccountStatementTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="OpenDomiciliaryAccount" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.OpenDomiciliaryAccount">
+				<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToOpenDomAccountTest"></include>
+					<include name="duplicateDomAccountTest"></include>
+					<include name="openDomAccountValidationTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="OpenAdditionalAcount" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.OpenAdditionalAcount">
+				<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToOpenAdditionalAccountTest"></include>
+					<include name="openAdditionalAccountValidationTest"></include>
+					<include name="createAdditionalAccountTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="AirtimeDataTopup" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.AirtimeDataTopup">
+				<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToAirtimeDataTopupTest"></include>
+					<include name="airtimeDataSubModuleCheckTest"></include>
+					<include name="frequentAirtimeTopupTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="StatementToThirdParty" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.StatementToThirdParty">
+				<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToStatementToThirdPartyTest"></include>
+					<include name="statementToThirdPartyValidationTest"></include>
+					<include name="sendStatementTest"></include>
 				</methods>
 			</class>
 		</classes>
