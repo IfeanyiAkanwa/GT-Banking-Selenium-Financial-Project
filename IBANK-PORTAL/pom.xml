@@ -69,7 +69,6 @@
 			<version>1.0.3</version>
 		</dependency>
 	</dependencies>
-	
 	<profiles>
         <profile>
 			<id>ProdLocal</id>
@@ -78,6 +77,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-surefire-plugin</artifactId>
+						<version>3.0.0-M1</version>
 						<configuration>
 							<systemProperties>
 									<property>
@@ -108,6 +108,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-surefire-plugin</artifactId>
+						<version>3.0.0-M1</version>
 						<configuration>
 								<systemProperties>
 									<property>
@@ -138,6 +139,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-surefire-plugin</artifactId>
+						<version>3.0.0-M1</version>
 						<configuration>
 							<systemProperties>
 								<property>
@@ -168,6 +170,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-surefire-plugin</artifactId>
+						<version>3.0.0-M1</version>
 						<configuration>
 						   <systemProperties>
 								<property>
