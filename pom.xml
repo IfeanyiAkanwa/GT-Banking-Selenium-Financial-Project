@@ -165,9 +165,6 @@
 		</profile>
 		 <profile>
 			<id>StagingRemote</id>
-			 <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
 			<build>
 				<plugins>
 					<plugin>
