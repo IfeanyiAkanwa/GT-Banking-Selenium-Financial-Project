@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="SIMROPSuite" parallel="tests" thread-count="9">
+<suite name="IBANKSuite" parallel="tests" thread-count="3">
 	<parameter name="groupReport" value="/ibank.html" />
 	<parameter name="toMails" value="kakaageraldine@gmail.com" />
 	<parameter name="myBrowser" value="chrome" />
 	<parameter name="environment" value="chrome" />
-	<parameter name="server" value="remote-jenkins" />
+	<parameter name="server" value="local" />
 	<parameter name="config" value="parallel.conf.json" />
 	<parameter name="testEnv" value="stagingData" />
 
@@ -24,7 +24,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Login2" preserve-order="true">
+	<!-- <test name="Login2" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
 			<class name="testCases.Login">
@@ -202,5 +202,5 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> -->
 </suite>  <!-- Suite -->

@@ -691,8 +691,8 @@ public class TestUtils extends TestBase {
 	public static void getStartedPage() throws Exception {
 		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 		try {
-			if (getDriver().findElement(By.linkText("Get Started with the new Ibank")).isDisplayed()) {
-				getDriver().findElement(By.linkText("Get Started with the new Ibank")).click();
+			if (getDriver().findElement(By.linkText("Continue to New Interface")).isDisplayed()) {
+				getDriver().findElement(By.linkText("Continue to New Interface")).click();
 				wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
 				Thread.sleep(1000);
 			} 
