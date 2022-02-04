@@ -24,7 +24,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Login2" preserve-order="true">
+	<!-- <test name="Login2" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
 			<class name="testCases.Login">
@@ -202,5 +202,5 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> -->
 </suite>  <!-- Suite -->
