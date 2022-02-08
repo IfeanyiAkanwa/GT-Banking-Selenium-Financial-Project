@@ -24,7 +24,7 @@
 			</class>
 		</classes>
 	</test>
-	<!-- <test name="Login2" preserve-order="true">
+	<test name="Login2" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
 			<class name="testCases.Login">
@@ -202,5 +202,19 @@
 				</methods>
 			</class>
 		</classes>
-	</test> -->
+	</test>
+	<test name="IRequire" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.IRequire">
+				<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToIRequireTest"></include>
+					<include name="IRequireValidationTest"></include>
+					<!-- <include name="sendStatementTest"></include> -->
+				</methods>
+			</class>
+		</classes>
+	</test>
 </suite>  <!-- Suite -->

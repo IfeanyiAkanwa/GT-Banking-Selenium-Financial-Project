@@ -750,8 +750,8 @@ public class TestUtils extends TestBase {
 		Thread.sleep(500);
 		
 		// Enter Comment
-		getDriver().findElement(By.id("Remark")).clear();
-		getDriver().findElement(By.id("Remark")).sendKeys("Excellent");
+		getDriver().findElement(By.xpath("//div[2]/textarea")).clear();
+		getDriver().findElement(By.xpath("//div[2]/textarea")).sendKeys("Excellent");
 		
 		// Submit button
 		try {
