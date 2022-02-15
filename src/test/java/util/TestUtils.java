@@ -790,6 +790,108 @@ public class TestUtils extends TestBase {
         }
 	}
 	
+	public static void assertSearchTextHasValue (String type, String element, String message)throws InterruptedException {
+		
+		StringBuffer verificationErrors = new StringBuffer();
+		TargetTypeEnum targetTypeEnum = TargetTypeEnum.valueOf(type);
+		String ttype = null;
+
+		switch (targetTypeEnum) {
+		case ID:
+			ttype = getDriver().findElement(By.id(element)).getText();
+			break;
+		case NAME:
+			ttype = getDriver().findElement(By.name(element)).getText();
+			break;
+		case CSSSELECTOR:
+			ttype = getDriver().findElement(By.cssSelector(element)).getText();
+			break;
+
+		case XPATH:
+			ttype = getDriver().findElement(By.xpath(element)).getText();
+			break;
+
+		default:
+			ttype = getDriver().findElement(By.id(element)).getText();
+			break;
+		}
+		try {
+			Assert.assertEquals(ttype.length() > 0,true);
+			testInfo.get().log(Status.INFO,message + " is displayed");
+		} catch (Error e) {
+			verificationErrors.append(e.toString());
+			String verificationErrorString = verificationErrors.toString();
+			testInfo.get().error(message + " is not displayed");
+			testInfo.get().error(verificationErrorString);
+		}
+	};
+	
+	public static void AssertAlertMessage(String message) {
+		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+		
+		try {
+            wait.until(ExpectedConditions.alertIsPresent());
+            Alert alert = 	getDriver().switchTo().alert();	
+    		String text = alert.getText();
+            alert.accept(); 
+           Assert.assertEquals(text, message);
+           testInfo.get().log(Status.INFO, text +" Found");
+            
+        } catch (Exception e) {
+			e.printStackTrace();
+	        testInfo.get().error(message + "Not Found");
+
+        }
+	}
+	
+	public static String FileToBase64StringConversion (String fileName) {
+		String encodedBase64 =  null;
+		
+		try {
+			//take path to file
+			String path = new File(System.getProperty("user.dir") + "/files").getAbsolutePath() + "/" + fileName;
+			
+			//get file
+			File file = new File (path);
+			
+			//get file as bytes
+			FileInputStream srcfile = new FileInputStream(file);
+			byte[] bytes = new byte[(int) file.length()];
+			srcfile.read(bytes);
+			
+			//Encoded file to Base64 String
+			encodedBase64 = new String(Base64.encodeBase64(bytes));
+			srcfile.close();
+		}
+		catch (Exception e){
+			e.printStackTrace();
+		}
+		return "data:image/jpeg;base64," + encodedBase64;
+	}
+	
+	public static void AssertImageExist (By element, String filename) throws InterruptedException {
+		
+		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+		
+		try {
+            wait.until(ExpectedConditions.presenceOfElementLocated(element));
+            WebElement imgElement = getDriver().findElement(element);
+            Boolean imagePresent = imgElement.getCssValue("background-image").contains(FileToBase64StringConversion(filename));
+            System.out.println("Style " + imgElement.getCssValue("background-image"));
+            System.out.println("Converted "+ FileToBase64StringConversion(filename));
+            
+            Assert.assertTrue(imagePresent);            
+            
+        } catch (Exception e) {
+			e.printStackTrace();
+	        testInfo.get().error(filename + "Not Found");
+
+        }
+		
+		
+	}
+	
+	
 	@Test
 	public static void accOfficerValidationTest() throws InterruptedException {
 		
