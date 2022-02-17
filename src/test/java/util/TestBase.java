@@ -164,10 +164,16 @@ public class TestBase {
 
 		}else if(server.equals(local)) {
 				// Local Directory
+			String browser = "chrome";
+			
+			if (browser.equalsIgnoreCase(myBrowser)) {
+
 			File classpathRoot = new File(System.getProperty("user.dir"));
-            File chromeDriver = new File(classpathRoot, "chromedriver.exe");
-            System.setProperty("webdriver.chrome.driver", chromeDriver.getAbsolutePath());
-            driver.set(new ChromeDriver(optionsManager.getChromeOptions()));
+			File chromeDriver = new File(classpathRoot, "chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", chromeDriver.getAbsolutePath());
+	        driver.set(new ChromeDriver(optionsManager.getChromeOptions()));
+			}
+
 		 }
 
 		getDriver().manage().window().maximize();
