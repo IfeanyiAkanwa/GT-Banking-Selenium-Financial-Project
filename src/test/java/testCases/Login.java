@@ -162,10 +162,10 @@ public class Login extends TestBase{
 		// Login with valid Account number and valid password
 		TestUtils.testTitle("Login with valid Account number : (" + validAccNum + ") and valid password: (" + pw + ")");
 		loginTest(testEnv, validAccNum);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.mat-h3.f-w-700.mb-0")));
-		TestUtils.assertSearchText("CSSSELECTOR", "p.mat-h3.f-w-700.mb-0", "Login Successful");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card[contains(@class,'border-top animated notification-wrapper')]")));
+		TestUtils.assertSearchText("XPATH", "//mat-card[contains(@class,'border-top animated notification-wrapper')]", "Login Successful");
 		TestUtils.assertSearchText("XPATH", "//*[contains(text(),'Hello OYEYINKA, Quickly start up using the frequent transactions section on the dashboard.')]", "Hello OYEYINKA, Quickly start up using the frequent transactions section on the dashboard.");
-		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
+		getDriver().findElement(By.xpath("//form/button")).click();
 		Thread.sleep(1000);
 		
 		logoutTest();
@@ -208,7 +208,7 @@ public class Login extends TestBase{
 		getDriver().findElement(By.xpath("//button[@type='submit']")).click();
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
-		TestUtils.assertSearchText("XPATH", "//mat-card/p", "-Username or Password incorrect.. Please try again");
+		TestUtils.assertSearchText("XPATH", "//mat-card/p", "-Email or Password incorrect.. Please try again");
 		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
 		Thread.sleep(500);
 		
@@ -285,9 +285,9 @@ public class Login extends TestBase{
 		 TestUtils.testTitle("Logout");
 		 getDriver().findElement(By.xpath("//button[3]/span/mat-icon")).click();
 		 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span/button/span")));
-		 TestUtils.assertSearchText("XPATH", "//h2", "You have been logged out!");
+		 TestUtils.assertSearchText("XPATH", "//app-logout/div/h2", "You have been logged out!");
 		 getDriver().findElement(By.xpath("//span/button/span")).click();
-		 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1")));
+		 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//gtibank-login/form/h1")));
 		 TestUtils.assertSearchText("XPATH", "//h1", "Login");
 		 Thread.sleep(1000);
 		
@@ -582,7 +582,7 @@ public class Login extends TestBase{
 		
 		// GTBank.com
 		TestUtils.testTitle("To confirm that user is directed to the GTBank.com website from Login page");
-		TestUtils.switchToNewTab(By.xpath("//a[contains(text(),'GTBank.com')]"), "Guaranty Trust Bank | GTBank"); 
+		TestUtils.switchToNewTab(By.xpath("//a[contains(text(),'GTBank.com')]"), "Guaranty Trust Bank Plc | GTBank"); 
 		Thread.sleep(500);
 
 		// Terms and Conditions
@@ -618,8 +618,8 @@ public class Login extends TestBase{
 		
 		// Masked Password
 		TestUtils.testTitle("To confirm that password is visible when user clicks on the eye Icon");
+		
 		// Enter Password
-		getDriver().findElement(By.xpath("(//button[@type='button'])[12]")).click();
 		getDriver().findElement(By.xpath("//figure/button/span[contains(text(),'1')]")).click();
 		getDriver().findElement(By.xpath("//figure/button/span[contains(text(),'2')]")).click();
 		getDriver().findElement(By.xpath("//figure/button/span[contains(text(),'3')]")).click();

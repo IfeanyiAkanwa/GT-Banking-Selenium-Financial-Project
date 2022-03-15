@@ -21,7 +21,7 @@ public class LandingPage extends TestBase{
 		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1")));
 		Thread.sleep(1000);
-		TestUtils.assertSearchText("XPATH", "//h1", "Welcome! Olushina");
+		TestUtils.assertSearchText("XPATH", "//h1", "Welcome! Olusola");
 		
 		// To confirm that GtBank Logo is displayed on the Landing Page
 		Assertion.logoDisplayTest();

@@ -91,9 +91,10 @@ public class Dashboard extends TestBase{
 		TestUtils.assertSearchText("XPATH", "//ul[4]/li/a/span[2]", "Bills and Payments");
 		TestUtils.assertSearchText("XPATH", "//ul[5]/li/a/span[2]", "Airtime/Data Topup");
 		TestUtils.assertSearchText("XPATH", "//ul[6]/li/a/span[2]", "Cards");
-		TestUtils.assertSearchText("XPATH", "//ul[7]/li/a/span[2]", "FX Transfers");
-		TestUtils.assertSearchText("XPATH", "//ul[8]/li/a/span[2]", "Self Service");
-		TestUtils.assertSearchText("XPATH", "//ul[9]/li/a/span[2]", "Log out");
+		TestUtils.assertSearchText("XPATH", "//ul[7]/li/a/span[2]", "Loans and Savings");
+		TestUtils.assertSearchText("XPATH", "//ul[8]/li/a/span[2]", "FX Transfers");
+		TestUtils.assertSearchText("XPATH", "//ul[9]/li/a/span[2]", "Self Service");
+		TestUtils.assertSearchText("XPATH", "//ul[10]/li/a/span[2]", "Log out");
 		Thread.sleep(500);
 		
 		// Theme Customizer
@@ -236,13 +237,18 @@ public class Dashboard extends TestBase{
 		
 		
 		// To confirm that records are displayed on Other Banks Transfers section
-		TestUtils.testTitle("To confirm that records are displayed on GTBank Transfers section");
-		TestUtils.assertSearchText("XPATH", "//frequent-transfers/div/p", "- No transfer record");
+		TestUtils.testTitle("To confirm that records are displayed on Other Banks Transfers section");
+		
+		// Click on Other Banks Transfers
+		getDriver().findElement(By.xpath("//div[2]/div/div/div[2]/div")).click();
+		Thread.sleep(1000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'No Record - No frequent records')]")));
+		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'No Record - No frequent records')]", "No Record - No frequent records");
 		Thread.sleep(500);
 	
 		
-		// To confirm that user is directed to Transfer page when the user clicks on the 'Go to Transfer' button on GTBank Transfer view
-		TestUtils.testTitle("To confirm that user is directed to Transfer page when the user clicks on the 'Go to Transfer' button on Other Banks Transfer view");
+		// To confirm that user is directed to Transfer page when the user clicks on the 'Go to Transfer' button on Other Banks Transfers view
+		TestUtils.testTitle("To confirm that user is directed to Transfer page when the user clicks on the 'Go to Transfer' button on Other Banks Transfers view");
 		// Click on Other Banks Transfer
 		getDriver().findElement(By.xpath("//div[2]/div/div/div[2]")).click();
 		Thread.sleep(1000);

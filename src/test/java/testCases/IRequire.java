@@ -10,17 +10,18 @@ import util.TestUtils;
 public class IRequire extends TestBase{
 
 	@Test
-	public void navigateToIRequireTest() throws InterruptedException {
+	public static void navigateToIRequireTest() throws InterruptedException {
 
 		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 		
-		TestUtils.testTitle("Navigate to Self Service");
+		TestUtils.testTitle("Navigate to IRequire");
 		
 		// Click on Self Service
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[9]/li/a")));
 		getDriver().findElement(By.xpath("//ul[9]/li/a")).click();
 		Thread.sleep(500);
 		
+		// Click on IRequire
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[5]/figure/mat-card")));
 		getDriver().findElement(By.xpath("//mat-grid-tile[5]/figure/mat-card")).click();
 		Thread.sleep(500);
