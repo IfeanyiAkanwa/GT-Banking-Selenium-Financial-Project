@@ -29,7 +29,7 @@ public class ForgotPassword extends TestBase {
 		getDriver().findElement(By.xpath("//a[contains(text(),'Forgot Password?')]")).click();
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
-		TestUtils.assertSearchText("XPATH", "//h1", "Recover Password");
+		TestUtils.assertSearchText("XPATH", "//div/gtibank-forgot/form/h1", "Recover Password");
 		Thread.sleep(500);
 	}
 	
@@ -154,7 +154,7 @@ public class ForgotPassword extends TestBase {
 		
 		// GTBank.com
 		TestUtils.testTitle("To confirm that user is directed to the GTBank.com website from Login page");
-		TestUtils.switchToNewTab(By.xpath("//a[contains(text(),'GTBank.com')]"), "Guaranty Trust Bank | GTBank"); 
+		TestUtils.switchToNewTab(By.xpath("//a[contains(text(),'GTBank.com')]"), "Guaranty Trust Bank Plc | GTBank"); 
 		Thread.sleep(500);
 
 		// Terms and Conditions

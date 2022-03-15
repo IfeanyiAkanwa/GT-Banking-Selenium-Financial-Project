@@ -16,10 +16,10 @@ public class Assertion extends TestBase {
 
 		TestUtils.testTitle("To verify that GTBank Logo is displayed");
 		Thread.sleep(500);
-		WebElement img = getDriver().findElement(By.xpath("//img[@alt='GTBank Logo']"));
+		WebElement img = getDriver().findElement(By.xpath("//a/img[@alt='GTBank Logo']"));
 
 		String deviceImg = img.getAttribute("src");
-		String validImage = "Logo_gtbank.png";
+		String validImage = "app-logo.svg";
 		String emptyImage = "image";
 
 		if (deviceImg.endsWith(validImage)) {

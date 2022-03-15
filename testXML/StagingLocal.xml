@@ -128,6 +128,8 @@
 					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
 					<include name="navigateToSecureEmailTest"></include>
 					<include name="secureEmailRequestFormValidationTest"></include>
+					<include name="secureEmailValidFileUploadTest"></include>
+					<include name="secureEmailInvalidFileUploadTest"></include>
 				</methods>
 			</class>
 		</classes>
@@ -242,6 +244,18 @@
 					<include name="CustomerProfileFieldsCheck"></include>
 					<include name="CustomerProfileImageUpload"></include>
 					
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="StatementCollection" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.StatementCollection">
+				<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToStatementCollectionTest"></include>
 				</methods>
 			</class>
 		</classes>

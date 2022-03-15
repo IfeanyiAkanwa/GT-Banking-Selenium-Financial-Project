@@ -31,13 +31,14 @@ public class Accounts extends TestBase{
 		 
 		 TestUtils.testTitle("To confirm the sub modules on Accounts menu");
 		 TestUtils.assertSearchText("XPATH", "//mat-card/p", "Account Statement");
-		 TestUtils.assertSearchText("XPATH", "//mat-grid-tile[2]/figure/mat-card/p", "Statement to Third-Party");
-		 TestUtils.assertSearchText("XPATH", "//mat-grid-tile[3]/figure/mat-card/p", "Open Domiciliary Account");
-		 TestUtils.assertSearchText("XPATH", "//mat-grid-tile[4]/figure/mat-card/p", "Open Additional Account");
-		 TestUtils.assertSearchText("XPATH", "//mat-grid-tile[5]/figure/mat-card/p", "Update & Upgrade Account");
-		 TestUtils.assertSearchText("XPATH", "//mat-grid-tile[6]/figure/mat-card/p", "Profile & Unprofile Account");
-		 TestUtils.assertSearchText("XPATH", "//mat-grid-tile[7]/figure/mat-card/p", "Secure Email");
-		 TestUtils.assertSearchText("XPATH", "//mat-grid-tile[8]/figure/mat-card/p", "Sachet Banking");
+		 TestUtils.assertSearchText("XPATH", "//mat-grid-tile[2]/figure/mat-card/p", "Transaction History");
+		 TestUtils.assertSearchText("XPATH", "//mat-grid-tile[3]/figure/mat-card/p", "Statement to Third-Party");
+		 TestUtils.assertSearchText("XPATH", "//mat-grid-tile[4]/figure/mat-card/p", "Open Domiciliary Account");
+		 TestUtils.assertSearchText("XPATH", "//mat-grid-tile[5]/figure/mat-card/p", "Open Additional Account");
+		 TestUtils.assertSearchText("XPATH", "//mat-grid-tile[6]/figure/mat-card/p", "Update & Upgrade Account");
+		 TestUtils.assertSearchText("XPATH", "//mat-grid-tile[7]/figure/mat-card/p", "Profile & Unprofile Account");
+		 TestUtils.assertSearchText("XPATH", "//mat-grid-tile[8]/figure/mat-card/p", "Secure Email");
+		 TestUtils.assertSearchText("XPATH", "//mat-grid-tile[9]/figure/mat-card/p", "Sachet Banking");
 		 Thread.sleep(500);
 		 
 		 // Rater

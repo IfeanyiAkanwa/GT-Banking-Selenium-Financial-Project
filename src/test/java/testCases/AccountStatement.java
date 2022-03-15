@@ -1,5 +1,7 @@
 package testCases;
 
+import java.text.ParseException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -36,7 +38,7 @@ public class AccountStatement extends TestBase {
 	}
 	
 	@Test
-	public void accountStatementValidationTest() throws InterruptedException {
+	public void accountStatementValidationTest() throws InterruptedException, ParseException {
 		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 		
 		// To confirm that when user clicks on the 'Menu List' button, user is directed back to main menu of account module
@@ -74,8 +76,8 @@ public class AccountStatement extends TestBase {
 		
 		// To confirm that the 'Start Date' date picker is visible and date populated is a week from present date
 		TestUtils.testTitle("To confirm that the 'Start Date' date picker is visible and date populated is a week from present date");
-		try {
-			String startDate = getDriver().findElement(By.id("dp")).getAttribute("value");
+		
+			String startDate = getDriver().findElement(By.xpath("(//input[@id='dp'])[1]")).getAttribute("value");
 			if (!startDate.isEmpty()) {
 				Assert.assertEquals(TestUtils.getPreviousWeekDateFromCurrentDate(), startDate);
 				testInfo.get().log(Status.INFO, "<b> Start Date: </b>" + startDate + " found");
@@ -83,9 +85,7 @@ public class AccountStatement extends TestBase {
 			} else {
 				testInfo.get().error("No Date is selected");
 			}
-		} catch (Exception e) {
-			testInfo.get().error("No Date is selected");
-		}
+		
 	
 	    // To confirm that the 'End Date' date picker is visible and date populated is present date
 		TestUtils.testTitle("To confirm that the 'End Date' date picker is visible and date populated is present date");
@@ -108,7 +108,7 @@ public class AccountStatement extends TestBase {
 		
 		// Select Account
 		TestUtils.testTitle("Select Account to view Statement");
-		getDriver().findElement(By.xpath("//ng-select[@id='undefined']/div/span[2]")).click();
+		getDriver().findElement(By.xpath("//ng-select[@id='undefined']/div/span")).click();
 		Thread.sleep(500);
 		String acc = getDriver().findElement(By.xpath("//div[2]/div[4]")).getText();
 		testInfo.get().log(Status.INFO, "<b> Account to view Statement: </b>" + acc + " found");
@@ -122,47 +122,56 @@ public class AccountStatement extends TestBase {
 		Thread.sleep(500);
 		getDriver().findElement(By.xpath("//tr[6]/td[4]/div")).click();
 		Thread.sleep(500);
-		getDriver().findElement(By.xpath("//td[4]/div")).click();
+		getDriver().findElement(By.xpath("//tr[2]/td[3]/div")).click();
 		Thread.sleep(500);
-		getDriver().findElement(By.xpath("//tr[3]/td[4]/div")).click();
+		getDriver().findElement(By.xpath("//tr[2]/td[5]/div")).click();
 		Thread.sleep(500);
 
 		// Select End Date
-		getDriver().findElement(By.cssSelector("svg.mat-datepicker-toggle-default-icon.ng-star-inserted")).click();
+		getDriver().findElement(By.cssSelector("svg.mat-datepicker-toggle-default-icon ng-star-inserted")).click();
 		Thread.sleep(500);
 		getDriver().findElement(By.xpath("//mat-calendar-header/div/div/button/span")).click();
 		Thread.sleep(500);
 		getDriver().findElement(By.xpath("//tr[6]/td[4]/div")).click();
 		Thread.sleep(500);
-		getDriver().findElement(By.xpath("//td[4]/div")).click();
+		getDriver().findElement(By.xpath("//tr[2]/td[3]/div")).click();
 		Thread.sleep(500);
-		getDriver().findElement(By.xpath("//tr[4]/td[4]/div")).click();
+		getDriver().findElement(By.xpath("//tr[3]/td[4]/div")).click();
 		Thread.sleep(1000);
 		
-		String startDate = getDriver().findElement(By.id("dp")).getAttribute("value");
-		String endDate = getDriver().findElement(By.xpath("(//input[@id='dp'])[2]")).getAttribute("value");
+		String startDate1 = getDriver().findElement(By.id("dp")).getAttribute("value");
+		String endDate1 = getDriver().findElement(By.xpath("(//input[@id='dp'])[2]")).getAttribute("value");
 		
-		TestUtils.testTitle("Assert total number of Transactions returned within Start Date: (" + startDate + ")  and End Date: (" + endDate + ")");
-		testInfo.get().info("No statement to display");
-		TestUtils.assertSearchText("XPATH", "//p[2]", "Select another account or change transaction period.");
+		TestUtils.testTitle("Assert total number of Transactions returned within Start Date: (" + startDate1 + ")  and End Date: (" + endDate1 + ")");
+		 try {
+			 int accCount = getDriver().findElements(By.xpath("//*[@id='pcoded']/div[2]/div[3]/div/div/div/div/div/gtibank-accounts/div/div/gtibank-account-statement/div/perfect-scrollbar/div/div/div")).size();
+				if (TestUtils.isElementPresent("XPATH", "//h1")) {
+					testInfo.get().info("Total number of Accounts displayed: <b>" + accCount + "</b>");
+				} else {
+					testInfo.get().error("Table is empty.");
+				}
+		} catch (Exception e) {
+			testInfo.get().info("No statement to display");
+			TestUtils.assertSearchText("XPATH", "//gtibank-account-statement/div/div/p[2]", "Select another account or change transaction period.");
+			
+			// To confirm the 'Download' button and 'Send Statement' button is not visible when the account has no statement
+			TestUtils.testTitle("To confirm the 'Download' button and 'Send Statement' button is not visible when the account has no statement");
 		
-		// To confirm the 'Download' button and 'Send Statement' button is not visible when the account has no statement
-		TestUtils.testTitle("To confirm the 'Download' button and 'Send Statement' button is not visible when the account has no statement");
-	
-		// Send Statement button
-		if (TestUtils.isElementPresent("ID", "sendEmail")) {
-			testInfo.get().error("Send Statement button is visible");
-			Thread.sleep(500);
-		} else {
-			testInfo.get().info("<b> Send Statement button is not visible </b>");
-		}
+			// Send Statement button
+			if (TestUtils.isElementPresent("ID", "sendEmail")) {
+				testInfo.get().error("Send Statement button is visible");
+				Thread.sleep(500);
+			} else {
+				testInfo.get().info("<b> Send Statement button is not visible </b>");
+			}
 
-		// Download button
-		if (TestUtils.isElementPresent("XPATH", "//span/button")) {
-			testInfo.get().error("Download button is visible");
-			Thread.sleep(500);
-		} else {
-			testInfo.get().info("<b> Download button is not visible </b>");
+			// Download button
+			if (TestUtils.isElementPresent("XPATH", "//span/button")) {
+				testInfo.get().error("Download button is visible");
+				Thread.sleep(500);
+			} else {
+				testInfo.get().info("<b> Download button is not visible </b>");
+			}
 		}
 		
 	}
@@ -174,7 +183,7 @@ public class AccountStatement extends TestBase {
 
 		// Select Account 
 		TestUtils.testTitle("Select Account to view Statement");
-		getDriver().findElement(By.xpath("//ng-select[@id='undefined']/div/span[2]")).click();
+		getDriver().findElement(By.xpath("//ng-select[@id='undefined']/div/span")).click();
 		Thread.sleep(500);
 		String acc = getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div[3]")).getText();
 		testInfo.get().log(Status.INFO, "<b> Account to view Statement: </b>" + acc+ " found");
@@ -229,7 +238,7 @@ public class AccountStatement extends TestBase {
 
 		// Select Account 
 		TestUtils.testTitle("Select Account to view Statement");
-		getDriver().findElement(By.xpath("//ng-select[@id='undefined']/div/span[2]")).click();
+		getDriver().findElement(By.xpath("//ng-select[@id='undefined']/div/span")).click();
 		Thread.sleep(500);
 		String acc = getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div[3]")).getText();
 		testInfo.get().log(Status.INFO, "<b> Account to view Statement: </b>" + acc+ " found");

@@ -105,7 +105,7 @@ public class ForgotSecretAnswer extends TestBase{
 		
 		// GTBank.com
 		TestUtils.testTitle("To confirm that user is directed to the GTBank.com website from Login page");
-		TestUtils.switchToNewTab(By.xpath("//a[contains(text(),'GTBank.com')]"), "Guaranty Trust Bank | GTBank"); 
+		TestUtils.switchToNewTab(By.xpath("//a[contains(text(),'GTBank.com')]"), "Guaranty Trust Bank Plc | GTBank"); 
 		Thread.sleep(500);
 
 		// Terms and Conditions

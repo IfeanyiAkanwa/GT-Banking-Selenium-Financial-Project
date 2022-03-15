@@ -24,8 +24,8 @@ public class SecureEmail extends TestBase{
 		getDriver().findElement(By.xpath("//ul[2]/li/a")).click();
 		Thread.sleep(500);
 		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[7]/figure/mat-card/p")));
-		getDriver().findElement(By.xpath("//mat-grid-tile[7]/figure/mat-card/p")).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[8]/figure/mat-card/p")));
+		getDriver().findElement(By.xpath("//mat-grid-tile[8]/figure/mat-card/p")).click();
 		Thread.sleep(500);
 		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Secure Email')]", "Secure Email");
 		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Create a request using a secured email channel");
@@ -38,14 +38,6 @@ public class SecureEmail extends TestBase{
 
 		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 		
-		String pdfImage = "flower.pdf";
-		String jpgImage = "Bigpic (3).jpg";
-		String xlsxFile = "Invalid.xlsx";
-		String xlsFile = "tagging_template.xls";
-		String pngImage = "valid.png";
-		String jpegImage = "image1.jpeg";
-		String largeImage = "Bigpic.jpg";
-		
 		TestUtils.testTitle("To confirm that when user clicks on the 'Menu List' button, user is directed back to main menu of account module");
 		// Click on Menu List
 		getDriver().findElement(By.xpath("//div[2]/a")).click();
@@ -57,8 +49,8 @@ public class SecureEmail extends TestBase{
 		
 		// Click on Secure Email
 		TestUtils.testTitle("Navigate back to Secure Email view");
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[7]/figure/mat-card/p")));
-		getDriver().findElement(By.xpath("//mat-grid-tile[7]/figure/mat-card/p")).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[8]/figure/mat-card/p")));
+		getDriver().findElement(By.xpath("//mat-grid-tile[8]/figure/mat-card/p")).click();
 		Thread.sleep(500);
 		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Secure Email')]", "Secure Email");
 		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Create a request using a secured email channel");
@@ -74,7 +66,7 @@ public class SecureEmail extends TestBase{
 		
 		TestUtils.testTitle("To confirm that the first account on the account number dropdown is selected by default");
 		try {
-			String acc = getDriver().findElement(By.xpath("//gtibank-accounts-typeahead/div/ng-select/div")).getAttribute("value");
+			String acc = getDriver().findElement(By.xpath("//gtibank-accounts-typeahead/div/ng-select/div")).getText();
 			if (!acc.isEmpty()) {
 				 testInfo.get().log(Status.INFO, "<b> First Account Number: </b>" + acc + " found");
 				    Thread.sleep(500);
@@ -102,7 +94,17 @@ public class SecureEmail extends TestBase{
 		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
 		Thread.sleep(500);
 	    
-	    TestUtils.testTitle("Upload valid file format .jpeg: " + jpegImage);
+	    
+	}
+	
+	@Test
+	public void secureEmailValidFileUploadTest() throws InterruptedException {
+		
+		String pdfImage = "flower.pdf";
+		String jpgImage = "Bigpic (3).jpg";
+		String jpegImage = "image1.jpeg";
+		
+		TestUtils.testTitle("Upload valid file format .jpeg: " + jpegImage);
 		TestUtils.uploadFile(By.xpath("//div[2]/div/input"), jpegImage);
 		testInfo.get().info("File upload is successful");
 		Thread.sleep(1000);
@@ -117,19 +119,15 @@ public class SecureEmail extends TestBase{
 		testInfo.get().info("File upload is successful");
 		Thread.sleep(1000);
 		
-//		TestUtils.testTitle("Upload a file with size greater than 200KB: " + largeImage);
-//		TestUtils.uploadFile(By.id("userImageUpload"), largeImage);
-//		TestUtils.assertSearchText("XPATH", "//ibank-notifications/div/div/div/div/div/p",	"Image is too large. Image size can not be greater than 200kb. Compress image or upload a different image.");
-//		Thread.sleep(500);
-//		// Close the Modal
-//		getDriver().findElement(By.xpath("//div[2]/button/span/span")).click();
-//		Thread.sleep(500);
+	}
 	
-		TestUtils.testTitle("Upload invalid file format .xls: " + xlsFile);
-		TestUtils.uploadFile(By.id("userImageUpload"), xlsFile);
-		TestUtils.imageAlertSwitch();
-		Thread.sleep(1000);
-
+	@Test
+	public void secureEmailInvalidFileUploadTest() throws InterruptedException {
+		
+		String xlsxFile = "Invalid.xlsx";
+		String xlsFile = "tagging_template.xls";
+		String pngImage = "valid.png";
+		
 		TestUtils.testTitle("Upload invalid file format .xlsx: " + xlsxFile);
 		TestUtils.uploadFile(By.id("userImageUpload"), xlsxFile);
 		TestUtils.imageAlertSwitch();
@@ -140,6 +138,12 @@ public class SecureEmail extends TestBase{
 		TestUtils.imageAlertSwitch();
 		Thread.sleep(1000);
 		
+		TestUtils.testTitle("Upload invalid file format .xls: " + xlsFile);
+		TestUtils.uploadFile(By.id("userImageUpload"), xlsFile);
+		TestUtils.imageAlertSwitch();
+		Thread.sleep(1000);
+		
 	}
+	
 
 }
