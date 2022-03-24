@@ -16,9 +16,9 @@ public class AirtimeDataTopup extends TestBase{
 		
 		TestUtils.testTitle("Navigate to Airtime/Data Topup");
 		
-		// Click on Accounts
+		// Click on Airtime/Data Topup
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Dashboard')]")));
-		getDriver().findElement(By.xpath("//ul[5]/li/a/span[2]")).click();
+		getDriver().findElement(By.xpath("//ul[5]/li/a")).click();
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Airtime/Data Topup')]")));
 		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Airtime/Data Topup')]", "Airtime/Data Topup");
@@ -44,7 +44,7 @@ public class AirtimeDataTopup extends TestBase{
 	public void frequentAirtimeTopupTest() throws InterruptedException {
 		
 		TestUtils.testTitle("Navigate to Frequent Airtime/topup");
-		TestUtils.assertSearchText("XPATH", "//h5", "Frequent Airtime/Top-up");
+		TestUtils.assertSearchText("XPATH", "//span/mat-panel-title", "Frequent Airtime/Top-up");
 		Thread.sleep(500);
 		
 		TestUtils.testTitle("To confirm that the Frequent Airtime/Topup section has a Airtime Topup Button");

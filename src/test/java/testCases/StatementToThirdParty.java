@@ -35,8 +35,8 @@ public class StatementToThirdParty extends TestBase{
 		getDriver().findElement(By.xpath("//ul[2]/li/a")).click();
 		Thread.sleep(1000);
 		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[2]/figure/mat-card/p")));
-		getDriver().findElement(By.xpath("//mat-grid-tile[2]/figure/mat-card/p")).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[3]/figure/mat-card/p")));
+		getDriver().findElement(By.xpath("//mat-grid-tile[3]/figure/mat-card/p")).click();
 		Thread.sleep(500);
 		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Send Statement')]", "Send Statement");
 		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Generate Statement and send to third party");
@@ -58,8 +58,8 @@ public class StatementToThirdParty extends TestBase{
 		
 		// Click on Statement To Third Party
 		TestUtils.testTitle("Navigate back to Statement To Third Party");
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[2]/figure/mat-card/p")));
-		getDriver().findElement(By.xpath("//mat-grid-tile[2]/figure/mat-card/p")).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[3]/figure/mat-card/p")));
+		getDriver().findElement(By.xpath("//mat-grid-tile[3]/figure/mat-card/p")).click();
 		Thread.sleep(500);
 		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Send Statement')]", "Send Statement");
 		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Generate Statement and send to third party");
@@ -69,10 +69,10 @@ public class StatementToThirdParty extends TestBase{
 		testInfo.get().info("<b> Embassy Section</b>");
 		TestUtils.testTitle("To confirm that Enter Country drop down populates lists of country");
 		getDriver().findElement(By.xpath("//ng-select/div/span")).click();
-		Thread.sleep(500);
-		TestUtils.assertSearchText("XPATH", "//ng-dropdown-panel/div/div[2]/div", "United Kingdom");
-		TestUtils.assertSearchText("XPATH", "//ng-dropdown-panel/div/div[2]/div[2]", "Australia");
-		TestUtils.assertSearchText("XPATH", "//ng-dropdown-panel/div/div[2]/div[3]", "Austria");
+		Thread.sleep(1000);
+		TestUtils.assertSearchText("XPATH", "//ng-dropdown-panel/div/div/div", "United Kingdom");
+		TestUtils.assertSearchText("XPATH", "//ng-dropdown-panel/div/div/div[2]", "Australia");
+		TestUtils.assertSearchText("XPATH", "//ng-dropdown-panel/div/div/div[3]", "Austria");
 		Thread.sleep(500);
 		getDriver().findElement(By.xpath("//ng-select/div/span")).click();
 		Thread.sleep(500);
@@ -123,9 +123,9 @@ public class StatementToThirdParty extends TestBase{
 		// To confirm that Account to Debit drop-down displays list of existing accounts with balance
 		TestUtils.testTitle("To confirm that Account to Debit drop-down displays list of existing accounts with balance");
 		TestUtils.scrollToElement("XPATH", "//div[8]/div/button/span");
-		getDriver().findElement(By.xpath("//div[5]/gtibank-accounts-typeahead/div/ng-select/div/span[2]")).click();
+		getDriver().findElement(By.id("accountToDebit")).click();
 		Thread.sleep(500);
-		int cardCount1 = getDriver().findElements(By.xpath("//ng-dropdown-panel/div/div[2]/div")).size();
+		int cardCount1 = getDriver().findElements(By.xpath("//ng-dropdown-panel/div/div")).size();
 		if (TestUtils.isElementPresent("XPATH", "//label[2]")) {
 			testInfo.get().info("Total number of Accounts displayed: <b>" + cardCount1 + "</b>");
 		} else {
@@ -157,10 +157,11 @@ public class StatementToThirdParty extends TestBase{
 			testInfo.get().error("<b> Send Statement button is enabled</b>");
 		}
 		
-		// To confirm that Enter Country drop down populates lists of country
+		// To confirm that Enter name of Third Party drop down populates lists of Third Parties
 		testInfo.get().info("<b> Other Third Parties Section </b>");
 		TestUtils.testTitle("To confirm that Enter name of Third Party drop down populates lists of Third Parties");
-		TestUtils.scrollUntilElementIsVisible("XPATH", "//label[2]");
+		TestUtils.scrollUntilElementIsVisible("XPATH", "//a[contains(text(),'Send Statement')]");
+		Thread.sleep(1000);
 		getDriver().findElement(By.xpath("//label[2]")).click();
 		Thread.sleep(500);
 		getDriver().findElement(By.xpath("//ng-select/div/span")).click();
@@ -174,7 +175,7 @@ public class StatementToThirdParty extends TestBase{
 		
 		getDriver().findElement(By.xpath("//ng-select/div/span")).click();
 		Thread.sleep(500);
-		
+		 
 		// Rater
 		TestUtils.raterTest("Statement To Third Party");
 		Thread.sleep(500);

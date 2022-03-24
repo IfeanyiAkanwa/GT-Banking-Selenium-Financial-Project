@@ -68,7 +68,7 @@ public class TestBase {
 		return myUrl;
 	}
 	
-	public static String gridUrl = System.getProperty("grid-url", "http://localhost:4444/wd/hub");
+	public static String gridUrl = System.getProperty("grid-url", "http://10.1.40.29:4444/wd/hub");
 	
 	@SuppressWarnings("deprecation")
 	@BeforeSuite

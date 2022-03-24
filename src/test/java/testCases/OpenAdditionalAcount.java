@@ -27,8 +27,8 @@ public class OpenAdditionalAcount extends TestBase{
 		getDriver().findElement(By.xpath("//ul[2]/li/a")).click();
 		Thread.sleep(1000);
 		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[4]/figure/mat-card")));
-		getDriver().findElement(By.xpath("//mat-grid-tile[4]/figure/mat-card")).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[5]/figure/mat-card")));
+		getDriver().findElement(By.xpath("//mat-grid-tile[5]/figure/mat-card")).click();
 		Thread.sleep(500);
 		TestUtils.assertSearchText("XPATH", "//h2/a", "Add Additional Account");
 		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Add an additional account to your profile");
@@ -51,8 +51,6 @@ public class OpenAdditionalAcount extends TestBase{
 		JSONObject config = (JSONObject) parser.parse(new FileReader(path));
 		JSONObject envs = (JSONObject) config.get("OpenAdditionalAccount");
 
-		String numericSecretAnswer = (String) envs.get("numericSecretAnswer");
-		String specialCharSecretAnswer = (String) envs.get("specialCharSecretAnswer");
 		String invalidSecretAnswer = (String) envs.get("invalidSecretAnswer");
 		
 		// To confirm that the Select Account Type dropdown contains two options "Savings account and current account" 
@@ -86,36 +84,24 @@ public class OpenAdditionalAcount extends TestBase{
 
 		// Click on Open Additional Account
 		TestUtils.testTitle("Navigate back to Open Additional Account view");
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[4]/figure/mat-card")));
-		getDriver().findElement(By.xpath("//mat-grid-tile[4]/figure/mat-card")).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[5]/figure/mat-card")));
+		getDriver().findElement(By.xpath("//mat-grid-tile[5]/figure/mat-card")).click();
 		Thread.sleep(500);
 		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Add Additional Account')]", "Add Additional Account");
 		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Add an additional account to your profile");
 		Thread.sleep(500);
 		
-		// To confirm that the Answer to Secret Question field accepts numbers
-		TestUtils.testTitle("To confirm that the Answer to Secret Question field accepts numbers: " + numericSecretAnswer);
-		getDriver().findElement(By.xpath("//form/div/input")).clear();
-		getDriver().findElement(By.xpath("//form/div/input")).sendKeys(numericSecretAnswer);
-		testInfo.get().info("Answer to Secret Question accepts numbers");
-		
-		// To confirm that the Answer to Secret Question field accepts special characters
-		TestUtils.testTitle("To confirm that the Answer to Secret Question field accepts special characters: " + specialCharSecretAnswer);
-		getDriver().findElement(By.xpath("//form/div/input")).clear();
-		getDriver().findElement(By.xpath("//form/div/input")).sendKeys(specialCharSecretAnswer);
-		testInfo.get().info("Answer to Secret Question accepts special characters");
-		
 		// To confirm that an error message is displayed when user submits with a wrong secret answer
 		TestUtils.testTitle("To confirm that an error message is displayed when user enters a wrong secret answer: " + invalidSecretAnswer);
 		
-		// Enter Invalid Secret answer
-		getDriver().findElement(By.xpath("//form/div/input")).clear();
-		getDriver().findElement(By.xpath("//form/div/input")).sendKeys(invalidSecretAnswer);
-		
 		// Select Account Type
-		getDriver().findElement(By.xpath("//ng-select/div/span")).click();
+		getDriver().findElement(By.id("accountType")).click();
 		TestUtils.clickElement("XPATH", "//ng-dropdown-panel/div/div[2]/div[2]");
 		Thread.sleep(500);
+		
+		// Enter Invalid Secret answer
+		getDriver().findElement(By.id("secretAnswer")).clear();
+		getDriver().findElement(By.id("secretAnswer")).sendKeys(invalidSecretAnswer);
 		
 		// Submit button
 		getDriver().findElement(By.id("validate")).click();
@@ -157,14 +143,15 @@ public class OpenAdditionalAcount extends TestBase{
 		String validSecretAnswer = (String) envs.get("validSecretAnswer");
 	
 		TestUtils.testTitle("To confirm that user is able to create a current additional sub-account with valid secret answer: " + validSecretAnswer);
-		// Enter valid Secret answer
-		getDriver().findElement(By.xpath("//form/div/input")).clear();
-		getDriver().findElement(By.xpath("//form/div/input")).sendKeys(validSecretAnswer);
 		
 		// Select Account Type
-		getDriver().findElement(By.xpath("//ng-select/div/span")).click();
-		TestUtils.clickElement("XPATH", "//a[contains(text(),'Dashboard')]");
+		getDriver().findElement(By.id("accountType")).click();
+		TestUtils.clickElement("XPATH", "//ng-dropdown-panel/div/div/div[2]");
 		Thread.sleep(500);
+		
+		// Enter valid Secret answer
+		getDriver().findElement(By.id("secretAnswer")).clear();
+		getDriver().findElement(By.id("secretAnswer")).sendKeys(validSecretAnswer);
 		
 		// Submit button
 		getDriver().findElement(By.id("validate")).click();
@@ -179,15 +166,16 @@ public class OpenAdditionalAcount extends TestBase{
 		Thread.sleep(500);
 		
 		TestUtils.testTitle("To confirm that user is able to create a savings additional sub-account with valid secret answer: " + validSecretAnswer);
-		// Enter valid Secret answer
-		getDriver().findElement(By.xpath("//form/div/input")).clear();
-		getDriver().findElement(By.xpath("//form/div/input")).sendKeys(validSecretAnswer);
 		
 		// Select Account Type
-		getDriver().findElement(By.xpath("//ng-select/div/span")).click();
-		TestUtils.clickElement("XPATH", "//ng-dropdown-panel/div/div[2]/div");
+		getDriver().findElement(By.id("accountType")).click();
+		TestUtils.clickElement("XPATH", "//ng-dropdown-panel/div/div/div[2]");
 		Thread.sleep(500);
 		
+		// Enter valid Secret answer
+		getDriver().findElement(By.id("secretAnswer")).clear();
+		getDriver().findElement(By.id("secretAnswer")).sendKeys(validSecretAnswer);
+
 		// Submit button
 		getDriver().findElement(By.id("validate")).click();
 		Thread.sleep(500);
