@@ -28,8 +28,8 @@ public class OpenDomiciliaryAccount extends TestBase{
 		getDriver().findElement(By.xpath("//ul[2]/li/a")).click();
 		Thread.sleep(500);
 		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[3]/figure/mat-card")));
-		getDriver().findElement(By.xpath("//mat-grid-tile[3]/figure/mat-card")).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[4]/figure/mat-card")));
+		getDriver().findElement(By.xpath("//mat-grid-tile[4]/figure/mat-card")).click();
 		Thread.sleep(500);
 		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Open Dom Account')]", "Open Dom Account");
 		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Open a new Domiciliary Account");
@@ -52,8 +52,8 @@ public class OpenDomiciliaryAccount extends TestBase{
 
 		// Click on Open Domiciliary Account
 		TestUtils.testTitle("Navigate back to Open Domiciliary Account view");
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[3]/figure/mat-card")));
-		getDriver().findElement(By.xpath("//mat-grid-tile[3]/figure/mat-card")).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[4]/figure/mat-card")));
+		getDriver().findElement(By.xpath("//mat-grid-tile[4]/figure/mat-card")).click();
 		Thread.sleep(500);
 		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Open Dom Account')]", "Open Dom Account");
 		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Open a new Domiciliary Account");
