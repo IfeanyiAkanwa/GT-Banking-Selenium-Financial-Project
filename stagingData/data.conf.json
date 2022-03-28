@@ -49,14 +49,7 @@
 		"applicantName": "Christian Chukwu"
 	},
 	
-	"MTNAirtimeDataTopUp": {
-		"number": "08023305565",
-		"validSecretAnswer": "test",
-		"token": "123456",
-		"amount": "100"
-	},
-	
-	"AirtelAirtimeDataTopUp": {
+	"AirtimeDataTopUp": {
 		"number": "08023305565",
 		"validSecretAnswer": "test",
 		"token": "123456",

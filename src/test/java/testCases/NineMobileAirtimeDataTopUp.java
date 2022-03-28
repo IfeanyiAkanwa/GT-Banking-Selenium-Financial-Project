@@ -14,22 +14,22 @@ import org.testng.annotations.Test;
 import util.TestBase;
 import util.TestUtils;
 
-public class MTNAirtimeDataTopUp extends TestBase{
+public class NineMobileAirtimeDataTopUp extends TestBase{
 	
 	@Test
-	public static void navigateToMTNAirtimeDataTopUpTest() throws InterruptedException {
+	public static void navigateTo9MobileAirtimeDataTopUpTest() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 		
 		AirtimeDataTopup.navigateToAirtimeDataTopupTest();
 		
-		// Click on MTN Airtime/Data Topup
-		TestUtils.testTitle("Click on MTN Airtime/Data Topup");
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[1]/figure/mat-card")));
-		getDriver().findElement(By.xpath("//mat-grid-tile[1]/figure/mat-card")).click();
+		// Click on 9Mobile Airtime/Data Topup
+		TestUtils.testTitle("Click on 9Mobile Airtime/Data Topup");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[3]/figure/mat-card")));
+		getDriver().findElement(By.xpath("//mat-grid-tile[3]/figure/mat-card")).click();
 		Thread.sleep(500);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'MTN Airtime')]")));
-		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'MTN Airtime')]", "MTN Airtime");
-		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Buy MTN Airtime or Data");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'nine-mobile Airtime')]")));
+		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'nine-mobile Airtime')]", "nine-mobile Airtime");
+		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Buy 9mobile Airtime or Data");
 		Thread.sleep(500);
 		
 	}
@@ -59,6 +59,7 @@ public class MTNAirtimeDataTopUp extends TestBase{
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div/div/label[1]")));
 		
 		// Select Amount
+		getDriver().findElement(By.xpath("//input[@ng-reflect-name = 'airtimeAmount']")).clear();
 		getDriver().findElement(By.xpath("//div/button/span[contains(text(),'"+ amount+ "')]")).click();
 		Thread.sleep(500);
 		
@@ -124,7 +125,7 @@ public class MTNAirtimeDataTopUp extends TestBase{
 		// Select Data bundle
 		getDriver().findElement(By.id("databundle")).click();
 		Thread.sleep(500);
-		getDriver().findElement(By.xpath("//div/span[contains(text(),'50MB ')]")).click();
+		getDriver().findElement(By.xpath("//div/span[contains(text(),'2GB ')]")).click();
 		Thread.sleep(500);
 		
 		// Enter Phone Number
@@ -160,7 +161,7 @@ public class MTNAirtimeDataTopUp extends TestBase{
 	
 	@Parameters ("testEnv")
 	@Test
-	public void mtnValidationTest(String testEnv) throws InterruptedException, Exception {
+	public void nineMobileValidationTest(String testEnv) throws InterruptedException, Exception {
 		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 		
 		File path = null;
@@ -186,14 +187,14 @@ public class MTNAirtimeDataTopUp extends TestBase{
 		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Topup your airtime or data bundle");
 		Thread.sleep(500);
 		
-		// Click on MTN Airtime
-		TestUtils.testTitle("Navigate back to MTN Airtime view");
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[1]/figure/mat-card")));
-		getDriver().findElement(By.xpath("//mat-grid-tile[1]/figure/mat-card")).click();
+		// Click on 9Mobile Airtime
+		TestUtils.testTitle("Navigate back to 9Mobile Airtime view");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[3]/figure/mat-card")));
+		getDriver().findElement(By.xpath("//mat-grid-tile[3]/figure/mat-card")).click();
 		Thread.sleep(500);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'MTN Airtime')]")));
-		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'MTN Airtime')]", "MTN Airtime");
-		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Buy MTN Airtime or Data");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'nine-mobile Airtime')]")));
+		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'nine-mobile Airtime')]", "nine-mobile Airtime");
+		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Buy 9mobile Airtime or Data");
 		Thread.sleep(500);
 		
 		// To confirm that the Amount Keypad populates a value on the Amount field
@@ -204,7 +205,7 @@ public class MTNAirtimeDataTopUp extends TestBase{
 		testInfo.get().info(amt + " found");
 	
 		// Rater test
-		TestUtils.raterTest("MTN Airtime/Data Topup");
+		TestUtils.raterTest("9Mobile Airtime/Data Topup");
 		
 	}
 	

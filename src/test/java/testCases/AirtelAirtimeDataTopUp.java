@@ -48,7 +48,7 @@ public class AirtelAirtimeDataTopUp extends TestBase {
 		}
 		JSONParser parser = new JSONParser();
 		JSONObject config = (JSONObject) parser.parse(new FileReader(path));
-		JSONObject envs = (JSONObject) config.get("AirtelAirtimeDataTopUp");
+		JSONObject envs = (JSONObject) config.get("AirtimeDataTopUp");
 
 		String number = (String) envs.get("number");
 		String validSecretAnswer = (String) envs.get("validSecretAnswer");
@@ -107,7 +107,7 @@ public class AirtelAirtimeDataTopUp extends TestBase {
 		}
 		JSONParser parser = new JSONParser();
 		JSONObject config = (JSONObject) parser.parse(new FileReader(path));
-		JSONObject envs = (JSONObject) config.get("AirtelAirtimeDataTopUp");
+		JSONObject envs = (JSONObject) config.get("AirtimeDataTopUp");
 
 		String number = (String) envs.get("number");
 		String validSecretAnswer = (String) envs.get("validSecretAnswer");
@@ -124,7 +124,7 @@ public class AirtelAirtimeDataTopUp extends TestBase {
 		// Select Data bundle
 		getDriver().findElement(By.id("databundle")).click();
 		Thread.sleep(1000);
-		getDriver().findElement(By.xpath("//div/span[contains(text(),'50MB ')]")).click();
+		getDriver().findElement(By.xpath("//div/span[contains(text(),'750MB ')]")).click();
 		Thread.sleep(500);
 
 		// Enter Phone Number
@@ -172,7 +172,7 @@ public class AirtelAirtimeDataTopUp extends TestBase {
 		}
 		JSONParser parser = new JSONParser();
 		JSONObject config = (JSONObject) parser.parse(new FileReader(path));
-		JSONObject envs = (JSONObject) config.get("AirtelAirtimeDataTopUp");
+		JSONObject envs = (JSONObject) config.get("AirtimeDataTopUp");
 
 		String amount = (String) envs.get("amount");
 		
