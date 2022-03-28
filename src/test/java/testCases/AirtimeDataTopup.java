@@ -11,14 +11,14 @@ import util.TestUtils;
 public class AirtimeDataTopup extends TestBase{
 
 	@Test
-	public void navigateToAirtimeDataTopupTest() throws InterruptedException {
+	public static void navigateToAirtimeDataTopupTest() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 		
 		TestUtils.testTitle("Navigate to Airtime/Data Topup");
 		
 		// Click on Airtime/Data Topup
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Dashboard')]")));
-		getDriver().findElement(By.xpath("//ul[5]/li/a")).click();
+		getDriver().findElement(By.xpath("//ul[6]/li/a")).click();
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Airtime/Data Topup')]")));
 		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Airtime/Data Topup')]", "Airtime/Data Topup");

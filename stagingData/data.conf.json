@@ -13,7 +13,7 @@
 		"phoNumGreaterThan11Digits":"080233055653456465",
 		"phoNumLessThan11Digits":"0802565",
 		"wrongmailFormat":"sina@com",
-		"validUserID":"205153003",
+		"validUserID":"221843785",
 		"userIDGreaterThan12Digits":"080233045655653456465",
 		"userIDLessThan9Digits":"0802565",
 		"wrongCharacterlength": "SedutperspiciatisundeomnisistenatuserrorsitvoluptatemaccusantiumdoloremquelaudantiumtoamremaperiameaqueipsaquaeabilloinventoreveritatisetquasiarchitectobeataevitaedictasuntexplicaboNemoenimipsamvoluptatemquiavoluptascaboNemoenimipsamvoluptatemquip@gmail.com"
@@ -47,5 +47,19 @@
 	
 	"StatementToThirdParty": {
 		"applicantName": "Christian Chukwu"
+	},
+	
+	"MTNAirtimeDataTopUp": {
+		"number": "08023305565",
+		"validSecretAnswer": "test",
+		"token": "123456",
+		"amount": "100"
+	},
+	
+	"AirtelAirtimeDataTopUp": {
+		"number": "08023305565",
+		"validSecretAnswer": "test",
+		"token": "123456",
+		"amount": "100"
 	}
 }

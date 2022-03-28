@@ -59,10 +59,10 @@ public class TestBase {
 
 		String myUrl = null;
 		if(testEnv.equalsIgnoreCase("stagingData")) {
-			myUrl = System.getProperty("instance-url", "http://gtweb6.gtbank.com:8080/");
+			myUrl = System.getProperty("instance-url", "http://gtweb6.gtbank.com:8080");
 		} else
 		{
-			myUrl = System.getProperty("instance-url", "http://gtweb6.gtbank.com:8080/");
+			myUrl = System.getProperty("instance-url", "http://gtweb6.gtbank.com:8080");
 		}
 
 		return myUrl;
