@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="IBANKSuite" parallel="tests" thread-count="3">
+<suite name="IBANKSuite" parallel="tests" thread-count="1">
 	<parameter name="groupReport" value="/ibank.html" />
 	<parameter name="toMails" value="kakaageraldine@gmail.com" />
 	<parameter name="myBrowser" value="chrome" />
@@ -256,6 +256,36 @@
 					<include name="Login"></include>
 					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
 					<include name="navigateToStatementCollectionTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="MTNAirtimeDataTopUp" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.MTNAirtimeDataTopUp">
+				<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToMTNAirtimeDataTopUpTest"></include>
+					<include name="mtnValidationTest"></include>
+					<include name="validPurchaseAirtimeTest"></include>
+					<include name="validPurchaseDataTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="AirtelAirtimeDataTopUp" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.AirtelAirtimeDataTopUp">
+				<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToAirtelAirtimeDataTopUpTest"></include>
+					<include name="airtelValidationTest"></include>
+					<include name="validPurchaseAirtimeTest"></include>
+					<include name="validPurchaseDataTest"></include>
 				</methods>
 			</class>
 		</classes>
