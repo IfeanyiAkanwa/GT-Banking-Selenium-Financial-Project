@@ -14,22 +14,22 @@ import org.testng.annotations.Test;
 import util.TestBase;
 import util.TestUtils;
 
-public class MTNAirtimeDataTopUp extends TestBase{
+public class GLOAirtimeDataTopUp extends TestBase{
 	
 	@Test
-	public static void navigateToMTNAirtimeDataTopUpTest() throws InterruptedException {
+	public static void navigateToGLOAirtimeDataTopUpTest() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 		
 		AirtimeDataTopup.navigateToAirtimeDataTopupTest();
 		
-		// Click on MTN Airtime/Data Topup
-		TestUtils.testTitle("Click on MTN Airtime/Data Topup");
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[1]/figure/mat-card")));
-		getDriver().findElement(By.xpath("//mat-grid-tile[1]/figure/mat-card")).click();
+		// Click on GLO Airtime/Data Topup
+		TestUtils.testTitle("Click on GLO Airtime/Data Topup");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[4]/figure/mat-card")));
+		getDriver().findElement(By.xpath("//mat-grid-tile[4]/figure/mat-card")).click();
 		Thread.sleep(500);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'MTN Airtime')]")));
-		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'MTN Airtime')]", "MTN Airtime");
-		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Buy MTN Airtime or Data");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Glo Airtime')]")));
+		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Glo Airtime')]", "Glo Airtime");
+		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Buy Glo Airtime or Data");
 		Thread.sleep(500);
 		
 	}
@@ -124,7 +124,7 @@ public class MTNAirtimeDataTopUp extends TestBase{
 		// Select Data bundle
 		getDriver().findElement(By.id("databundle")).click();
 		Thread.sleep(500);
-		getDriver().findElement(By.xpath("//div/span[contains(text(),'50MB ')]")).click();
+		getDriver().findElement(By.xpath("//div/span[contains(text(),'250MB(NIGHT) ')]")).click();
 		Thread.sleep(500);
 		
 		// Enter Phone Number
@@ -160,7 +160,7 @@ public class MTNAirtimeDataTopUp extends TestBase{
 	
 	@Parameters ("testEnv")
 	@Test
-	public void mtnValidationTest(String testEnv) throws InterruptedException, Exception {
+	public void gloValidationTest(String testEnv) throws InterruptedException, Exception {
 		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 		
 		File path = null;
@@ -186,14 +186,14 @@ public class MTNAirtimeDataTopUp extends TestBase{
 		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Topup your airtime or data bundle");
 		Thread.sleep(500);
 		
-		// Click on MTN Airtime
-		TestUtils.testTitle("Navigate back to MTN Airtime view");
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[1]/figure/mat-card")));
-		getDriver().findElement(By.xpath("//mat-grid-tile[1]/figure/mat-card")).click();
+		// Click on GlO Airtime
+		TestUtils.testTitle("Navigate back to GLO Airtime view");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[4]/figure/mat-card")));
+		getDriver().findElement(By.xpath("//mat-grid-tile[4]/figure/mat-card")).click();
 		Thread.sleep(500);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'MTN Airtime')]")));
-		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'MTN Airtime')]", "MTN Airtime");
-		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Buy MTN Airtime or Data");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Glo Airtime')]")));
+		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Glo Airtime')]", "Glo Airtime");
+		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Buy Glo Airtime or Data");
 		Thread.sleep(500);
 		
 		// To confirm that the Amount Keypad populates a value on the Amount field
@@ -204,7 +204,7 @@ public class MTNAirtimeDataTopUp extends TestBase{
 		testInfo.get().info(amt + " found");
 	
 		// Rater test
-		TestUtils.raterTest("MTN Airtime/Data Topup");
+		TestUtils.raterTest("GLO Airtime/Data Topup");
 		
 	}
 	

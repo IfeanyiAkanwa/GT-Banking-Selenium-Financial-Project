@@ -290,4 +290,34 @@
 			</class>
 		</classes>
 	</test>
+	<test name="GLOAirtimeDataTopUp" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.GLOAirtimeDataTopUp">
+				<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToGLOAirtimeDataTopUpTest"></include>
+					<include name="gloValidationTest"></include>
+					<include name="validPurchaseAirtimeTest"></include>
+					<include name="validPurchaseDataTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="NineMobileAirtimeDataTopUp" preserve-order="true">
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.NineMobileAirtimeDataTopUp">
+				<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateTo9MobileAirtimeDataTopUpTest"></include>
+					<include name="nineMobileValidationTest"></include>
+					<include name="validPurchaseAirtimeTest"></include>
+					<include name="validPurchaseDataTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
 </suite>  <!-- Suite -->
