@@ -139,7 +139,7 @@ public class ForgotPassword extends TestBase {
 		// Forgot Secret Answer 
 		TestUtils.testTitle("To confirm that user is directed to the Forgot Secret Answer page from Forgot Password page");
 		getDriver().findElement(By.xpath("//a[contains(text(),'Forgot Secret Answer?')]")).click();
-		Thread.sleep(500);
+		Thread.sleep(1000);
 		TestUtils.assertSearchText("XPATH", "//h1", "Recover Secret Answer");
 		Thread.sleep(500);
 		

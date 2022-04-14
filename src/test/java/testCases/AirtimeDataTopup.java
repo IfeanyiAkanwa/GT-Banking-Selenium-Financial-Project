@@ -77,7 +77,7 @@ public class AirtimeDataTopup extends TestBase{
 			Thread.sleep(500);
 		}
 	
-		TestUtils.testTitle("To confirm that all previous Data topup records are displayed when user cilcks on Data Topup button");
+		/*TestUtils.testTitle("To confirm that all previous Data topup records are displayed when user cilcks on Data Topup button");
 		// Click on Data Topup
 		getDriver().findElement(By.xpath("//div[2]/div/div/div[2]")).click();
 		Thread.sleep(500);
@@ -100,7 +100,7 @@ public class AirtimeDataTopup extends TestBase{
 		} catch (Exception e) {
 			TestUtils.assertSearchText("XPATH", "//app-gtibank-frequent-topup/div/p", "No records found for frequent topup.");
 			Thread.sleep(500);
-		}
+		}*/
 	}
 	
 }

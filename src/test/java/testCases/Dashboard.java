@@ -88,11 +88,11 @@ public class Dashboard extends TestBase{
 		TestUtils.assertSearchText("XPATH", "//a/span[2]", "Dashboard");
 		TestUtils.assertSearchText("XPATH", "//ul[2]/li/a/span[2]", "Accounts");
 		TestUtils.assertSearchText("XPATH", "//ul[3]/li/a/span[2]", "Transfers");
-		TestUtils.assertSearchText("XPATH", "//ul[4]/li/a/span[2]", "Bills and Payments");
-		TestUtils.assertSearchText("XPATH", "//ul[5]/li/a/span[2]", "Airtime/Data Topup");
-		TestUtils.assertSearchText("XPATH", "//ul[6]/li/a/span[2]", "Cards");
-		TestUtils.assertSearchText("XPATH", "//ul[7]/li/a/span[2]", "Loans and Savings");
-		TestUtils.assertSearchText("XPATH", "//ul[8]/li/a/span[2]", "FX Transfers");
+		TestUtils.assertSearchText("XPATH", "//ul[4]/li/a/span[2]", "FX Transfers");
+		TestUtils.assertSearchText("XPATH", "//ul[5]/li/a/span[2]", "Bills and Payments");
+		TestUtils.assertSearchText("XPATH", "//ul[6]/li/a/span[2]", "Airtime/Data Topup");
+		TestUtils.assertSearchText("XPATH", "//ul[7]/li/a/span[2]", "Cards");
+		TestUtils.assertSearchText("XPATH", "//ul[8]/li/a/span[2]", "Loans and Savings");
 		TestUtils.assertSearchText("XPATH", "//ul[9]/li/a/span[2]", "Self Service");
 		TestUtils.assertSearchText("XPATH", "//ul[10]/li/a/span[2]", "Log out");
 		Thread.sleep(500);
@@ -236,15 +236,15 @@ public class Dashboard extends TestBase{
 		}
 		
 		
-		// To confirm that records are displayed on Other Banks Transfers section
+		/*// To confirm that records are displayed on Other Banks Transfers section
 		TestUtils.testTitle("To confirm that records are displayed on Other Banks Transfers section");
 		
 		// Click on Other Banks Transfers
 		getDriver().findElement(By.xpath("//div[2]/div/div/div[2]/div")).click();
 		Thread.sleep(1000);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'No Record - No frequent records')]")));
-		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'No Record - No frequent records')]", "No Record - No frequent records");
-		Thread.sleep(500);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[contains(text(),'No Record - No frequent records')]")));
+		TestUtils.assertSearchText("XPATH", "//p[contains(text(),'No Record - No frequent records')]", "No Record - No frequent records");
+		Thread.sleep(500);*/
 	
 		
 		// To confirm that user is directed to Transfer page when the user clicks on the 'Go to Transfer' button on Other Banks Transfers view
@@ -402,7 +402,7 @@ public class Dashboard extends TestBase{
 	public void iRequireTest() throws InterruptedException {
 		
 		TestUtils.testTitle("Navigate to IRequire");
-		TestUtils.assertSearchText("CSSSELECTOR",	"tspan", "IRequire");
+		TestUtils.assertSearchText("XPATH",	"//text/tspan[contains(text(),'IRequire')]", "IRequire");
 		TestUtils.scrollToElement("XPATH", "//mat-grid-tile[5]/figure/mat-card");
 		
 		// To confirm that there are 5 Cards on IRequire
