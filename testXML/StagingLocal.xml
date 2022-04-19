@@ -24,6 +24,7 @@
 			</class>
 		</classes>
 	</test>
+
 	<test name="Login2" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
@@ -36,7 +37,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> 
 	<test name="LandingPage" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
@@ -163,6 +164,7 @@
 			</class>
 		</classes>
 	</test>
+
 	<test name="OpenAdditionalAcount" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
@@ -320,4 +322,5 @@
 			</class>
 		</classes>
 	</test>
+
 </suite>  <!-- Suite -->
