@@ -114,14 +114,14 @@ public class OpenAdditionalAcount extends TestBase{
 		getDriver().findElement(By.xpath("//mat-card/button/span/mat-icon")).click();
 		Thread.sleep(500);
 		
-		// Rater
-		TestUtils.raterTest("Open Additional Account");
-
 		// Account officer
 		TestUtils.accOfficerValidationTest();
 		
 		// Navigate to Open Additional Account
 		navigateToOpenAdditionalAccountTest();
+		
+		// Rater
+		TestUtils.raterTest("Open Additional Account");
 	}
 	
 	@Parameters ("testEnv")

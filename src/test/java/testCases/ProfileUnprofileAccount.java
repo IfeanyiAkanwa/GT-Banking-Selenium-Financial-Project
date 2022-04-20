@@ -22,8 +22,8 @@ public class ProfileUnprofileAccount extends TestBase{
 		getDriver().findElement(By.xpath("//ul[2]/li/a")).click();
 		Thread.sleep(500);
 		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[6]/figure/mat-card/p")));
-		getDriver().findElement(By.xpath("//mat-grid-tile[6]/figure/mat-card")).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[7]/figure/mat-card/p")));
+		getDriver().findElement(By.xpath("//mat-grid-tile[7]/figure/mat-card")).click();
 		Thread.sleep(500);
 		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Accounts Profiling')]", "Accounts Profiling");
 		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Profile and Unprofile Accounts");
