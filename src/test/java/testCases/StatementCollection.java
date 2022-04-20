@@ -18,9 +18,9 @@ public class StatementCollection extends TestBase{
 		
 		// Click on statement Collection
 		TestUtils.testTitle("Click on statement Collection");
-		getDriver().findElement(By.xpath("//div[2]/div/div/div[2]/div")).click();
+		getDriver().findElement(By.xpath("//div/div[2]/div[contains(text(),'Statement Collection')]")).click();
 		Thread.sleep(500);
-		TestUtils.assertSearchText("XPATH", "//div[2]/div/div/div[2]/div", "Statement Collection");
+		TestUtils.assertSearchText("XPATH", "//div/div[2]/div[contains(text(),'Statement Collection')]", "Statement Collection");
 		Thread.sleep(500);
 	}
 

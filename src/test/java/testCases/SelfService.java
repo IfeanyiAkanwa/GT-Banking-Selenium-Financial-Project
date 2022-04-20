@@ -22,9 +22,10 @@ public class SelfService extends TestBase {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[9]/li/a")));
 		getDriver().findElement(By.xpath("//ul[9]/li/a")).click();
 		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2/a")));
-		TestUtils.assertSearchText("XPATH", "//h2/a", "Self Service");
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Self Service')]")));
+		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Self Service')]", "Self Service");
+		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Manage your profile and accounts settings here");
+		Thread.sleep(500);
 
 	};
 	

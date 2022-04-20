@@ -15,7 +15,7 @@
 			<class name="testCases.Login">
 				<methods>
 					<include name="accountNumberLoginValidationTest"></include>
-					<include name="phoneNumberLoginValidationTest"></include>
+					<exclude name="phoneNumberLoginValidationTest"></exclude>
 					<include name="userIDLoginValidationTest"></include>
 					<include name="emailLoginValidationTest"></include>
 					<include name="loginLinksValidationTest"></include>
@@ -23,15 +23,15 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> 
 	<test name="Login2" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
 			<class name="testCases.Login">
 				<methods>
 					<include name="validAccountNumberLoginTest"></include>
-					<include name="validEmailLoginTest"></include>
-					<include name="validPhoneNumberLoginTest"></include>
+					<exclude name="validEmailLoginTest"></exclude>
+					<exclude name="validPhoneNumberLoginTest"></exclude>
 					<include name="validUserIDLoginTest"></include>
 				</methods>
 			</class>
@@ -74,7 +74,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> 
 	<test name="Dashboard" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
@@ -86,13 +86,13 @@
 					<include name="assertCardCountTest"></include>
 					<include name="menuBarValidationTest"></include>
 					<include name="profileImageUploadTest"></include>
-					<include name="frequentTransactionsTest"></include>
+					<include name="frequentTransactionsTest"></include> 
 					<include name="iRequireTest"></include>
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="ProfileUnprofileAccount" preserve-order="true">
+	 <test name="ProfileUnprofileAccount" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
 			<class name="testCases.ProfileUnprofileAccount">
@@ -118,7 +118,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> 
 	<test name="SecureEmail" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
@@ -129,11 +129,10 @@
 					<include name="navigateToSecureEmailTest"></include>
 					<include name="secureEmailRequestFormValidationTest"></include>
 					<include name="secureEmailValidFileUploadTest"></include>
-					<include name="secureEmailInvalidFileUploadTest"></include>
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> 
 	<test name="AccountStatement" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
@@ -149,7 +148,7 @@
 			</class>
 		</classes>
 	</test>
-	<test name="OpenDomiciliaryAccount" preserve-order="true">
+	 <test name="OpenDomiciliaryAccount" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
 			<class name="testCases.OpenDomiciliaryAccount">
@@ -162,7 +161,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> 
 	<test name="OpenAdditionalAcount" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
@@ -172,12 +171,12 @@
 					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
 					<include name="navigateToOpenAdditionalAccountTest"></include>
 					<include name="openAdditionalAccountValidationTest"></include>
-					<include name="createAdditionalAccountTest"></include>
+					<exclude name="createAdditionalAccountTest"></exclude>
 				</methods>
 			</class>
 		</classes>
 	</test>
-	<test name="AirtimeDataTopup" preserve-order="true">
+	 <test name="AirtimeDataTopup" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
 			<class name="testCases.AirtimeDataTopup">
@@ -190,7 +189,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> 
 	<test name="StatementToThirdParty" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
@@ -205,21 +204,20 @@
 			</class>
 		</classes>
 	</test>
-	
 	 <test name="IRequire" preserve-order="true">
-			<parameter name="myBrowser" value="chrome" />
-			<classes>
-				<class name="testCases.IRequire">
-					<methods>
-						<include name="Login"></include>
-						<include name="ClickOnProceedToInternetBankingButtonTest"></include>
-						<include name="navigateToIRequireTest"></include>
-						<include name="IRequireValidationTest"></include>
-						<include name="sendStatementTest"></include>
-					</methods>
-				</class>
-			</classes>
-		</test>
+		<parameter name="myBrowser" value="chrome" />
+		<classes>
+			<class name="testCases.IRequire">
+				<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToIRequireTest"></include>
+					<include name="IRequireValidationTest"></include>
+					<include name="sendStatementTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
 	<test name="SelfService" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
@@ -228,7 +226,7 @@
 					<include name="Login"></include>
 					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
 					<include name="navigateToSelfServiceModule"></include>
-					<include name="SelfServiceSubmodulesCheck"></include>	
+					<include name="SelfServiceSubmodulesCheck"></include>
 				</methods>
 			</class>
 		</classes>
@@ -243,7 +241,6 @@
 					<include name="navigateToSelfServiceModule"></include>
 					<include name="CustomerProfileFieldsCheck"></include>
 					<include name="CustomerProfileImageUpload"></include>
-					
 				</methods>
 			</class>
 		</classes>
@@ -319,5 +316,5 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
-</suite>  <!-- Suite -->
+	</test> 
+</suite>

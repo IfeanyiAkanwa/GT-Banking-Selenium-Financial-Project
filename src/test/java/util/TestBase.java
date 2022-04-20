@@ -158,7 +158,7 @@ public class TestBase {
 					driver.set(new RemoteWebDriver(new URL(gridUrl), capability));
 				}
 				getDriver().manage().window().maximize();
-				getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+				getDriver().manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 				getDriver().get(myUrl(testEnv));
 
 
@@ -177,7 +177,7 @@ public class TestBase {
 		 }
 
 		getDriver().manage().window().maximize();
-		getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 		getDriver().get(myUrl(testEnv));
 	}
 

@@ -198,6 +198,7 @@ public class GLOAirtimeDataTopUp extends TestBase{
 		
 		// To confirm that the Amount Keypad populates a value on the Amount field
 		TestUtils.testTitle("To confirm that the Amount Keypad populates a value on the Amount field");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div/button/span[contains(text(),'" + amount + "')]")));
 		getDriver().findElement(By.xpath("//div/button/span[contains(text(),'" + amount + "')]")).click();
 		Thread.sleep(500);
 		String amt = getDriver().findElement(By.xpath("//input[@ng-reflect-name = 'airtimeAmount']")).getAttribute("value");
