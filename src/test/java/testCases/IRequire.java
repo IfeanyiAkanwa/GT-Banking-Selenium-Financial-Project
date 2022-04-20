@@ -25,7 +25,7 @@ public class IRequire extends TestBase{
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[5]/figure/mat-card")));
 		getDriver().findElement(By.xpath("//mat-grid-tile[5]/figure/mat-card")).click();
 		Thread.sleep(500);
-		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'I Require')]", "I Require");
+		TestUtils.assertSearchText("XPATH", "//div/h2/a[contains(text(),'I Require')]", "I Require");
 		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Make Request for deliverables and pickup at our specified branch");
 		Thread.sleep(500);
 	}

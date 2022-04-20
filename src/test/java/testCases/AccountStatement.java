@@ -186,9 +186,9 @@ public class AccountStatement extends TestBase {
 		TestUtils.testTitle("Select Account to view Statement");
 		getDriver().findElement(By.xpath("//input[@id='account']")).click();
 		Thread.sleep(500);
-		String acc = getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div[3]")).getText();
+		String acc = getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div[1]")).getText();
 		testInfo.get().log(Status.INFO, "<b> Account to view Statement: </b>" + acc+ " found");
-		getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div[3]")).click();
+		getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div[1]")).click();
 		Thread.sleep(1000);
 		
 		// Select Start Date
@@ -210,30 +210,31 @@ public class AccountStatement extends TestBase {
 		  //getDriver().findElement(By.xpath("//td[2]/div")).click();
 		  //Thread.sleep(1000);
 		 
-		String startDate = getDriver().findElement(By.id("dp")).getAttribute("value");
-		String endDate = getDriver().findElement(By.xpath("(//input[@id='dp'])[2]")).getAttribute("value");
+		String startDate = getDriver().findElement(By.name("startDate")).getAttribute("value");
+		String endDate = getDriver().findElement(By.name("endDate")).getAttribute("value");
 		
 		TestUtils.testTitle("Assert total number of Transactions returned within Start Date: (" + startDate + ")  and End Date: (" + endDate + ")");
 		int transCount = getDriver().findElements(By.xpath("//*[@id='pcoded']/div[2]/div[3]/div/div/div/div/div/gtibank-accounts/div/div/gtibank-account-statement/div/perfect-scrollbar/div/div/div")).size();
 		if (TestUtils.isElementPresent("ID", "sendEmail")) {
 			testInfo.get().info("Total number of Transactions displayed: <b>" + transCount + "</b>");
+			
+			TestUtils.testTitle("Assert Details of a particular Transaction");
+			Assertion.assertAccountStatementTransactionDetails();
+			
+			// Click on Send Statement button
+			TestUtils.testTitle("Send Account Statement");
+			getDriver().findElement(By.id("sendEmail")).click();
+			Thread.sleep(500);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//gtb-notification/mat-card/p")));
+			TestUtils.assertSearchText("XPATH", "//gtb-notification/mat-card/div/p", "Send Statement");
+			TestUtils.assertSearchText("XPATH", "//gtb-notification/mat-card/p", "Statement was succesfully sent to your email");
+			Thread.sleep(1000);
+			getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
+			Thread.sleep(500);
 		} else {
 			testInfo.get().error("Table is empty.");
 		}
 		
-		TestUtils.testTitle("Assert Details of a particular Transaction");
-		Assertion.assertAccountStatementTransactionDetails();
-		
-		// Click on Send Statement button
-		TestUtils.testTitle("Send Account Statement");
-		getDriver().findElement(By.id("sendEmail")).click();
-		Thread.sleep(500);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//gtb-notification/mat-card/p")));
-		TestUtils.assertSearchText("XPATH", "//gtb-notification/mat-card/div/p", "Send Statement");
-		TestUtils.assertSearchText("XPATH", "//gtb-notification/mat-card/p", "Statement was succesfully sent to your email");
-		Thread.sleep(1000);
-		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
-		Thread.sleep(500);
 	}
 	 
 	
@@ -244,11 +245,11 @@ public class AccountStatement extends TestBase {
 
 		// Select Account 
 		TestUtils.testTitle("Select Account to view Statement");
-		getDriver().findElement(By.xpath("//ng-select[@id='undefined']/div/span")).click();
+		getDriver().findElement(By.xpath("//input[@id='account']")).click();
 		Thread.sleep(500);
-		String acc = getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div[3]")).getText();
+		String acc = getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div[1]")).getText();
 		testInfo.get().log(Status.INFO, "<b> Account to view Statement: </b>" + acc+ " found");
-		getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div[3]")).click();
+		getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div[1]")).click();
 		Thread.sleep(500);
 		
 		// Select Start Date
@@ -265,46 +266,47 @@ public class AccountStatement extends TestBase {
 		getDriver().findElement(By.xpath("//tr[4]/td[2]/div")).click();
 		Thread.sleep(500);
 		
-		String startDate = getDriver().findElement(By.id("dp")).getAttribute("value");
-		String endDate = getDriver().findElement(By.xpath("(//input[@id='dp'])[2]")).getAttribute("value");
+		String startDate = getDriver().findElement(By.name("startDate")).getAttribute("value");
+		String endDate = getDriver().findElement(By.name("endDate")).getAttribute("value");
 		
 		TestUtils.testTitle("Assert total number of Transactions returned within Start Date: (" + startDate + ")  and End Date: (" + endDate + ")");
 		int transCount = getDriver().findElements(By.xpath("//*[@id='pcoded']/div[2]/div[3]/div/div/div/div/div/gtibank-accounts/div/div/gtibank-account-statement/div/perfect-scrollbar/div/div/div")).size();
 		if (TestUtils.isElementPresent("ID", "sendEmail")) {
 			testInfo.get().info("Total number of Transactions displayed: <b>" + transCount + "</b>");
+			
+			TestUtils.testTitle("Assert Details of a particular Transaction");
+			Assertion.assertAccountStatementTransactionDetails();
+			
+			// Click on Download button
+			TestUtils.testTitle("Download Account Statement in .pdf format");
+			getDriver().findElement(By.xpath("//span/button")).click();
+			Thread.sleep(500);
+			
+			// select pdf
+			getDriver().findElement(By.xpath("//div[2]/div/div/div/button")).click();
+			Thread.sleep(500);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("sendEmail")));
+			testInfo.get().info("Statement was successfully downloaded");
+			Thread.sleep(500);
+			
+			// Click on download button
+			TestUtils.testTitle("Download Account Statement in EXCEL format");
+			getDriver().findElement(By.xpath("//span/button")).click();
+			Thread.sleep(500);
+			
+			// select excel
+			getDriver().findElement(By.xpath("//div[2]/div/div/div/button[2]")).click();
+			Thread.sleep(500);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("sendEmail")));
+			testInfo.get().info("Statement was successfully downloaded");
+			Thread.sleep(500);
 		} else {
 			testInfo.get().error("Table is empty.");
 		}
 		
-		TestUtils.testTitle("Assert Details of a particular Transaction");
-		Assertion.assertAccountStatementTransactionDetails();
-		
-		// Click on Download button
-		TestUtils.testTitle("Download Account Statement in .pdf format");
-		getDriver().findElement(By.xpath("//span/button")).click();
-		Thread.sleep(500);
-		
-		// select pdf
-		getDriver().findElement(By.xpath("//div[2]/div/div/div/button")).click();
-		Thread.sleep(500);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("sendEmail")));
-		testInfo.get().info("Statement was successfully downloaded");
-		Thread.sleep(500);
-		
-		// Click on download button
-		TestUtils.testTitle("Download Account Statement in EXCEL format");
-		getDriver().findElement(By.xpath("//span/button")).click();
-		Thread.sleep(500);
-		
-		// select excel
-		getDriver().findElement(By.xpath("//div[2]/div/div/div/button[2]")).click();
-		Thread.sleep(500);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("sendEmail")));
-		testInfo.get().info("Statement was successfully downloaded");
-		Thread.sleep(500);
-		
 		// Account Officer
 		TestUtils.accOfficerValidationTest();
-		
 	}
 }
+
+
