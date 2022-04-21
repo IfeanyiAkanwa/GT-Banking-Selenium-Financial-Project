@@ -30,8 +30,7 @@ public class Transfers extends TestBase{
 	}
 	
 	@Test
-	public void transfersSubModuleCheckTest() throws InterruptedException
-	{
+	public void transfersSubModuleCheckTest() throws InterruptedException {
 		TestUtils.testTitle("To confirm the sub modules on Transfers menu");
 		TestUtils.assertSearchText("XPATH", "//mat-card/p", "Transfer to GTBank");
 		TestUtils.assertSearchText("XPATH", "//mat-grid-tile[2]/figure/mat-card/p", "Transfer to Other Banks");
@@ -48,9 +47,7 @@ public class Transfers extends TestBase{
 	}
 	
 	@Test
-	public static void frequentTransfers() throws InterruptedException
-	
-	{
+	public static void frequentTransfers() throws InterruptedException {
 		TestUtils.testTitle("Navigate to Frequent Transfers");
 		TestUtils.assertSearchText("", toAddress, gridUrl);
 		TestUtils.assertSearchText("XPATH", "//span/mat-panel-title", "Frequent Transfers");
