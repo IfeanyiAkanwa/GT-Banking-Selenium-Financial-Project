@@ -72,9 +72,7 @@ public class Transfers extends TestBase{
 			testInfo.get().info("<b> Go to Transfers section is hidden </b>");
 		}
 		
-		
-		
-		
+	
 		
 		
 		
