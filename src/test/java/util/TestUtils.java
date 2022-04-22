@@ -770,6 +770,7 @@ public class TestUtils extends TestBase {
 		
 	}
 	
+	
 	public static void imageAlertSwitch() {
 		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 		
@@ -900,11 +901,13 @@ public class TestUtils extends TestBase {
 		// Click on Account officer panel
 		getDriver().findElement(By.xpath("//mat-panel-title")).click();
 		Thread.sleep(500);
-		if (getDriver().findElement(By.xpath("//h3")).isDisplayed()) {
+		if (getDriver().findElement(By.className("//h3")).isDisplayed()) {
 			testInfo.get().error("<b> Account officer section is not hidden </b>");
 		} else {
 			testInfo.get().info("<b> Account officer section is hidden </b>");
 		}
+		
+		//GTBank tab - mat-tab-content-5-0
 		
 		// Click on Account officer panel
 		getDriver().findElement(By.xpath("//mat-expansion-panel-header")).click();
@@ -926,4 +929,7 @@ public class TestUtils extends TestBase {
 		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Create a request using a secured email channel");
 		Thread.sleep(500);
 	}
+	
+	
 }
+

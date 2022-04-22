@@ -9,7 +9,7 @@
 	<parameter name="config" value="parallel.conf.json" />
 	<parameter name="testEnv" value="stagingData" />
 
-	<test name="Login" preserve-order="true">
+<test name="Login" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
 			<class name="testCases.Login">
@@ -36,7 +36,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> 
 	<test name="LandingPage" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
@@ -316,5 +316,19 @@
 				</methods>
 			</class>
 		</classes>
-	</test> 
+	</test>
+ 	<test name="Transfers" preserve-order ="true">
+		<parameter name="myBrowser" value="chrome"/>
+		<classes>
+			<class name="testCases.Transfers">
+				<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToTransfersTest"></include>
+					<include name="transfersSubModuleCheckTest"></include>
+					<include name="frequentTransfers"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
 </suite>
