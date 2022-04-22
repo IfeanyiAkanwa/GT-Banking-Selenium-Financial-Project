@@ -49,112 +49,107 @@ public class Transfers extends TestBase{
 	@Test
 	public static void frequentTransfers() throws InterruptedException {
 		TestUtils.testTitle("Navigate to Frequent Transfers");
-		TestUtils.assertSearchText("", toAddress, gridUrl);
 		TestUtils.assertSearchText("XPATH", "//span/mat-panel-title", "Frequent Transfers");
 		Thread.sleep(500);
 		
 		TestUtils.testTitle("To confirm that the Frequent Transfers has a GTBank tab");
-		TestUtils.assertSearchText("XPATH", "//div[@id='mat-tab-label-10-0']/div", "GTBank");
+		TestUtils.assertSearchText("XPATH", "//div[@class='mat-tab-label-content'][contains(text(), 'GTBank')]", "GTBank");
 		Thread.sleep(500);
 		
 		TestUtils.testTitle("To confirm that the Frequent Transfers has a Other Banks tab");
-		TestUtils.assertSearchText("XPATH", "//div[@id='mat-tab-label-10-1']/div", "Other Banks");
+		TestUtils.assertSearchText("XPATH", "//div[@class='mat-tab-label-content'][contains(text(), 'Other Banks')]", "Other Banks");
 		Thread.sleep(500);
 		
 		
-		TestUtils.testTitle("To confirm that all frequent transfers done to GTBank accounts are displayed when users click on the GTBank tab");
-		try
-			{
-			if (getDriver().findElement(By.xpath("//div[@id='mat-tab-label-16-0']/div")).isDisplayed())
-				
-				  { 
-					testInfo.get().error(" Frequent Transfers are displayed ");
-				  
-				  	TestUtils.testTitle("Assert Number of Records");				  	
-			int transferCount = getDriver().findElements(By.xpath("//div[@id='mat-tab-label-16-0']/div")).size();//Changed int to dimension
-			
-							if (TestUtils.isElementPresent("XPATH", "//div[2]/div/div/div[2]"));
-								{
-									testInfo.get().info("Total Number of records is displayed : <b>" + transferCount + "</b> ");
-								}
-								//else
-								{
-									  testInfo.get().error("Table is empty");
-								}
-				  }
-				  
-				  else 
-				  		{
-					  		Thread.sleep(2000);
-					  		testInfo.get().info("No record found for frequent transfers");
-				  		}	
-			}
-	
-				  
-		catch(Exception e)
-					{
-					TestUtils.assertSearchText("XPATH", "//mat-tab-body[@id='mat-tab-content-14-0']/div/frequent-transfers/div/p", " No Record - No frequent records ");
-					Thread.sleep(500);
-					}
+		TestUtils.testTitle("To confirm the 'Frequent Transfer' button auto hides the Go to Transfers section when clicked"  );
+		//Click on Frequent Transfers Panel
 		
-		//Click on the Frequent Transfer Panel
-		//getDriver().findElement(By.xpath("//span/mat-panel-title")).click();
-		//Thread.sleep(500);
+		getDriver().findElement(By.xpath("//mat-panel-title")).click();
+		Thread.sleep(500);
+		if (getDriver().findElement(By.xpath("//div/button/span[contains(text(),'Go to Transfers')]")).isDisplayed()) {
+			testInfo.get().error("<b> Go to Transfers section is not hidden </b>");
+		} else {
+			testInfo.get().info("<b> Go to Transfers section is hidden </b>");
+		}
 		
-		//Click on Frequent Transfers 
+		
+		
+		
+		
+		
 		
 		/*
-		 * getDriver().findElement(By.xpath("//mat-expansion-panel-header")).click();
-		 * Thread.sleep(500);
+		 * TestUtils.
+		 * testTitle("To confirm that all frequent transfers done to GTBank accounts are displayed when users click on the GTBank tab"
+		 * ); try { if (getDriver().findElement(By.
+		 * xpath("//div[@class='mat-tab-label-content'][contains(text(), 'GTBank')]")).
+		 * isDisplayed())
 		 * 
-		 * //Click on other Banks
-		 * getDriver().findElement(By.id("mat-tab-label-4-1")).click();
-		 * Thread.sleep(500);
+		 * { //testInfo.get().error(" Frequent Transfers are displayed ");
 		 * 
-		 * //CLick on Go to Transfers
-		 * getDriver().findElement(By.xpath("//div/frequent-transfers/div/button")).
-		 * click();
+		 * TestUtils.testTitle("Assert Number of Records"); int transferCount =
+		 * getDriver().findElements(By.xpath("//div[@id='mat-tab-label-16-0']/div")).
+		 * size();//Changed int to dimension
+		 * 
+		 * if (TestUtils.isElementPresent("XPATH", "//div[2]/div/div/div[2]")); {
+		 * testInfo.get().info("Total Number of records displayed : <b>" + transferCount
+		 * + "</b> "); } //else { testInfo.get().error("Table is empty"); } }
+		 * 
+		 * else { Thread.sleep(2000);
+		 * testInfo.get().info("No record found for frequent transfers"); } }
+		 * 
+		 * 
+		 * catch(Exception e) { TestUtils.assertSearchText("XPATH",
+		 * "//mat-tab-body[@id='mat-tab-content-14-0']/div/frequent-transfers/div/p",
+		 * " No Record - No frequent records "); Thread.sleep(500); }
 		 */
 		
-		TestUtils.testTitle("To confirm that all frequent transfers done to Other Bank accounts are displayed when users click on the Other Banks tab");
-		try
-			{
-			if (getDriver().findElement(By.xpath("//div[@id='mat-tab-label-16-1']/div")).isDisplayed())
+		
+		/*
+		 * TestUtils.
+		 * testTitle("To confirm that all frequent transfers done to Other Bank accounts are displayed when users click on the Other Banks tab"
+		 * ); try { if (getDriver().findElement(By.
+		 * xpath("//div[@class='mat-tab-label-content'][contains(text(), 'Other Banks')]"
+		 * )).isDisplayed())
+		 * 
+		 * { testInfo.get().info(" Frequent Transfers are displayed ");
+		 * 
+		 * TestUtils.testTitle("Assert Number of Records"); int transferCount2 =
+		 * getDriver().findElements(By.xpath("//div[@id='mat-tab-label-16-0']/div")).
+		 * size();//Changed int to dimension
+		 * 
+		 * if (TestUtils.isElementPresent("XPATH", "//div[2]/div/div/div[2]")); {
+		 * testInfo.get().info("Total Number of records displayed : <b>" +
+		 * transferCount2 + "</b> "); } //else { testInfo.get().error("Table is empty");
+		 * } }
+		 * 
+		 * else { Thread.sleep(2000);
+		 * testInfo.get().info("No record found for frequent transfers"); } }
+		 * 
+		 * 
+		 * catch(Exception e) { TestUtils.assertSearchText("XPATH",
+		 * "//mat-tab-body[@id='mat-tab-content-14-0']/div/frequent-transfers/div/p",
+		 * " No Record - No frequent records "); Thread.sleep(500); }
+		 */
+		
+		//Click on the Frequent Transfer Panel
+				//getDriver().findElement(By.xpath("//span/mat-panel-title")).click();
+				//Thread.sleep(500);
 				
-				  { 
-					testInfo.get().error(" Frequent Transfers are displayed ");
-				  
-				  	TestUtils.testTitle("Assert Number of Records");				  	
-			int transferCount2 = getDriver().findElements(By.xpath("//div[@id='mat-tab-label-16-0']/div")).size();//Changed int to dimension
-			
-							if (TestUtils.isElementPresent("XPATH", "//div[2]/div/div/div[2]"));
-								{
-									testInfo.get().info("Total Number of records is displayed : <b>" + transferCount2 + "</b> ");
-								}
-								//else
-								{
-									  testInfo.get().error("Table is empty");
-								}
-				  }
-				  
-				  else 
-				  		{
-					  		Thread.sleep(2000);
-					  		testInfo.get().info("No record found for frequent transfers");
-				  		}	
-			}
-
-				  
-		catch(Exception e)
-					{
-					TestUtils.assertSearchText("XPATH", "//mat-tab-body[@id='mat-tab-content-14-0']/div/frequent-transfers/div/p", " No Record - No frequent records ");
-					Thread.sleep(500);
-					}
-
-		
-
-		
-		
+				//Click on Frequent Transfers 
+				
+				/*
+				 * getDriver().findElement(By.xpath("//mat-expansion-panel-header")).click();
+				 * Thread.sleep(500);
+				 * 
+				 * //Click on other Banks
+				 * getDriver().findElement(By.id("mat-tab-label-4-1")).click();
+				 * Thread.sleep(500);
+				 * 
+				 * //CLick on Go to Transfers
+				 * getDriver().findElement(By.xpath("//div/frequent-transfers/div/button")).
+				 * click();
+				 */
 	}
 	
 		
