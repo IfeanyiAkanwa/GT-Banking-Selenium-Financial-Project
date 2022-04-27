@@ -48,5 +48,17 @@
     "validSecretAnswer" : "test",
     "token" : "123456",
     "amount" : "100"
-  }
+  },
+  "SavedBeneficiary" : { 
+  "amount" : "500",
+  "remark" : "upkeep",
+  "token" : "123456" 
+  },
+  "NewBeneficiary" : { 
+  "account" : "0201112754",
+  "amount" : "500",
+  "remark" : "upkeep",
+  "token" : "123456" }
+  
+  
 }

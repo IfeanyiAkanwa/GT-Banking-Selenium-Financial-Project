@@ -329,6 +329,21 @@
 					<include name="frequentTransfers"></include>
 				</methods>
 			</class>
-		</classes>
+			</classes>
 	</test>
+	<test name="TransferToGTBank" preserve-order = "true">
+		<parameter name="myBrowser" value="chrome"/>
+		<classes>
+			<class name="testCases.TransferToGTBank">
+				<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToTransferToGTBankTest"></include>
+					<include name="transferValidationTest"></include>					
+					<include name="savedBeneficiaryTest"></include>
+					<include name="newBeneficiaryTest"></include>
+				</methods>
+			</class>
+		</classes>
+		</test>
 </suite>
