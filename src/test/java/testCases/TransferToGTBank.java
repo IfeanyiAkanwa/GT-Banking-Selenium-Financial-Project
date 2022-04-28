@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import util.Assertion;
 import util.TestBase;
 import util.TestUtils;
 
@@ -65,10 +66,12 @@ public class TransferToGTBank  extends TestBase{
 				getDriver().findElement(By.xpath("//mat-card/p")).click();
 				Thread.sleep(500);
 	}
+	
+	
 	@Parameters ("testEnv")
 	
 	@Test
-	public void savedBeneficiaryTest(String testEnv) throws Exception {
+	public static void savedBeneficiaryTest(String testEnv) throws Exception {
 		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 		
 		
@@ -98,8 +101,6 @@ public class TransferToGTBank  extends TestBase{
 		//getDriver().findElement(By.xpath("//gtibank-beneficiary-dropdown[@id='savedBeneficiaryDropdown']/ng-select/div")).click();
 		//Thread.sleep(500);
 		
-		
-		
 		// To confirm that Select Beneficiary drop down populates lists of Beneficiaries
 		testInfo.get().info("<b> Select Beneficiary </b>");
 		TestUtils.testTitle("To confirm that Select Beneficiary drop down populates lists of Beneficiaries");
@@ -108,7 +109,7 @@ public class TransferToGTBank  extends TestBase{
 		TestUtils.scrollUntilElementIsVisible("XPATH", "//div[2]/a");
 		Thread.sleep(500);
 		
-		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ng-select/div/span")));
 		getDriver().findElement(By.xpath("//ng-select/div/span")).click();
 		Thread.sleep(500);
 		
@@ -121,6 +122,8 @@ public class TransferToGTBank  extends TestBase{
       //select beneficiary
         getDriver().findElement(By.xpath("//gtibank-beneficiary-dropdown-items/div/div")).click();
 		Thread.sleep(500);
+		
+		Assertion.otherValidationTest();
 		
 		//select account to debit
 		getDriver().findElement(By.xpath("//ng-select[@id='account']/div")).click();
@@ -164,7 +167,7 @@ public class TransferToGTBank  extends TestBase{
 	@Parameters ("testEnv")
 	@Test
 	
-	public void newBeneficiaryTest(String testEnv) throws Exception {
+	public static void newBeneficiaryTest(String testEnv) throws Exception {
 		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 		
 		
@@ -208,6 +211,8 @@ public class TransferToGTBank  extends TestBase{
 		getDriver().findElement(By.xpath("//input[@id='beneficiary']")).clear();
 		getDriver().findElement(By.xpath("//input[@id='beneficiary']")).sendKeys(account);
 		
+		
+		Assertion.otherValidationNewBeneficiaryTest();
 				
 		//select account to debit
 		getDriver().findElement(By.xpath("//ng-select[@id='account']/div")).click();

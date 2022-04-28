@@ -339,11 +339,28 @@
 					<include name="Login"></include>
 					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
 					<include name="navigateToTransferToGTBankTest"></include>
-					<include name="transferValidationTest"></include>					
+					<include name="transferValidationTest"></include>	
+								
 					<include name="savedBeneficiaryTest"></include>
 					<include name="newBeneficiaryTest"></include>
 				</methods>
 			</class>
 		</classes>
 		</test>
+		
+		 <test name="TransferToOtherBanks" preserve-order = "true">
+		<parameter name="myBrowser" value="chrome"/>
+		<classes>
+			<class name="testCases.TransferToOtherBanks">
+				<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToTransferToOtherBanksTest"></include>
+					<include name="transferValidationTest"></include>
+					<include name="savedOtherBanksBeneficiaryTest"></include>
+								
+				</methods>
+			</class>
+		</classes>
+		</test> 
 </suite>

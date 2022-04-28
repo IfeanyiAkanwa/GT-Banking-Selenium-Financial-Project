@@ -5,7 +5,10 @@ import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.Status;
 
@@ -165,5 +168,62 @@ public class Assertion extends TestBase {
 			}
 
 		}
+	}
+	
+	public static void beneficiaryImageDisplayTest() throws InterruptedException {
+
+		WebElement img = getDriver().findElement(By.xpath("//gtibank-beneficiary-card/mat-card/mat-card-content/div[1]"));
+	
+		String deviceImg = img.getAttribute("style");
+		String validImage = "assets/images/user-card/AcctMgr.png";
+		String emptyImage = "assets/images/placeholder.png";
+
+		if (deviceImg.contains(validImage))
+		{
+			testInfo.get().info("Picture is displayed");
+		}
+		else if (deviceImg.contains(emptyImage))
+		{
+			testInfo.get().error("Picture is empty");
+		} 
+	}
+	
+	
+	public static void otherValidationTest() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+		
+		
+				
+		
+		//Confirm that the YOU ARE TRANSFERING TO view contains an Add/Edit Button
+	
+		TestUtils.testTitle("Confirm that the YOU ARE TRANSFERING TO view contains contains an Add/Edit button, a Delete Beneficiary after transfer checkbox, beneficiary's image, beneficiary's Nickname, beneficiary's account number and bank name ");
+		//TestUtils.assertSearchText("XPATH", "//gtibank-beneficiary-card/mat-card", "");
+		TestUtils.assertSearchText("XPATH", "//div/button/span[contains(text(),'Add/Edit Nickname')]", "Add/Edit Nickname");
+		getDriver().findElement(By.xpath("//div/button/span[contains(text(),'Add/Edit Nickname')]")).click();
+		
+		TestUtils.assertSearchText("XPATH", "//input[@id='nickname']", " ");
+		TestUtils.assertSearchText("XPATH", "//gtibank-beneficiary-card/mat-card/mat-card-actions/div", "Delete Beneficiary after transfer");
+		String acctName = getDriver().findElement(By.xpath("//gtibank-beneficiary-card/mat-card/mat-card-content/div[2]/p")).getText();
+		String bankName = getDriver().findElement(By.xpath("//gtibank-beneficiary-card/mat-card/mat-card-content/div[2]/p[2]")).getText();
+		
+		TestUtils.assertSearchText("XPATH", "//gtibank-beneficiary-card/mat-card/mat-card-content/div[2]/p", acctName);
+		TestUtils.assertSearchText("XPATH", "//gtibank-beneficiary-card/mat-card/mat-card-content/div[2]/p[2]", bankName);
+	
+		
+	}
+	
+	public static void otherValidationNewBeneficiaryTest() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//gtibank-beneficiary-card/mat-card")));
+		TestUtils.assertSearchText("XPATH", "//gtibank-beneficiary-card/mat-card/mat-card-actions/div", "Save Beneficiary after transfer");
+		String acctName = getDriver().findElement(By.xpath("//gtibank-beneficiary-card/mat-card/mat-card-content/div[2]/p")).getText();
+		String bankName = getDriver().findElement(By.xpath("//gtibank-beneficiary-card/mat-card/mat-card-content/div[2]/p[2]")).getText();
+		
+		TestUtils.assertSearchText("XPATH", "//gtibank-beneficiary-card/mat-card/mat-card-content/div[2]/p", acctName);
+		TestUtils.assertSearchText("XPATH", "//gtibank-beneficiary-card/mat-card/mat-card-content/div[2]/p[2]", bankName);
+	
+		
 	}
 }
