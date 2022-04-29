@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.List;
 
+import org.hamcrest.core.Is;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.By;
@@ -86,7 +87,7 @@ public class TransferToGTBank  extends TestBase{
 		JSONObject config = (JSONObject) parser.parse(new FileReader(path));
 		JSONObject envs = (JSONObject) config.get("SavedBeneficiary");
 
-		
+		//String nickName = (String) envs.get("nickname");
 		String amount = (String) envs.get("amount");
 		String Remark = (String) envs.get("Remark");		
 		String token = (String) envs.get("token");
@@ -104,8 +105,10 @@ public class TransferToGTBank  extends TestBase{
 		// To confirm that Select Beneficiary drop down populates lists of Beneficiaries
 		testInfo.get().info("<b> Select Beneficiary </b>");
 		TestUtils.testTitle("To confirm that Select Beneficiary drop down populates lists of Beneficiaries");
+		
 		TestUtils.clickElement("XPATH", "//gtibank-beneficiary-dropdown[@id='savedBeneficiaryDropdown']/ng-select/div");
 		Thread.sleep(500);
+		
 		TestUtils.scrollUntilElementIsVisible("XPATH", "//div[2]/a");
 		Thread.sleep(500);
 		
@@ -113,17 +116,27 @@ public class TransferToGTBank  extends TestBase{
 		getDriver().findElement(By.xpath("//ng-select/div/span")).click();
 		Thread.sleep(500);
 		
-		List<WebElement> resultList = getDriver().findElements(By.xpath("//ng-dropdown-panel/div/div[2]/div"));
+		/*List<WebElement> resultList = getDriver().findElements(By.xpath("//ng-dropdown-panel/div/div[2]/div"));
         for (WebElement resultItem : resultList)
         {
            String tabname = resultItem.getText();
            testInfo.get().info("<b>"+ tabname + "</b>");
-        }
+        }*/
+	
+		if(ExpectedConditions.visibilityOfElementLocated(By.xpath("//gtibank-beneficiary-dropdown-items/div/div")) != null)
+		{
+			testInfo.get().info("Beneficiaries are displayed");
+		}
+		else 
+		{
+			testInfo.get().error("Beneficiaries are not displayed");
+		}
+		
       //select beneficiary
         getDriver().findElement(By.xpath("//gtibank-beneficiary-dropdown-items/div/div")).click();
 		Thread.sleep(500);
 		
-		Assertion.otherValidationTest();
+		Assertion.otherValidationSavedBeneficiaryTest();
 		
 		//select account to debit
 		getDriver().findElement(By.xpath("//ng-select[@id='account']/div")).click();
