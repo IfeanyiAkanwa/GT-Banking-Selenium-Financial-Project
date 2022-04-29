@@ -49,7 +49,7 @@
     "token" : "123456",
     "amount" : "100"
   },
-  "SavedBeneficiary" : { 
+  "SavedBeneficiary" : {
   "amount" : "500",
   "remark" : "upkeep",
   "token" : "123456" 
@@ -58,7 +58,8 @@
   "account" : "0201112754",
   "amount" : "500",
   "remark" : "upkeep",
-  "token" : "123456" }
+  "token" : "123456" 
+  } 
   
   
 }
