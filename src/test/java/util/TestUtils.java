@@ -19,6 +19,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.RemoteWebElement;
@@ -843,6 +844,11 @@ public class TestUtils extends TestBase {
 	        testInfo.get().error(message + "Not Found");
 
         }
+	}
+	
+	public static void AssertToolTip(String message) {
+		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+		Actions action = new Actions(getDriver());
 	}
 	
 	public static String FileToBase64StringConversion (String fileName) {

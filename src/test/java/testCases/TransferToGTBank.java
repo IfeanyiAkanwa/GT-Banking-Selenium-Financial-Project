@@ -3,13 +3,13 @@ package testCases;
 
 import java.io.File;
 import java.io.FileReader;
-import java.util.List;
 
-import org.hamcrest.core.Is;
+
+
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Parameters;
@@ -55,17 +55,27 @@ public class TransferToGTBank  extends TestBase{
 		
 		//Confirm that the Menu list is displayed and takes the user back to the transfer page when clicked.
 				
-				TestUtils.testTitle("To confirm that when user clicks on 'Menu List', user is directed back to the main Transfer Module");
-				TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div[2]/a/span/span", "Menu list");
-				getDriver().findElement(By.xpath("//gtibank-pageheader/div/div/div[2]/a/span/span")).click();
-				TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Transfer money between your accounts or other accounts.");
-				Thread.sleep(500);
-				
+		
+		 Transfers.clickOnMenuList1();
 				//Click on Transfer to GTbank again
 				
 				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-card/p")));
 				getDriver().findElement(By.xpath("//mat-card/p")).click();
 				Thread.sleep(500);
+				
+				
+				//Confirm others
+				String trfInfo = getDriver().findElement(By.xpath("//app-gt-transfers/div/div/div/div/form/p")).getText();
+				TestUtils.assertSearchText("XPATH", "//app-gt-transfers/div/div/div/div/form/p", trfInfo);
+				Thread.sleep(500);	
+				//Confirm that the Search Beneficiary  message is displayed
+				String searchInfo = getDriver().findElement(By.xpath("//app-gt-transfers/div/div/div/div/form/p[2]")).getText();
+				TestUtils.assertSearchText("XPATH", "//app-gt-transfers/div/div/div/div/form/p[2]", searchInfo);
+				Thread.sleep(500);	
+				Transfers.frequentTransfers();
+			
+				TestUtils.raterTest("Transfer To GTBank");
+				
 	}
 	
 	
@@ -171,7 +181,7 @@ public class TransferToGTBank  extends TestBase{
 		//testInfo.get().info("<b> Transfer was successful </b>");
 				
 		// Click Back button 
-		getDriver().findElement(By.xpath("//div[@id='pcoded']/div[2]/div[3]/div/div/div/div/div/gtibank-transfers/div/div/app-gt-transfers/div/div/div/app-token-confirmation-modal/div/div/div[3]/button")).click();
+		getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div[3]/button")).click();
 		Thread.sleep(500);
 		
 		
