@@ -148,8 +148,26 @@ public class Transfers extends TestBase{
 				 * getDriver().findElement(By.xpath("//div/frequent-transfers/div/button")).
 				 * click();
 				 */
-	}
 	
 		
+	}
+
+	public static void clickOnMenuList1() throws InterruptedException {
+		// TODO Auto-generated method stub
+		TestUtils.testTitle("To confirm that when user clicks on 'Menu List', user is directed back to the main Transfer Module");
+		TestUtils.scrollUntilElementIsVisible("XPATH", "//gtibank-pageheader/div/div/div[2]/a/span/span");
+		Thread.sleep(500);
+		TestUtils.scrollUntilElementIsVisible("XPATH", "//gtibank-pageheader/div/div/div[2]/a/span/span");
+		Thread.sleep(500);
+		TestUtils.scrollUntilElementIsVisible("XPATH", "//gtibank-pageheader/div/div/div[2]/a/span/span");
+		Thread.sleep(500);
+		TestUtils.scrollUntilElementIsVisible("XPATH", "//gtibank-pageheader/div/div/div[2]/a/span/span");
+		Thread.sleep(500);
+		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div[2]/a/span/span", "Menu list");
+		getDriver().findElement(By.xpath("//gtibank-pageheader/div/div/div[2]/a/span/span")).click();
+		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Transfer money between your accounts or other accounts.");
+		Thread.sleep(500);
+	}
+
 
 }

@@ -340,7 +340,6 @@
 					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
 					<include name="navigateToTransferToGTBankTest"></include>
 					<include name="transferValidationTest"></include>	
-								
 					<include name="savedBeneficiaryTest"></include>
 					<include name="newBeneficiaryTest"></include>
 				</methods>
@@ -357,10 +356,58 @@
 					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
 					<include name="navigateToTransferToOtherBanksTest"></include>
 					<include name="transferValidationTest"></include>
-					<include name="savedOtherBanksBeneficiaryTest"></include>
-								
+					<include name="savedOtherBanksBeneficiaryTest"></include>	
 				</methods>
 			</class>
 		</classes>
 		</test>
+		 <test name="TransferToOwnAccount" preserve-order ="true">
+		<parameter name="myBrowser" value="chrome"/>
+			<classes>
+				<class name="testCases.TransferToOwnAccount">
+					<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToTransferToOwnAccount"></include>
+					<include name="transferValidationTest"></include>
+					<include name="ownAccountTransferUnfundedAcctTest"></include>
+					<include name="ownAccountTransferFromFundedAcct"></include>
+					
+						
+		</methods>
+		</class>		
+		</classes>
+		</test>
+	<test name="TransferViaPhoneOrEmail" preserve-order ="true">
+		<parameter name="myBrowser" value="chrome"/>
+			<classes>
+				<class name="testCases.TransferViaPhoneOrEmail">
+					<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToTransferViaPhoneOrEmailTest"></include>
+					<include name="transferValidationTest"></include>
+					<include name="transferViaPhoneNumberTest"></include>
+					<include name="transferViaEmailTest"></include>
+			
+					</methods>
+				</class>		
+			</classes>
+		</test>
+		<test name="CardlessWithdrawal" preserve-order ="true">
+		<parameter name="myBrowser" value="chrome"/>
+			<classes>
+				<class name="testCases.CardlessWithdrawal">
+					<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToCardlessWithdrawal"></include>
+					<include name="transferValidationTest"></include>
+					<include name="validCardlessWithdrawalTest"></include>
+					<include name="invalidCardlessWithdrawalTest"></include>						
+		</methods>
+		</class>		
+		</classes>
+		</test>
+	
 </suite>

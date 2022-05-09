@@ -59,7 +59,37 @@
   "amount" : "500",
   "remark" : "upkeep",
   "token" : "123456" 
-  } 
-  
-  
+  },
+  "OwnAccountTransfer":{ 
+  "amount" : "100",
+  "Remark" : "Savings"
+  },
+  "OwnAccountTransferUnfunded":{ 
+  "amount" : "10000",
+  "Remark" : "Savings"
+  },
+  "TransferViaPhoneNumber" : {
+  "phoneNumber" : "08060176821",
+  "amount" : "500",
+  "remark" : "upkeep",
+  "token" : "123456" 
+  },
+  "TransferViaEmail" : {
+  "email" : "chioma.anosike@yahoo.com",
+  "amount" : "500",
+  "remark" : "upkeep",
+  "token" : "123456" 
+},
+"CardlessWithdrawal" : {
+  "amount" : "100000",
+  "PhoneNumber" : "08060176821",
+  "validSecretAnswer" : "08060176821" ,
+  "token": "123456"
+},
+"InvalidCardlessWithdrawal" : {
+  "amount" : "000",
+  "PhoneNumber" : "08060176821",
+  "validSecretAnswer" : "08060176821" ,
+  "token": "123456"
+}
 }

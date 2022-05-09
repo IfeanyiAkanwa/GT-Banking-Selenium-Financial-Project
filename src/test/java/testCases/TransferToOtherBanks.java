@@ -1,20 +1,22 @@
 package testCases;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+
 import java.io.FileReader;
-import java.io.IOException;
-import java.util.List;
+
+
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
 
 import util.Assertion;
 import util.TestBase;
@@ -51,18 +53,35 @@ public void transferValidationTest() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 		
 		//Confirm that the Menu list is displayed and takes the user back to the transfer page when clicked.
-				
-				TestUtils.testTitle("To confirm that when user clicks on 'Menu List', user is directed back to the main Transfer Module");
-				TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div[2]/a/span/span", "Menu list");
-				getDriver().findElement(By.xpath("//gtibank-pageheader/div/div/div[2]/a/span/span")).click();
-				TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Transfer money between your accounts or other accounts.");
-				Thread.sleep(500);
-				
+		Transfers.clickOnMenuList1();
+		/*
+		 * TestUtils.
+		 * testTitle("To confirm that when user clicks on 'Menu List', user is directed back to the main Transfer Module"
+		 * ); TestUtils.assertSearchText("XPATH",
+		 * "//gtibank-pageheader/div/div/div[2]/a/span/span", "Menu list");
+		 * getDriver().findElement(By.xpath(
+		 * "//gtibank-pageheader/div/div/div[2]/a/span/span")).click();
+		 * TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p",
+		 * "Transfer money between your accounts or other accounts.");
+		 * Thread.sleep(500);
+		 */
 				//Click on Transfer to Other GTbank again
 				
 				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-grid-tile[2]/figure/mat-card/p")));
 				getDriver().findElement(By.xpath("//mat-grid-tile[2]/figure/mat-card/p")).click();
 				Thread.sleep(500);
+				
+				
+				String trfInfo = getDriver().findElement(By.xpath("//app-other-banks/div/div/div/div/form/div/p")).getText();
+				TestUtils.assertSearchText("XPATH", "//app-other-banks/div/div/div/div/form/div/p", trfInfo);
+				Thread.sleep(500);	
+				//Confirm that the Search Beneficiary  message is displayed
+				String searchInfo = getDriver().findElement(By.xpath("//app-other-banks/div/div/div/div/form/p")).getText();
+				TestUtils.assertSearchText("XPATH", "//app-other-banks/div/div/div/div/form/p", searchInfo);
+				Thread.sleep(500);	
+				Transfers.frequentTransfers();
+				
+				TestUtils.raterTest("Transfer To Other Banks");
 	}
 	
 	@Parameters ("testEnv")
@@ -88,6 +107,8 @@ public static void savedOtherBanksBeneficiaryTest(String testEnv) throws Excepti
 		String amount = (String) envs.get("amount");
 		String Remark = (String) envs.get("Remark");		
 		String token = (String) envs.get("token");
+		
+		
 		
 		// To confirm that Select Beneficiary drop down populates lists of Beneficiaries
 				testInfo.get().info("<b> Select Beneficiary </b>");
@@ -162,6 +183,8 @@ public static void savedOtherBanksBeneficiaryTest(String testEnv) throws Excepti
 				// Click Back button 
 				getDriver().findElement(By.xpath("//div/button/span[contains(text(),'Back')]")).click();
 				Thread.sleep(500);
+				
+				
 }
 	
 	//@Test
