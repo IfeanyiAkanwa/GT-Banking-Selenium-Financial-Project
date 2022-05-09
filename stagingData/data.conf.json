@@ -91,5 +91,11 @@
   "PhoneNumber" : "08060176821",
   "validSecretAnswer" : "08060176821" ,
   "token": "123456"
+},
+"ENaira" : {
+  "amount" : "000",
+  "UserName" : "08060176821",
+  "Password" : "08060176821" ,
+  "Remark": "upkeep"
 }
 }

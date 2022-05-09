@@ -409,5 +409,21 @@
 		</class>		
 		</classes>
 		</test>
+		
+		<test name="ENaira" preserve-order ="true">
+		<parameter name="myBrowser" value="chrome"/>
+			<classes>
+				<class name="testCases.ENaira">
+					<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToENairaTest"></include>
+					<include name="transferValidationTest"></include>
+					<include name="ENairaTest"></include>
+											
+		</methods>
+		</class>		
+		</classes>
+		</test>
 	
 </suite>
