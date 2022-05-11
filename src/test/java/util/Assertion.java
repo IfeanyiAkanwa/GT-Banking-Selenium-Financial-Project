@@ -199,7 +199,9 @@ public class Assertion extends TestBase {
 		
 		//Confirm that Daily Transfer limit is displayed
 		
-		TestUtils.testTitle("Confirm that Daily Transfer Limit is displayed ");
+		//TestUtils.testTitle("Confirm that Daily Transfer Limit is displayed ");
+		
+		
 		//Confirm that the YOU ARE TRANSFERING TO view contains an Add/Edit Button
 	
 		TestUtils.testTitle("Confirm that the YOU ARE TRANSFERING TO view contains contains an Add/Edit button, a Delete Beneficiary after transfer checkbox, beneficiary's image, beneficiary's Nickname, beneficiary's account number and bank name ");
@@ -210,7 +212,7 @@ public class Assertion extends TestBase {
 		String nickName = getDriver().findElement(By.id("nickname")).getText();
 		if(nickName != null)
 		{
-			testInfo.get().info("Beneficiary Nickname found");
+			testInfo.get().info("Beneficiary Nickname found" + nickName);
 		}
 		else
 		{

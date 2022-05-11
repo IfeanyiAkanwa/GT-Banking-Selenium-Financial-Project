@@ -203,7 +203,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+		 </test>
 	 <test name="IRequire" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
@@ -425,5 +425,35 @@
 		</class>		
 		</classes>
 		</test>
-	
+		<test name="StandingOrder" preserve-order ="true">
+		<parameter name="myBrowser" value="chrome"/>
+			<classes>
+				<class name="testCases.StandingOrder">
+					<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToStandingOrderTest"></include>
+					<include name="transferValidationTest"></include>
+					
+											
+		</methods>
+		</class>		
+		</classes>
+		</test>
+		
+		<test name="CashWithdrawal" preserve-order ="true">
+		<parameter name="myBrowser" value="chrome"/>
+			<classes>
+				<class name="testCases.CashWithdrawal">
+					<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToCashWithdrawalTest"></include>
+					<include name="selfCashWithdrawalTest"></include>
+					<include name="thirdPartyCashWithdrawalTest"></include>
+											
+		</methods>
+		</class>		
+		</classes>
+		</test>
 </suite>
