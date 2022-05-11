@@ -97,5 +97,21 @@
   "UserName" : "08060176821",
   "Password" : "08060176821" ,
   "Remark": "upkeep"
-}
+},
+"StandingOrder" : {
+  "amount" : "100",
+   "Remark": "upkeep",
+   "token" : "182530"
+},
+"SelfPickUp" : {
+  "amount" : "100",
+   "Remark": "upkeep",
+   "token" : "182530"
+   },
+"3rdPartyPickUP" : {
+  "amount" : "100",
+   "Remark": "upkeep",
+   "token": "154932",
+   "PickUpName": "Oluwakemi Adetona"
+	}
 }
