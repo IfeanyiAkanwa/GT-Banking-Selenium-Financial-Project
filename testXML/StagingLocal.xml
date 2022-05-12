@@ -410,7 +410,7 @@
 		</classes>
 		</test>
 		
-		<test name="ENaira" preserve-order ="true">
+		<test	 name="ENaira" preserve-order ="true">
 		<parameter name="myBrowser" value="chrome"/>
 			<classes>
 				<class name="testCases.ENaira">
@@ -420,6 +420,22 @@
 					<include name="navigateToENairaTest"></include>
 					<include name="transferValidationTest"></include>
 					<include name="ENairaTest"></include>
+											
+		</methods>
+		</class>		
+		</classes>
+		</test>	
+		
+		<test name="CashWithdrawal" preserve-order ="true">
+		<parameter name="myBrowser" value="chrome"/>
+			<classes>
+				<class name="testCases.CashWithdrawal">
+					<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToCashWithdrawalTest"></include>
+					<include name="selfCashWithdrawalTest"></include>
+					<include name="thirdPartyCashWithdrawalTest"></include>
 											
 		</methods>
 		</class>		
@@ -434,23 +450,9 @@
 					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
 					<include name="navigateToStandingOrderTest"></include>
 					<include name="transferValidationTest"></include>
-					
-											
-		</methods>
-		</class>		
-		</classes>
-		</test>
-		
-		<test name="CashWithdrawal" preserve-order ="true">
-		<parameter name="myBrowser" value="chrome"/>
-			<classes>
-				<class name="testCases.CashWithdrawal">
-					<methods>
-					<include name="Login"></include>
-					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
-					<include name="navigateToCashWithdrawalTest"></include>
-					<include name="selfCashWithdrawalTest"></include>
-					<include name="thirdPartyCashWithdrawalTest"></include>
+					<include name="savedBeneficiaryGTBANKStandingOrder"></include>
+					<include name="newBeneficiaryGTBANKStandingOrderTest"></include>
+					<include name="savedBeneficiaryOtherBanksStandingOrder"></include>
 											
 		</methods>
 		</class>		

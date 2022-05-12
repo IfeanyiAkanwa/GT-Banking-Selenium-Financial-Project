@@ -3,6 +3,7 @@ package util;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -11,6 +12,8 @@ import java.util.*;
 
 import org.apache.commons.codec.binary.Base64;
 import org.codehaus.plexus.util.FileUtils;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Capabilities;
@@ -24,8 +27,10 @@ import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentTest;
@@ -934,6 +939,72 @@ public class TestUtils extends TestBase {
 		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Secure Email')]", "Secure Email");
 		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Create a request using a secured email channel");
 		Thread.sleep(500);
+	}
+	
+	
+	public static void selectStartEndDate() throws InterruptedException{
+		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+		// Select Start Date
+					getDriver().findElement(By.xpath("//input[@name='dp']")).click();
+					Thread.sleep(500);
+					
+					wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath( "//ngb-datepicker-navigation-select/select[1]")));
+					
+					getDriver().findElement(By.xpath("//ngb-datepicker-month/div[7]/div[2]/div")).click();
+					Thread.sleep(500);
+					
+					
+					
+					// Select end Date
+					getDriver().findElement(By.xpath("//input[@name='endDate']")).click();
+					Thread.sleep(500);
+								
+					wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath( "//ngb-datepicker-navigation-select/select[2]")));
+					getDriver().findElement(By.xpath("//ngb-datepicker-navigation/div[2]/button/span")).click();
+					getDriver().findElement(By.xpath("//ngb-datepicker-navigation/div[2]/button/span")).click();
+					getDriver().findElement(By.xpath("//ngb-datepicker-navigation/div[2]/button/span")).click();
+					getDriver().findElement(By.xpath("//ngb-datepicker-navigation/div[2]/button/span")).click();
+					getDriver().findElement(By.xpath("//ngb-datepicker-navigation/div[2]/button/span")).click();
+					getDriver().findElement(By.xpath("//ngb-datepicker-navigation/div[2]/button/span")).click();
+					getDriver().findElement(By.xpath("//ngb-datepicker-navigation/div[2]/button/span")).click();
+					getDriver().findElement(By.xpath("//ngb-datepicker-month/div[6]/div[6]/div")).click();
+					
+					//Select Frequencies
+					getDriver().findElement(By.id("frequencies")).click();
+					Thread.sleep(500);
+					
+					Select freq1 =  new Select(getDriver().findElement(By.id("frequencies")));
+					
+					List<WebElement> options = freq1.getOptions();
+					freq1.selectByValue("2");
+					
+					for (WebElement option : options)
+			        {
+			           String tabname = option.getText();
+			           testInfo.get().info("<b>"+ tabname + "</b>");
+			        }
+					
+					freq1.selectByValue("4");
+							
+					
+	}
+	
+	public static void submitAndClose() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+		
+		getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div[3]/button[2]/span")).click();
+    	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div/div/h3")));
+    	Thread.sleep(2000);
+    	
+    	String msg = getDriver().findElement(By.xpath("//h3")).getText();
+    	String msg2 = getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div/p[2]")).getText();
+    	Thread.sleep(2000);
+    	
+    	testInfo.get().info( msg + "\n " + msg2 );
+    	
+					
+		getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div[2]/button")).click();
+				
 	}
 	
 	
