@@ -73,9 +73,6 @@ public class GLOAirtimeDataTopUp extends TestBase{
 		getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div/div/p[1]")).click();
 		Thread.sleep(500);
 		
-		// Enter Secret Answer
-		getDriver().findElement(By.xpath("//input[@type='password']")).clear();
-		getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys(validSecretAnswer);
 		
 		// Submit button
 		getDriver().findElement(By.id("submit")).click();
@@ -138,9 +135,7 @@ public class GLOAirtimeDataTopUp extends TestBase{
 		getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div/div/p[1]")).click();
 		Thread.sleep(500);
 		
-		// Enter Secret Answer
-		getDriver().findElement(By.xpath("//input[@type='password']")).clear();
-		getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys(validSecretAnswer);
+		
 		
 		// Submit button
 		getDriver().findElement(By.id("submit")).click();

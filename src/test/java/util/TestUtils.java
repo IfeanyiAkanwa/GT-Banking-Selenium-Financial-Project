@@ -912,7 +912,7 @@ public class TestUtils extends TestBase {
 		// Click on Account officer panel
 		getDriver().findElement(By.xpath("//mat-panel-title")).click();
 		Thread.sleep(500);
-		if (getDriver().findElement(By.className("//h3")).isDisplayed()) {
+		if (getDriver().findElement(By.xpath("//h3")).isDisplayed()) {
 			testInfo.get().error("<b> Account officer section is not hidden </b>");
 		} else {
 			testInfo.get().info("<b> Account officer section is hidden </b>");

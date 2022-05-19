@@ -40,9 +40,9 @@ public class CustomerProfile extends SelfService {
 	public void CustomerProfileImageUpload() throws InterruptedException {
 
 		TestUtils.testTitle("To Upload Customer Profile Image ");
-		TestUtils.uploadFile(By.id("userImageUpload"), "CustomerProfileImage.jpeg");
+		TestUtils.uploadFile(By.xpath("userImageUpload"), "CustomerProfileImage.png");
 		TestUtils.AssertAlertMessage("Image updated successfully");
-		Thread.sleep(500);
+		Thread.sleep(2000);
 		
 		/*TestUtils.testTitle("To View Customer Profile Image ");
 		TestUtils.AssertImageExist(By.xpath("//gtibank-view-profile/div/div/div/div[1]/div"), "CustomerProfileImage.jpeg");*/

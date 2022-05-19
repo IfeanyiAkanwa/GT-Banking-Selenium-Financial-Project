@@ -9,7 +9,7 @@
 	<parameter name="config" value="parallel.conf.json" />
 	<parameter name="testEnv" value="stagingData" />
 
-<test name="Login" preserve-order="true">
+ <test name="Login" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
 			<class name="testCases.Login">
@@ -92,7 +92,7 @@
 			</class>
 		</classes>
 	</test>
-	 <test name="ProfileUnprofileAccount" preserve-order="true">
+ <test name="ProfileUnprofileAccount" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
 			<class name="testCases.ProfileUnprofileAccount">
@@ -118,8 +118,8 @@
 				</methods>
 			</class>
 		</classes>
-	</test> 
-	<test name="SecureEmail" preserve-order="true">
+	</test>
+	 <test name="SecureEmail" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
 			<class name="testCases.SecureEmail">

@@ -67,9 +67,9 @@ public class OpenAdditionalAcount extends TestBase{
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//gtb-notification/mat-card/p")));
 		TestUtils.assertSearchText("XPATH", "//gtb-notification/mat-card/p",	"Secret Answer recovery successful. Your Secret Answer has been sent to you email");
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
-		Thread.sleep(500);
+		Thread.sleep(1000);
 		
 		// To confirm that when user clicks on the 'Menu List' button, user is directed back to main menu of account module
 		TestUtils.testTitle("To confirm that when user clicks on the 'Menu List' button, user is directed back to main menu of account module");

@@ -192,20 +192,22 @@ public class AccountStatement extends TestBase {
 		Thread.sleep(1000);
 		
 		// Select Start Date
-		getDriver().findElement(By.cssSelector("svg.mat-datepicker-toggle-default-icon.ng-star-inserted")).click();
+		getDriver().findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Start Date'])[1]/following::*[name()='svg'][1]")).click();
 		Thread.sleep(500);
-		getDriver().findElement(By.xpath("(//button[@type='button'])[6]")).click();
-		Thread.sleep(500);
+		//getDriver().findElement(By.xpath("(//button[@type='button'])[6]")).click();
+		//Thread.sleep(500);
 		getDriver().findElement(By.xpath("//td[2]/div")).click();
 		Thread.sleep(500);
 		
 		
+		
+		
 		  // Select End Date
 		  //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("svg.mat-datepicker-toggle-default-icon.ng-star-inserted"))).click();
-		  //getDriver().findElement(By.cssSelector("svg.mat-datepicker-toggle-default-icon.ng-star-inserted")).click();
-		  getDriver().findElement(By.xpath("//gtibank-gt-datepicker-input[2]/div/mat-form-field/div/div")).click();
-		  Thread.sleep(1000);
-		  getDriver().findElement(By.xpath("//tr[4]/td[2]/div")).click();
+		 // getDriver().findElement(By.cssSelector("svg.mat-datepicker-toggle-default-icon.ng-star-inserted")).click();
+		  getDriver().findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Stop Date'])[1]/following::*[name()='svg'][1]")).click();
+		  Thread.sleep(2000);
+		  getDriver().findElement(By.xpath("//tr[4]/td[3]/div")).click();
 		  Thread.sleep(1000);
 		  //getDriver().findElement(By.xpath("//td[2]/div")).click();
 		  //Thread.sleep(1000);
@@ -261,10 +263,10 @@ public class AccountStatement extends TestBase {
 		Thread.sleep(500);
 		
 		// Select End Date
-		getDriver().findElement(By.xpath("//gtibank-gt-datepicker-input[2]/div/mat-form-field/div/div")).click();
-		Thread.sleep(500);
-		getDriver().findElement(By.xpath("//tr[4]/td[2]/div")).click();
-		Thread.sleep(500);
+		 getDriver().findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Stop Date'])[1]/following::*[name()='svg'][1]")).click();
+		  Thread.sleep(2000);
+		  getDriver().findElement(By.xpath("//tr[4]/td[3]/div")).click();
+		  Thread.sleep(1000);
 		
 		String startDate = getDriver().findElement(By.name("startDate")).getAttribute("value");
 		String endDate = getDriver().findElement(By.name("endDate")).getAttribute("value");
@@ -279,25 +281,25 @@ public class AccountStatement extends TestBase {
 			
 			// Click on Download button
 			TestUtils.testTitle("Download Account Statement in .pdf format");
-			getDriver().findElement(By.xpath("//span/button")).click();
+			getDriver().findElement(By.id("downloadbtn")).click();
 			Thread.sleep(500);
 			
 			// select pdf
-			getDriver().findElement(By.xpath("//div[2]/div/div/div/button")).click();
+			getDriver().findElement(By.xpath("//div[2]/div/div/div/button[1]")).click();
 			Thread.sleep(500);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("sendEmail")));
+			//wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("sendEmail")));
 			testInfo.get().info("Statement was successfully downloaded");
 			Thread.sleep(500);
 			
 			// Click on download button
 			TestUtils.testTitle("Download Account Statement in EXCEL format");
-			getDriver().findElement(By.xpath("//span/button")).click();
+			getDriver().findElement(By.id("downloadbtn")).click();
 			Thread.sleep(500);
 			
 			// select excel
 			getDriver().findElement(By.xpath("//div[2]/div/div/div/button[2]")).click();
 			Thread.sleep(500);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("sendEmail")));
+			//wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("sendEmail")));
 			testInfo.get().info("Statement was successfully downloaded");
 			Thread.sleep(500);
 		} else {
