@@ -458,4 +458,20 @@
 		</class>		
 		</classes>
 		</test>
+		
+		<test name="LoansAndSavings" preserve-order ="true">
+		<parameter name="myBrowser" value="chrome"/>
+			<classes>
+				<class name="testCases.LoansAndSavings">
+					<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToLoansAndSavingsTest"></include>
+					<include name="validateLoansAndSavingsSubModulesTest"></include>
+					<include name="myInvestmentTab"></include>							
+		</methods>
+		</class>		
+		</classes>
+		</test>
+		
 </suite>
