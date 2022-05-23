@@ -176,12 +176,19 @@ public class TransferToGTBank  extends TestBase{
 		getDriver().findElement(By.id("token")).sendKeys(token);
 		
 		//Click on Submit
-		//getDriver().findElement(By.xpath("xpath=//div[@id='pcoded']/div[2]/div[3]/div/div/div/div/div/gtibank-transfers/div/div/app-gt-transfers/div/div/div/app-token-confirmation-modal/div/div/div[3]/button[2]")).click();
-		//Thread.sleep(500);
-		//testInfo.get().info("<b> Transfer was successful </b>");
-				
+		
+		getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div[3]/button[2]")).click();
+    	Thread.sleep(500);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div/div/h3")));
+    	Thread.sleep(2000);
+    	String msg = getDriver().findElement(By.xpath("//h3")).getText();
+    	String msg2 = getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div/p[2]")).getText();
+    	
+    	testInfo.get().info(msg + "\n" + msg2);
+		
+						
 		// Click Back button 
-		getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div[3]/button")).click();
+		getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div[2]/button/span")).click();
 		Thread.sleep(500);
 		
 		

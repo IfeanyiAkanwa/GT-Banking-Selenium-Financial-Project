@@ -149,6 +149,18 @@ public void transferValidationTest() throws InterruptedException {
 		 * TestUtils.assertSearchText("XPATH", "//h3", "Operation Successful");
 		 */
 		
+		
+		//Click on Submit
+		
+		getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div[3]/button[2]/span")).click();
+    	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div/div/h3")));
+    	
+    	String msg = getDriver().findElement(By.xpath("//h3")).getText();
+    	String msg2 = getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div/p[2]")).getText();
+    	
+    	testInfo.get().info(msg + "\n" + msg2);
+    	
+    	
 		// Click Back button 
 		getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div[3]/button")).click();
 		Thread.sleep(500);
@@ -245,10 +257,15 @@ public void transferValidationTest() throws InterruptedException {
 		
 		
 		//Click on Submit
-		//getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div[3]/button[2]")).click();
-		//Thread.sleep(2000);
-		//TestUtils.assertSearchText("XPATH", "//app-token-confirmation-modal/div/div/div/p[2]", " -1001Your token has been locked due to several failed attempts. Please retry after 3 minutes  or dial *737*7# on your registered phone number to generate a new token code.HARDWARE");
-		//Thread.sleep(500);
+		
+		getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div[3]/button[2]/span")).click();
+    	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div/div/h3")));
+    	
+    	String msg = getDriver().findElement(By.xpath("//h3")).getText();
+    	String msg2 = getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div/p[2]")).getText();
+    	
+    	testInfo.get().info(msg + "\n" + msg2);
+		
 				
 		// Click Back button 
 		getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div[3]/button")).click();

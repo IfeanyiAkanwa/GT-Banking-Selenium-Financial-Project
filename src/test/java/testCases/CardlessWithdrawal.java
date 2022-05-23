@@ -108,7 +108,7 @@ public void transferValidationTest() throws InterruptedException {
 		//Select Account to debit
 		getDriver().findElement(By.xpath("//ng-select[@id='account']/div")).click();
 		Thread.sleep(500);
-		getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div/div/p[1]")).click();
+		getDriver().findElement(By.xpath("//div/p[contains(text(), '0537265944')]")).click();
 		Thread.sleep(500);
 		
 		//Enter Phone Number 
@@ -144,14 +144,25 @@ public void transferValidationTest() throws InterruptedException {
 		getDriver().findElement(By.id("token")).sendKeys(token);
 		
 		//Click on Submit
-		//getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div[3]/button[2]")).click();
-		//Thread.sleep(2000);
-		//TestUtils.assertSearchText("XPATH", "//app-token-confirmation-modal/div/div/div/p[2]", " -1001Your token has been locked due to several failed attempts. Please retry after 3 minutes  or dial *737*7# on your registered phone number to generate a new token code.HARDWARE");
-		//Thread.sleep(500);
-				
-		// Click Back button 
 		
-		getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div[3]/button/span[contains(text(),'Back')]")).click();
+		getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div[3]/button[2]/span")).click();
+    	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div/div/h3")));
+    	
+    	String msg = getDriver().findElement(By.xpath("//h3")).getText();
+    	String msg2 = getDriver().findElement(By.xpath("//ibank-notifications/div/div/div/div/div")).getText();
+    	
+    	testInfo.get().info(msg + "\n" + msg2);
+    	
+    	
+    	TestUtils.scrollUntilElementIsVisible("XPATH", "//a[contains(text(),'Cardless Withdrawal')]");
+		Thread.sleep(500);
+		TestUtils.scrollUntilElementIsVisible("XPATH", "//a[contains(text(),'Cardless Withdrawal')]");
+		Thread.sleep(500);
+		TestUtils.scrollUntilElementIsVisible("XPATH", "//a[contains(text(),'Cardless Withdrawal')]");
+		Thread.sleep(500);
+		
+			
+		getDriver().findElement(By.xpath("//ibank-notifications/div/div/div[2]/button")).click();
 		Thread.sleep(500);
 				
 				

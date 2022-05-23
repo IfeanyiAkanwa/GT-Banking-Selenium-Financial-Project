@@ -13,7 +13,7 @@
     "phoNumGreaterThan11Digits" : "080233055653456465",
     "phoNumLessThan11Digits" : "0802565",
     "wrongmailFormat" : "sina@com",
-    "validUserID" : "221843785",
+    "validUserID" : "205132266",
     "userIDGreaterThan12Digits" : "0802330456556",
     "userIDLessThan9Digits" : "0802565"
   },
@@ -58,7 +58,7 @@
   "account" : "0201112754",
   "amount" : "500",
   "remark" : "upkeep",
-  "token" : "123456" 
+  "token" : "063192" 
   },
   "OwnAccountTransfer":{ 
   "amount" : "100",
@@ -113,5 +113,11 @@
    "Remark": "upkeep",
    "token": "154932",
    "PickUpName": "Oluwakemi Adetona"
-	}
+	},
+"QuickCredit" : {
+  "secretAnswer": "test",
+  "email": "test@gtbank.com",
+  "salary": "500000",
+   "token": "123456"
+}	
 }
