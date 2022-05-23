@@ -62,10 +62,10 @@ public class CashWithdrawal extends IRequire{
 			
 			//Select Account to Debit
 			TestUtils.testTitle("Customer Selects Account to Debit");
-			getDriver().findElement(By.xpath("//ng-select[@id='account']/div")).click();
+			getDriver().findElement(By.xpath("//ng-select[@id='account']/div/span")).click();
 			Thread.sleep(500);
 			
-			getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div/div/p[1]")).click();
+			getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div/div/p[contains(text(), 'SAVINGS ACCOUNT')]")).click();
 			Thread.sleep(500);
 			
 			//Enter Remarks
@@ -173,10 +173,10 @@ public class CashWithdrawal extends IRequire{
 			
 			//Select Account to Debit
 			TestUtils.testTitle("Customer Selects Account to Debit");
-			getDriver().findElement(By.xpath("//ng-select[@id='account']/div")).click();
+			getDriver().findElement(By.xpath("//ng-select[@id='account']/div/span")).click();
 			Thread.sleep(500);
 			
-			getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div/div/p[1]")).click();
+			getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div/div/p[contains(text(), 'SAVINGS ACCOUNT')]")).click();
 			Thread.sleep(500);
 			
 			//Enter Remarks
@@ -237,13 +237,9 @@ public class CashWithdrawal extends IRequire{
 	    	
 	    	String msg = getDriver().findElement(By.xpath("//h3")).getText();
 	    	String msg2 = getDriver().findElement(By.xpath("//gtibank-cash-withdrawal/div/div/div/div/div")).getText();
-	    	if(msg == "Request Failed") {
-	    	testInfo.get().info( msg + "\n " + msg2 );
 	    	
-	    	}
-	    	else {
-	    		testInfo.get().info(msg + "\n " +  msg2 );  
-	    		}
+	    	testInfo.get().info(msg + "\n" + msg2);
+	    	
 						
 			//close page
 			

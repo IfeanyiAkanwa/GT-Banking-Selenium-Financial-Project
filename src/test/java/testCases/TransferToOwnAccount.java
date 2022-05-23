@@ -96,7 +96,11 @@ public class TransferToOwnAccount extends TestBase{
 					TestUtils.testTitle("Customer Selects an unfunded Account as Account to Debit");
 					getDriver().findElement(By.xpath("//ng-select[@id='AcctToDebit']/div")).click();
 					Thread.sleep(500);
-					getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div/div/p[contains(text(), 'GT TARGET')]")).click();
+					getDriver().findElement(By.xpath("//ng-select[@id='AcctToDebit']/div")).click();
+					Thread.sleep(500);
+					getDriver().findElement(By.xpath("//ng-select[@id='AcctToDebit']/div")).click();
+					Thread.sleep(500);
+					getDriver().findElement(By.xpath("//div/p[contains(text(), '0613624193')]")).click();
 					Thread.sleep(500);
 					
 					
@@ -104,7 +108,11 @@ public class TransferToOwnAccount extends TestBase{
 					
 					getDriver().findElement(By.xpath("//ng-select[@id='AcctToCredit']/div")).click();
 					Thread.sleep(500);
-					getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div/div/p[contains(text(), 'GT TARGET')]")).click();
+					getDriver().findElement(By.xpath("//ng-select[@id='AcctToCredit']/div")).click();
+					Thread.sleep(500);
+					getDriver().findElement(By.xpath("//ng-select[@id='AcctToCredit']/div")).click();
+					Thread.sleep(500);
+					getDriver().findElement(By.xpath("//div/p[contains(text(), '0004240467')]")).click();
 					Thread.sleep(500);
 					
 					//Enter Amount 
@@ -185,7 +193,7 @@ public class TransferToOwnAccount extends TestBase{
 					
 					getDriver().findElement(By.xpath("//ng-select[@id='AcctToCredit']/div")).click();
 					Thread.sleep(500);
-					getDriver().findElement(By.xpath("//div/p[contains(text(), 'GT TARGET')]")).click();
+					getDriver().findElement(By.xpath("//div/p[contains(text(), 'GT SPEND2SAVE')]")).click();
 					Thread.sleep(500);
 					
 					//Enter Amount 

@@ -179,6 +179,16 @@ public static void savedOtherBanksBeneficiaryTest(String testEnv) throws Excepti
 				getDriver().findElement(By.id("token")).clear();
 				getDriver().findElement(By.id("token")).sendKeys(token);
 				
+				//Click on Submit
+				
+				getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div[3]/button[2]/span")).click();
+		    	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div/div/h3")));
+		    	
+		    	String msg = getDriver().findElement(By.xpath("//h3")).getText();
+		    	String msg2 = getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div/p[2]")).getText();
+		    	
+		    	testInfo.get().info(msg + "\n" + msg2);
+				
 				
 				// Click Back button 
 				getDriver().findElement(By.xpath("//div/button/span[contains(text(),'Back')]")).click();

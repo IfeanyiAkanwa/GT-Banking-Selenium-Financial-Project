@@ -18,7 +18,7 @@ public void navigateToLoansAndSavingsTest() throws InterruptedException{
 		
 		TestUtils.testTitle("Navigate to Loans and Savings");
 		
-		//Click on Transfers
+		//Click on Loans and Savings
 		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(), 'Dashboard')]")));
 		getDriver().findElement(By.xpath("//ul[8]/li/a/span[2]")).click();
@@ -45,7 +45,7 @@ public void navigateToLoansAndSavingsTest() throws InterruptedException{
 		Thread.sleep(500);
 
 		//Rater Test
-		TestUtils.raterTest("Loans and Savings");
+		//TestUtils.raterTest("Loans and Savings");
 
 	
 	}
@@ -63,12 +63,28 @@ public void navigateToLoansAndSavingsTest() throws InterruptedException{
 		getDriver().findElement(By.xpath("//span/mat-panel-title")).click();
 		Thread.sleep(500);
 		if (getDriver().findElement(By.xpath("//img[@alt='Quick Credit advert banner']")).isDisplayed()) {
-			testInfo.get().error("<b> My Investment section is hidden </b>");
+			testInfo.get().info("<b> My Investment section is hidden </b>");
 		} else {
-			testInfo.get().info("<b> My Investment section is not hidden </b>");
+			testInfo.get().error("<b> My Investment section is not hidden </b>");
 		}
+	
 		
 	}
-		
+	public static void clickOnMenuList1() throws InterruptedException {
+		// TODO Auto-generated method stub
+		TestUtils.testTitle("To confirm that when user clicks on 'Menu List', user is directed back to the main Loans and Savings Module");
+		TestUtils.scrollUntilElementIsVisible("XPATH", "//gtibank-pageheader/div/div/div[2]/a/span/span");
+		Thread.sleep(500);
+		TestUtils.scrollUntilElementIsVisible("XPATH", "//gtibank-pageheader/div/div/div[2]/a/span/span");
+		Thread.sleep(500);
+		TestUtils.scrollUntilElementIsVisible("XPATH", "//gtibank-pageheader/div/div/div[2]/a/span/span");
+		Thread.sleep(500);
+		TestUtils.scrollUntilElementIsVisible("XPATH", "//gtibank-pageheader/div/div/div[2]/a/span/span");
+		Thread.sleep(500);
+		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div[2]/a/span/span", "Menu list");
+		getDriver().findElement(By.xpath("//gtibank-pageheader/div/div/div[2]/a/span/span")).click();
+		TestUtils.assertSearchText("XPATH", "//gtibank-pageheader/div/div/div/p", "Manage your loans and savings, apply for new loans, view investment rates");
+		Thread.sleep(500);
+	}	
 
 }

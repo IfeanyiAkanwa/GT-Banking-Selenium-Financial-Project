@@ -179,7 +179,19 @@ public void savedBeneficiaryGTBANKStandingOrder(String testEnv) throws Interrupt
 			
 			
 			//Click on submit on Token COnfirmation page
-			TestUtils.submitAndClose();
+			getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div[3]/button[2]/span")).click();
+	    	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div/div/h3")));
+	    	Thread.sleep(2000);
+	    	
+	    	String msg = getDriver().findElement(By.xpath("//h3")).getText();
+	    	String msg2 = getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div/p[2]")).getText();
+	    	Thread.sleep(2000);
+	    	
+	    	testInfo.get().info( msg + "\n " + msg2 );
+	    	
+						
+			getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div[2]/button")).click();
+
 }
 
 

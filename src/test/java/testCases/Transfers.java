@@ -42,7 +42,7 @@ public class Transfers extends TestBase{
 		Thread.sleep(500);
 		
 		//Rater Test
-		TestUtils.raterTest("Transfers");
+		//TestUtils.raterTest("Transfers");
 		
 	}
 	
@@ -66,7 +66,7 @@ public class Transfers extends TestBase{
 		
 		getDriver().findElement(By.xpath("//mat-panel-title")).click();
 		Thread.sleep(500);
-		if (getDriver().findElement(By.xpath("//div/button/span[contains(text(),'Go to Transfers')]")).isDisplayed()) {
+		if (getDriver().findElement(By.xpath("//div/mat-tab-group/mat-tab-header/div[2]/div/div")).isDisplayed()) {
 			testInfo.get().error("<b> Go to Transfers section is not hidden </b>");
 		} else {
 			testInfo.get().info("<b> Go to Transfers section is hidden </b>");

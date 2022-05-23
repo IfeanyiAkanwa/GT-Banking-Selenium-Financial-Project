@@ -9,7 +9,7 @@
 	<parameter name="config" value="parallel.conf.json" />
 	<parameter name="testEnv" value="stagingData" />
 
- <test name="Login" preserve-order="true">
+<test name="Login" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
 			<class name="testCases.Login">
@@ -410,7 +410,7 @@
 		</classes>
 		</test>
 		
-		<test	 name="ENaira" preserve-order ="true">
+		 <test	 name="ENaira" preserve-order ="true">
 		<parameter name="myBrowser" value="chrome"/>
 			<classes>
 				<class name="testCases.ENaira">
@@ -469,6 +469,37 @@
 					<include name="navigateToLoansAndSavingsTest"></include>
 					<include name="validateLoansAndSavingsSubModulesTest"></include>
 					<include name="myInvestmentTab"></include>							
+		</methods>
+		</class>		
+		</classes>
+		</test>
+		
+		
+		<test name="QuickCredit" preserve-order ="true">
+		<parameter name="myBrowser" value="chrome"/>
+			<classes>
+				<class name="testCases.QuickCredit">
+					<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToQuickCreditTest"></include>
+					<include name="loansAndSavingsValidationTest"></include>
+					<include name="quickCreditEligibilityTest"></include>							
+		</methods>
+		</class>		
+		</classes>
+		</test>
+		
+		<test name="QuickCreditProfilingRequest" preserve-order ="true">
+		<parameter name="myBrowser" value="chrome"/>
+			<classes>
+				<class name="testCases.QuickCreditProfilingRequest">
+					<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToQuickCreditProfilingRequestTest"></include>
+					<include name="loansAndSavingsValidationTest"></include>
+					<include name="quickCreditProfilingRequestTest"></include>							
 		</methods>
 		</class>		
 		</classes>
