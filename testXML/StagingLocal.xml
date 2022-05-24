@@ -505,4 +505,42 @@
 		</classes>
 		</test>
 		
+		
+		
+		<test name="Spend2Save" preserve-order ="true">
+		<parameter name="myBrowser" value="chrome"/>
+			<classes>
+				<class name="testCases.Spend2Save">
+					<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToSpend2Save"></include>
+					<include name="loansAndSavingsValidationTest"></include>
+					<include name="spend2SaveTest"></include>									
+		</methods>
+		</class>		
+		</classes>
+		</test>
+		
+		
+		
+		<test name="LoanProtect" preserve-order ="true">
+		<parameter name="myBrowser" value="chrome"/>
+			<classes>
+				<class name="testCases.LoanProtect">
+					<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToLoanProtectTest"></include>
+					<include name="loansAndSavingsValidationTest"></include>
+					<include name="loanProtectTest"></include>									
+		</methods>
+		</class>		
+		</classes>
+		</test>
+		
+		
+		
+		
+		
 </suite>
