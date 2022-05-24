@@ -13,7 +13,7 @@
     "phoNumGreaterThan11Digits" : "080233055653456465",
     "phoNumLessThan11Digits" : "0802565",
     "wrongmailFormat" : "sina@com",
-    "validUserID" : "205132266",
+    "validUserID" : "221843785",
     "userIDGreaterThan12Digits" : "0802330456556",
     "userIDLessThan9Digits" : "0802565"
   },
@@ -118,6 +118,13 @@
   "secretAnswer": "test",
   "email": "test@gtbank.com",
   "salary": "500000",
-   "token": "123456"
-}	
+   "token": "123456",
+   "amount" : "20000000"
+},
+"MaxAdvance" : {
+  "employerName": " NIGERIAN NATIONAL PETROLEUM CORPORATION (NNPC), HYSON, PPMC, IDSL AND SUBSIDIARIES ",
+  "salary": "200000000",
+   "token": "123456",
+   "position": "Accountant"
+}		
 }
