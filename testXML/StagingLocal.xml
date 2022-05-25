@@ -539,8 +539,37 @@
 		</classes>
 		</test>
 		
+		<test name="CardCollection" preserve-order ="true">
+		<parameter name="myBrowser" value="chrome"/>
+			<classes>
+				<class name="testCases.CardCollection">
+					<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToCardCollection"></include>
+					<include name="cardCollectionBranchSelfPickUpTest"></include>
+					<include name="cardCollectionBranchThirdPartyPickUpTest"></include>	
+					<include name="cardCollectionOrangeLockerSelfPickUpTest"></include>		
+					<include name="cardCollectionOrangeLockerThirdPartyPickUpTest"></include>						
+		</methods>
+		</class>		
+		</classes>
+		</test>	
 		
-		
-		
-		
+		<test name="TokenCollection" preserve-order ="true">
+		<parameter name="myBrowser" value="chrome"/>
+			<classes>
+				<class name="testCases.TokenCollection">
+					<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToTokenCollection"></include>
+					<include name="tokenCollectionBranchSelfPickUpTest"></include>
+					<include name="tokenCollectionBranchThirdPartyPickUpTest"></include>	
+					<include name="tokenCollectionOrangeLockerSelfPickUpTest"></include>
+					<include name="tokenCollectionOrangeLockerThirdPartyPickUpTest"></include>					
+		</methods>
+		</class>		
+		</classes>
+		</test>	
 </suite>
