@@ -106,13 +106,17 @@
 "SelfPickUp" : {
   "amount" : "100",
    "Remark": "upkeep",
-   "token" : "182530"
-   },
+   "token" : "182530",
+   "copies": "4" ,
+    "leaves": "50"
+     },
 "3rdPartyPickUP" : {
   "amount" : "100",
    "Remark": "upkeep",
    "token": "585057",
-   "PickUpName": "Oluwakemi Adetona"
+   "PickUpName": "Oluwakemi Adetona",
+   "copies": "4" ,
+   "leaves": "50"
 	},
 "QuickCredit" : {
   "secretAnswer": "test",

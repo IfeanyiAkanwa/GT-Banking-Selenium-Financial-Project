@@ -572,4 +572,41 @@
 		</class>		
 		</classes>
 		</test>	
+		
+		
+		
+		<test name="StatementCollection" preserve-order ="true">
+		<parameter name="myBrowser" value="chrome"/>
+			<classes>
+				<class name="testCases.StatementCollection">
+					<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToStatementCollectionTest"></include>
+					<include name="statementCollectionBranchSelfPickUpTest"></include>
+					<include name="statementCollectionBranchThirdPartyPickUpTest"></include>
+					<include name="statementCollectionOrangeLockerSelfPickUpTest"></include>
+					<include name="statementCollectionOrangeLockerThirdPartyPickUpTest"></include>
+									
+		</methods>
+		</class>		
+		</classes>
+		</test>	
+		
+		<test name="ChequeCollection" preserve-order ="true">
+		<parameter name="myBrowser" value="chrome"/>
+			<classes>
+				<class name="testCases.ChequeCollection">
+					<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToChequeCollectionTest"></include>
+					<include name="chequeCollectionBranchSelfPickUpTest"></include>
+					<include name="chequeCollectionBranchThirdPartyPickUpTest"></include>
+					<include name="chequeCollectionOrangeLockerSelfPickUpTest"></include>
+					<include name="chequeCollectionOrangeLockerThirdPartyPickUpTest"></include>
+		</methods>
+		</class>		
+		</classes>
+		</test>	
 </suite>
