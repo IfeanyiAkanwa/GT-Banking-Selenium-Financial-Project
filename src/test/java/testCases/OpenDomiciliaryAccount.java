@@ -132,8 +132,9 @@ public class OpenDomiciliaryAccount extends TestBase{
 		getDriver().findElement(By.id("validate")).click();
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3")));
-		TestUtils.assertSearchText("XPATH", "//h3", "Open Dom Account");
-		TestUtils.assertSearchText("XPATH", "//ibank-notifications/div/div/div/div/div/p", "You Already Have a Dollar Domiciliary Account");
+		TestUtils.assertSearchText("XPATH", "//div/div/div/div/h3", "Open Dom Account");
+		String notification = getDriver().findElement(By.xpath("//ibank-notifications/div/div/div/div/div/p")).getText();
+		TestUtils.assertSearchText("XPATH", "//ibank-notifications/div/div/div/div/div/p", notification);
 		getDriver().findElement(By.xpath("//div[2]/button")).click();
 		Thread.sleep(500);
 		

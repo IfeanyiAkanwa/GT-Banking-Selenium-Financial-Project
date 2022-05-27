@@ -51,13 +51,13 @@
   },
   "SavedBeneficiary" : {
   "amount" : "500",
-  "remark" : "upkeep",
+  "Remark" : "upkeep",
   "token" : "123456" 
   },
   "NewBeneficiary" : { 
   "account" : "0201112754",
   "amount" : "500",
-  "remark" : "upkeep",
+  "Remark" : "upkeep",
   "token" : "063192" 
   },
   "OwnAccountTransfer":{ 
@@ -71,13 +71,13 @@
   "TransferViaPhoneNumber" : {
   "phoneNumber" : "08060176821",
   "amount" : "500",
-  "remark" : "upkeep",
+  "Remark" : "upkeep",
   "token" : "123456" 
   },
   "TransferViaEmail" : {
   "email" : "chioma.anosike@yahoo.com",
   "amount" : "500",
-  "remark" : "upkeep",
+  "Remark" : "upkeep",
   "token" : "123456" 
 },
 "CardlessWithdrawal" : {

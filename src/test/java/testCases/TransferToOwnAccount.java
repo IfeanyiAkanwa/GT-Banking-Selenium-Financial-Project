@@ -100,7 +100,7 @@ public class TransferToOwnAccount extends TestBase{
 					Thread.sleep(500);
 					getDriver().findElement(By.xpath("//ng-select[@id='AcctToDebit']/div")).click();
 					Thread.sleep(500);
-					getDriver().findElement(By.xpath("//div/p[contains(text(), '0613624193')]")).click();
+					getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div/div/p[1]")).click();
 					Thread.sleep(500);
 					
 					
@@ -112,7 +112,7 @@ public class TransferToOwnAccount extends TestBase{
 					Thread.sleep(500);
 					getDriver().findElement(By.xpath("//ng-select[@id='AcctToCredit']/div")).click();
 					Thread.sleep(500);
-					getDriver().findElement(By.xpath("//div/p[contains(text(), '0004240467')]")).click();
+					getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div/div/p[1]")).click();
 					Thread.sleep(500);
 					
 					//Enter Amount 
@@ -193,7 +193,7 @@ public class TransferToOwnAccount extends TestBase{
 					
 					getDriver().findElement(By.xpath("//ng-select[@id='AcctToCredit']/div")).click();
 					Thread.sleep(500);
-					getDriver().findElement(By.xpath("//div/p[contains(text(), 'GT SPEND2SAVE')]")).click();
+					getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div/div/p[1]")).click();
 					Thread.sleep(500);
 					
 					//Enter Amount 
@@ -209,6 +209,7 @@ public class TransferToOwnAccount extends TestBase{
 					Thread.sleep(500);
 					
 					wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//gtibank-own-account/ibank-notifications/div/div")));
+					
 					String transDetails = getDriver().findElement(By.xpath("//ibank-notifications/div/div/div/div/div/p")).getText();
 					TestUtils.assertSearchText("XPATH", "//h3", "Successful" );
 					TestUtils.assertSearchText("XPATH", "//ibank-notifications/div/div/div/div/div/p", transDetails);

@@ -68,6 +68,7 @@ public class OpenAdditionalAcount extends TestBase{
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//gtb-notification/mat-card/p")));
 		TestUtils.assertSearchText("XPATH", "//gtb-notification/mat-card/p",	"Secret Answer recovery successful. Your Secret Answer has been sent to you email");
 		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Yes'])[1]/following::mat-card[1]")));
 		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
 		Thread.sleep(1000);
 		
