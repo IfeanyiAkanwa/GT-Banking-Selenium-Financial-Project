@@ -41,7 +41,7 @@ public class Login extends TestBase{
 	@Parameters ("testEnv")
 	@Test
 	public void accountNumberLoginValidationTest(String testEnv) throws Exception {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+		WebDriverWait wait = new WebDriverWait(getDriver(), 120);
 		File path = null;
 		File classpathRoot = new File(System.getProperty("user.dir"));
 		if (testEnv.equalsIgnoreCase("StagingData")) {

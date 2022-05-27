@@ -40,16 +40,23 @@ public class CustomerProfile extends SelfService {
 	public void CustomerProfileImageUpload() throws InterruptedException {
 
 		TestUtils.testTitle("To Upload Customer Profile Image ");
-		TestUtils.uploadFile(By.xpath("userImageUpload"), "CustomerProfileImage.png");
-		TestUtils.AssertAlertMessage("Image updated successfully");
-		Thread.sleep(2000);
+		
+		TestUtils.uploadFile(By.id("userImageUpload"), "Over200kbpic.jpg"); 
+		TestUtils.assertSearchText("XPATH", "//ibank-notifications/div/div/div[1]/div/div/p", "Image is too large. Image size can not be greater than 200kb. Compress image or upload a different image.");
+
+		//getDriver().findElement(By.xpath("//gtibank-view-profile/div/div/div/div[2]/div/input"));
+		TestUtils.uploadFile(By.xpath("//gtibank-view-profile/div/div/div/div[2]/div/input"), "CustomerProfileImage.png");
+		//TestUtils.AssertAlertMessage("10.0.6.125:9001 says");
+		//Thread.sleep(2000);
 		
 		/*TestUtils.testTitle("To View Customer Profile Image ");
 		TestUtils.AssertImageExist(By.xpath("//gtibank-view-profile/div/div/div/div[1]/div"), "CustomerProfileImage.jpeg");*/
 		
 
-		TestUtils.uploadFile(By.id("userImageUpload"), "CustomerProfileImage.png"); 
-		TestUtils.AssertAlertMessage("Image updated successfully");
+		/*
+		 * TestUtils.uploadFile(By.id("userImageUpload"), "CustomerProfileImage.png");
+		 * TestUtils.AssertAlertMessage("Image updated successfully");
+		 */
 		
 		/*TestUtils.uploadFile(By.id("userImageUpload"), "CustomerProfileImage.pdf"); 
 		TestUtils.assertSearchText("XPATH", "//ibank-notifications/div/div/div[1]/div/div/p", "Wrong image file. Please upload only JPEG and PNG image files.");
@@ -60,9 +67,7 @@ public class CustomerProfile extends SelfService {
 		TestUtils.uploadFile(By.id("userImageUpload"), "CustomerProfileImage.xslx"); 
 		TestUtils.assertSearchText("XPATH", "//ibank-notifications/div/div/div[1]/div/div/p", "Wrong image file. Please upload only JPEG and PNG image files.");*/
 
-		TestUtils.uploadFile(By.id("userImageUpload"), "Over200kbpic.jpg"); 
-		TestUtils.assertSearchText("XPATH", "//ibank-notifications/div/div/div[1]/div/div/p", "Image is too large. Image size can not be greater than 200kb. Compress image or upload a different image.");
-
+		
 	}
 	
 }

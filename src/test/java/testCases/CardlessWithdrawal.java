@@ -108,7 +108,7 @@ public void transferValidationTest() throws InterruptedException {
 		//Select Account to debit
 		getDriver().findElement(By.xpath("//ng-select[@id='account']/div")).click();
 		Thread.sleep(500);
-		getDriver().findElement(By.xpath("//div/p[contains(text(), '0537265944')]")).click();
+		getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div/div/p[1]")).click();
 		Thread.sleep(500);
 		
 		//Enter Phone Number 

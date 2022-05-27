@@ -204,21 +204,7 @@
 			</class>
 		</classes>
 		 </test>
-	 <test name="IRequire" preserve-order="true">
-		<parameter name="myBrowser" value="chrome" />
-		<classes>
-			<class name="testCases.IRequire">
-				<methods>
-					<include name="Login"></include>
-					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
-					<include name="navigateToIRequireTest"></include>
-					<include name="IRequireValidationTest"></include>
-					<include name="sendStatementTest"></include>
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="SelfService" preserve-order="true">
+		 <test name="SelfService" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
 			<class name="testCases.SelfService">
@@ -245,18 +231,108 @@
 			</class>
 		</classes>
 	</test>
-	<test name="StatementCollection" preserve-order="true">
+	 <test name="IRequire" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
-			<class name="testCases.StatementCollection">
+			<class name="testCases.IRequire">
 				<methods>
 					<include name="Login"></include>
 					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
-					<include name="navigateToStatementCollectionTest"></include>
+					<include name="navigateToIRequireTest"></include>
+					<include name="IRequireValidationTest"></include>
+					<include name="sendStatementTest"></include>
 				</methods>
 			</class>
 		</classes>
 	</test>
+	<test name="CashWithdrawal" preserve-order ="true">
+		<parameter name="myBrowser" value="chrome"/>
+			<classes>
+				<class name="testCases.CashWithdrawal">
+					<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToCashWithdrawalTest"></include>
+					<include name="selfCashWithdrawalTest"></include>
+					<include name="thirdPartyCashWithdrawalTest"></include>
+											
+		</methods>
+		</class>		
+		</classes>
+		</test>
+		
+		<test name="CardCollection" preserve-order ="true">
+		<parameter name="myBrowser" value="chrome"/>
+			<classes>
+				<class name="testCases.CardCollection">
+					<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToCardCollection"></include>
+					<include name="cardCollectionBranchSelfPickUpTest"></include>
+					<include name="cardCollectionBranchThirdPartyPickUpTest"></include>	
+					<include name="cardCollectionOrangeLockerSelfPickUpTest"></include>		
+					<include name="cardCollectionOrangeLockerThirdPartyPickUpTest"></include>						
+		</methods>
+		</class>		
+		</classes>
+		</test>	
+		
+		<test name="TokenCollection" preserve-order ="true">
+		<parameter name="myBrowser" value="chrome"/>
+			<classes>
+				<class name="testCases.TokenCollection">
+					<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToTokenCollection"></include>
+					<include name="tokenCollectionBranchSelfPickUpTest"></include>
+					<include name="tokenCollectionBranchThirdPartyPickUpTest"></include>	
+					<include name="tokenCollectionOrangeLockerSelfPickUpTest"></include>
+					<include name="tokenCollectionOrangeLockerThirdPartyPickUpTest"></include>					
+		</methods>
+		</class>		
+		</classes>
+		</test>	
+		
+		
+		
+		<test name="StatementCollection" preserve-order ="true">
+		<parameter name="myBrowser" value="chrome"/>
+			<classes>
+				<class name="testCases.StatementCollection">
+					<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToStatementCollectionTest"></include>
+					<include name="statementCollectionBranchSelfPickUpTest"></include>
+					<include name="statementCollectionBranchThirdPartyPickUpTest"></include>
+					<include name="statementCollectionOrangeLockerSelfPickUpTest"></include>
+					<include name="statementCollectionOrangeLockerThirdPartyPickUpTest"></include>
+									
+		</methods>
+		</class>		
+		</classes>
+		</test>	
+		
+		<test name="ChequeCollection" preserve-order ="true">
+		<parameter name="myBrowser" value="chrome"/>
+			<classes>
+				<class name="testCases.ChequeCollection">
+					<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToChequeCollectionTest"></include>
+					<include name="chequeCollectionBranchSelfPickUpTest"></include>
+					<include name="chequeCollectionBranchThirdPartyPickUpTest"></include>
+					<include name="chequeCollectionOrangeLockerSelfPickUpTest"></include>
+					<include name="chequeCollectionOrangeLockerThirdPartyPickUpTest"></include>
+		</methods>
+		</class>		
+		</classes>
+		</test>	
+		
+
 	<test name="MTNAirtimeDataTopUp" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
@@ -268,6 +344,7 @@
 					<include name="mtnValidationTest"></include>
 					<include name="validPurchaseAirtimeTest"></include>
 					<include name="validPurchaseDataTest"></include>
+					
 				</methods>
 			</class>
 		</classes>
@@ -283,6 +360,7 @@
 					<include name="airtelValidationTest"></include>
 					<include name="validPurchaseAirtimeTest"></include>
 					<include name="validPurchaseDataTest"></include>
+					
 				</methods>
 			</class>
 		</classes>
@@ -298,6 +376,7 @@
 					<include name="gloValidationTest"></include>
 					<include name="validPurchaseAirtimeTest"></include>
 					<include name="validPurchaseDataTest"></include>
+					
 				</methods>
 			</class>
 		</classes>
@@ -313,11 +392,58 @@
 					<include name="nineMobileValidationTest"></include>
 					<include name="validPurchaseAirtimeTest"></include>
 					<include name="validPurchaseDataTest"></include>
+					
 				</methods>
 			</class>
 		</classes>
 	</test>
- 	<test name="Transfers" preserve-order ="true">
+	
+		<test name="LoansAndSavings" preserve-order ="true">
+		<parameter name="myBrowser" value="chrome"/>
+			<classes>
+				<class name="testCases.LoansAndSavings">
+					<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToLoansAndSavingsTest"></include>
+					<include name="validateLoansAndSavingsSubModulesTest"></include>
+					<include name="myInvestmentTab"></include>							
+		</methods>
+		</class>		
+		</classes>
+		</test>
+		
+ 	
+ 	<test name="QuickCredit" preserve-order ="true">
+		<parameter name="myBrowser" value="chrome"/>
+			<classes>
+				<class name="testCases.QuickCredit">
+					<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToQuickCreditTest"></include>
+					<include name="loansAndSavingsValidationTest"></include>
+					<include name="quickCreditEligibilityTest"></include>							
+		</methods>
+		</class>		
+		</classes>
+		</test>
+		
+		<test name="QuickCreditProfilingRequest" preserve-order ="true">
+		<parameter name="myBrowser" value="chrome"/>
+			<classes>
+				<class name="testCases.QuickCreditProfilingRequest">
+					<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToQuickCreditProfilingRequestTest"></include>
+					<include name="loansAndSavingsValidationTest"></include>
+					<include name="quickCreditProfilingRequestTest"></include>							
+		</methods>
+		</class>		
+		</classes>
+		</test>
+		<test name="Transfers" preserve-order ="true">
 		<parameter name="myBrowser" value="chrome"/>
 		<classes>
 			<class name="testCases.Transfers">
@@ -426,21 +552,7 @@
 		</classes>
 		</test>	
 		
-		<test name="CashWithdrawal" preserve-order ="true">
-		<parameter name="myBrowser" value="chrome"/>
-			<classes>
-				<class name="testCases.CashWithdrawal">
-					<methods>
-					<include name="Login"></include>
-					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
-					<include name="navigateToCashWithdrawalTest"></include>
-					<include name="selfCashWithdrawalTest"></include>
-					<include name="thirdPartyCashWithdrawalTest"></include>
-											
-		</methods>
-		</class>		
-		</classes>
-		</test>
+		
 		<test name="StandingOrder" preserve-order ="true">
 		<parameter name="myBrowser" value="chrome"/>
 			<classes>
@@ -454,52 +566,6 @@
 					<include name="newBeneficiaryGTBANKStandingOrderTest"></include>
 					<include name="savedBeneficiaryOtherBanksStandingOrder"></include>
 											
-		</methods>
-		</class>		
-		</classes>
-		</test>
-		
-		<test name="LoansAndSavings" preserve-order ="true">
-		<parameter name="myBrowser" value="chrome"/>
-			<classes>
-				<class name="testCases.LoansAndSavings">
-					<methods>
-					<include name="Login"></include>
-					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
-					<include name="navigateToLoansAndSavingsTest"></include>
-					<include name="validateLoansAndSavingsSubModulesTest"></include>
-					<include name="myInvestmentTab"></include>							
-		</methods>
-		</class>		
-		</classes>
-		</test>
-		
-		
-		<test name="QuickCredit" preserve-order ="true">
-		<parameter name="myBrowser" value="chrome"/>
-			<classes>
-				<class name="testCases.QuickCredit">
-					<methods>
-					<include name="Login"></include>
-					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
-					<include name="navigateToQuickCreditTest"></include>
-					<include name="loansAndSavingsValidationTest"></include>
-					<include name="quickCreditEligibilityTest"></include>							
-		</methods>
-		</class>		
-		</classes>
-		</test>
-		
-		<test name="QuickCreditProfilingRequest" preserve-order ="true">
-		<parameter name="myBrowser" value="chrome"/>
-			<classes>
-				<class name="testCases.QuickCreditProfilingRequest">
-					<methods>
-					<include name="Login"></include>
-					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
-					<include name="navigateToQuickCreditProfilingRequestTest"></include>
-					<include name="loansAndSavingsValidationTest"></include>
-					<include name="quickCreditProfilingRequestTest"></include>							
 		</methods>
 		</class>		
 		</classes>
@@ -539,74 +605,23 @@
 		</classes>
 		</test>
 		
-		<test name="CardCollection" preserve-order ="true">
+		
+		<test name="Cheques" preserve-order ="true">
 		<parameter name="myBrowser" value="chrome"/>
 			<classes>
-				<class name="testCases.CardCollection">
+				<class name="testCases.Cheques">
 					<methods>
 					<include name="Login"></include>
 					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
-					<include name="navigateToCardCollection"></include>
-					<include name="cardCollectionBranchSelfPickUpTest"></include>
-					<include name="cardCollectionBranchThirdPartyPickUpTest"></include>	
-					<include name="cardCollectionOrangeLockerSelfPickUpTest"></include>		
-					<include name="cardCollectionOrangeLockerThirdPartyPickUpTest"></include>						
+					<include name="navigateToChequesTest"></include>
+					<include name="chequeValidationsTest"></include>
+					<include name="requestChequeSelfTest"></include>
+					<include name="requestChequeProxyTest"></include>
+					
 		</methods>
 		</class>		
 		</classes>
-		</test>	
+		</test>
+			
 		
-		<test name="TokenCollection" preserve-order ="true">
-		<parameter name="myBrowser" value="chrome"/>
-			<classes>
-				<class name="testCases.TokenCollection">
-					<methods>
-					<include name="Login"></include>
-					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
-					<include name="navigateToTokenCollection"></include>
-					<include name="tokenCollectionBranchSelfPickUpTest"></include>
-					<include name="tokenCollectionBranchThirdPartyPickUpTest"></include>	
-					<include name="tokenCollectionOrangeLockerSelfPickUpTest"></include>
-					<include name="tokenCollectionOrangeLockerThirdPartyPickUpTest"></include>					
-		</methods>
-		</class>		
-		</classes>
-		</test>	
-		
-		
-		
-		<test name="StatementCollection" preserve-order ="true">
-		<parameter name="myBrowser" value="chrome"/>
-			<classes>
-				<class name="testCases.StatementCollection">
-					<methods>
-					<include name="Login"></include>
-					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
-					<include name="navigateToStatementCollectionTest"></include>
-					<include name="statementCollectionBranchSelfPickUpTest"></include>
-					<include name="statementCollectionBranchThirdPartyPickUpTest"></include>
-					<include name="statementCollectionOrangeLockerSelfPickUpTest"></include>
-					<include name="statementCollectionOrangeLockerThirdPartyPickUpTest"></include>
-									
-		</methods>
-		</class>		
-		</classes>
-		</test>	
-		
-		<test name="ChequeCollection" preserve-order ="true">
-		<parameter name="myBrowser" value="chrome"/>
-			<classes>
-				<class name="testCases.ChequeCollection">
-					<methods>
-					<include name="Login"></include>
-					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
-					<include name="navigateToChequeCollectionTest"></include>
-					<include name="chequeCollectionBranchSelfPickUpTest"></include>
-					<include name="chequeCollectionBranchThirdPartyPickUpTest"></include>
-					<include name="chequeCollectionOrangeLockerSelfPickUpTest"></include>
-					<include name="chequeCollectionOrangeLockerThirdPartyPickUpTest"></include>
-		</methods>
-		</class>		
-		</classes>
-		</test>	
 </suite>
