@@ -9,7 +9,7 @@
 	<parameter name="config" value="parallel.conf.json" />
 	<parameter name="testEnv" value="stagingData" />
 
-<test name="Login" preserve-order="true">
+ <test name="Login" preserve-order="true">
 		<parameter name="myBrowser" value="chrome" />
 		<classes>
 			<class name="testCases.Login">
@@ -471,7 +471,7 @@
 				</methods>
 			</class>
 		</classes>
-		</test>
+	</test>
 		
 		 <test name="TransferToOtherBanks" preserve-order = "true">
 		<parameter name="myBrowser" value="chrome"/>
@@ -503,8 +503,39 @@
 		</methods>
 		</class>		
 		</classes>
+		</test> 
+		
+	<test name="FXTransferToGTBank" preserve-order = "true">
+		<parameter name="myBrowser" value="chrome"/>
+		<classes>
+			<class name="testCases.FXTransferToGTBank">
+				<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToFXTransferToGTBankTest"></include>
+					<include name="transferValidationTest"></include>	
+					<include name="savedBeneficiaryTest"></include>
+					<include name="newBeneficiaryTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+		
+	<test name="FXTransferToOtherBanks" preserve-order = "true">
+		<parameter name="myBrowser" value="chrome"/>
+		<classes>
+			<class name="testCases.FXTransferToOtherBanks">
+				<methods>
+					<include name="Login"></include>
+					<include name="ClickOnProceedToInternetBankingButtonTest"></include>
+					<include name="navigateToTransferToOtherBanksTest"></include>
+					<include name="transferValidationTest"></include>
+					<include name="savedOtherBanksBeneficiaryTest"></include>	
+				</methods>
+			</class>
+		</classes>
 		</test>
-	<test name="TransferViaPhoneOrEmail" preserve-order ="true">
+	 <test name="TransferViaPhoneOrEmail" preserve-order ="true">
 		<parameter name="myBrowser" value="chrome"/>
 			<classes>
 				<class name="testCases.TransferViaPhoneOrEmail">

@@ -231,8 +231,8 @@ public class Assertion extends TestBase {
 	}
 	
 	public static void otherValidationsforTransfer() throws InterruptedException {
-		//To Confirm that daily limit is displayed
-		//Confirm that the Daily Transfer Limit message is displayed
+				//To Confirm that daily limit is displayed
+				//Confirm that the Daily Transfer Limit message is displayed
 				String trfInfo = getDriver().findElement(By.xpath("//gtibank-phone/div/div/div/form/div/p")).getText();
 				TestUtils.assertSearchText("XPATH", "//gtibank-phone/div/div/div/form/div/p", trfInfo);
 				Thread.sleep(500);	
@@ -263,7 +263,7 @@ public class Assertion extends TestBase {
 	
 	
 	public static void otherValidationNewBeneficiaryTest() throws InterruptedException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+		WebDriverWait wait = new WebDriverWait(getDriver(), 120);
 		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//gtibank-beneficiary-card/mat-card")));
 		TestUtils.assertSearchText("XPATH", "//gtibank-beneficiary-card/mat-card/mat-card-actions/div", "Save Beneficiary after transfer");

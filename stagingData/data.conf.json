@@ -13,7 +13,7 @@
     "phoNumGreaterThan11Digits" : "080233055653456465",
     "phoNumLessThan11Digits" : "0802565",
     "wrongmailFormat" : "sina@com",
-    "validUserID" : "221843785",
+    "validUserID" : "205140893",
     "userIDGreaterThan12Digits" : "0802330456556",
     "userIDLessThan9Digits" : "0802565"
   },
@@ -52,10 +52,13 @@
   "SavedBeneficiary" : {
   "amount" : "500",
   "Remark" : "upkeep",
-  "token" : "123456" 
+  "token" : "123456", 
+  "BenInstitution": "GTBank",
+  "BenAddress": "Ademola Adetokunbo"
+  
   },
   "NewBeneficiary" : { 
-  "account" : "0201112754",
+  "account" : "0649225517",
   "amount" : "500",
   "Remark" : "upkeep",
   "token" : "063192" 

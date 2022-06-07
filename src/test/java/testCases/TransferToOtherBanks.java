@@ -111,88 +111,88 @@ public static void savedOtherBanksBeneficiaryTest(String testEnv) throws Excepti
 		
 		
 		// To confirm that Select Beneficiary drop down populates lists of Beneficiaries
-				testInfo.get().info("<b> Select Beneficiary </b>");
-				TestUtils.testTitle("To confirm that Select Beneficiary drop down populates lists of Beneficiaries");
-				TestUtils.clickElement("XPATH", "//gtibank-beneficiary-dropdown[@id='savedBeneficiaryDropdown']/ng-select/div");
-				Thread.sleep(500);
-				TestUtils.scrollUntilElementIsVisible("XPATH", "//div[2]/a");
-				Thread.sleep(500);
+		testInfo.get().info("<b> Select Beneficiary </b>");
+		TestUtils.testTitle("To confirm that Select Beneficiary drop down populates lists of Beneficiaries");
+		TestUtils.clickElement("XPATH", "//gtibank-beneficiary-dropdown[@id='savedBeneficiaryDropdown']/ng-select/div");
+		Thread.sleep(500);
+		TestUtils.scrollUntilElementIsVisible("XPATH", "//div[2]/a");
+		Thread.sleep(500);
 				
 				
-				getDriver().findElement(By.xpath("//ng-select/div/span")).click();
-				Thread.sleep(500);
+		getDriver().findElement(By.xpath("//ng-select/div/span")).click();
+		Thread.sleep(500);
 				
-				/*List<WebElement> resultList = getDriver().findElements(By.xpath("//ng-dropdown-panel/div/div[2]/div"));
-		        for (WebElement resultItem : resultList)
-		        {
-		           String tabname = resultItem.getText();
-		           testInfo.get().info("<b>"+ tabname + "</b>");
-		        }*/
+		/*List<WebElement> resultList = getDriver().findElements(By.xpath("//ng-dropdown-panel/div/div[2]/div"));
+		      for (WebElement resultItem : resultList)
+		    {
+		       String tabname = resultItem.getText();
+		       testInfo.get().info("<b>"+ tabname + "</b>");
+		    }*/
 		        
 		        
-		        if(ExpectedConditions.visibilityOfElementLocated(By.xpath("//gtibank-beneficiary-dropdown-items/div/div")) != null)
-				{
-					testInfo.get().info("Beneficiaries are displayed");
-				}
-				else 
-				{
-					testInfo.get().error("Beneficiaries are not displayed");
-				}
+		if(ExpectedConditions.visibilityOfElementLocated(By.xpath("//gtibank-beneficiary-dropdown-items/div/div")) != null)
+			{
+				testInfo.get().info("Beneficiaries are displayed");
+			}
+			else 
+			{
+				testInfo.get().error("Beneficiaries are not displayed");
+			}
 				
-		      //select beneficiary
-		        getDriver().findElement(By.xpath("//gtibank-beneficiary-dropdown-items/div/div")).click();
-				Thread.sleep(500);
+		  //select beneficiary
+		    getDriver().findElement(By.xpath("//gtibank-beneficiary-dropdown-items/div/div")).click();
+			Thread.sleep(500);
 				
-				Assertion.otherValidationSavedBeneficiaryTest();
+			Assertion.otherValidationSavedBeneficiaryTest();
 				
-				//select account to debit
-				getDriver().findElement(By.xpath("//ng-select[@id='accountToDebit']/div")).click();
-				Thread.sleep(500);
-				getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div/div/p[1]")).click();
-				Thread.sleep(500);
+			//select account to debit
+			getDriver().findElement(By.xpath("//ng-select[@id='accountToDebit']/div")).click();
+			Thread.sleep(500);
+			getDriver().findElement(By.xpath("//ng-dropdown-panel/div/div/div/p[1]")).click();
+			Thread.sleep(500);
 				
-				// Enter Amount
+			// Enter Amount
 				
-				getDriver().findElement(By.id("transAmt")).clear();
-				getDriver().findElement(By.id("transAmt")).sendKeys(amount);
+			getDriver().findElement(By.id("transAmt")).clear();
+			getDriver().findElement(By.id("transAmt")).sendKeys(amount);
 				
 				
 				// Enter second Amount
 				
-				getDriver().findElement(By.id("transAmt")).clear();
-				getDriver().findElement(By.id("transAmt")).sendKeys(amount);
+			getDriver().findElement(By.id("transAmt")).clear();
+			getDriver().findElement(By.id("transAmt")).sendKeys(amount);
 				
 				
 				
-				//Enter Remarks. This is actually supposed to be secret answer.
-				getDriver().findElement(By.xpath("//input[@placeholder='Remark']")).clear();
-				getDriver().findElement(By.xpath("//input[@placeholder='Remark']")).sendKeys(Remark);
-				TestUtils.scrollToElement("ID", "customer");
+			//Enter Remarks. This is actually supposed to be secret answer.
+			getDriver().findElement(By.xpath("//input[@placeholder='Remark']")).clear();
+			getDriver().findElement(By.xpath("//input[@placeholder='Remark']")).sendKeys(Remark);
+			TestUtils.scrollToElement("ID", "customer");
 				
-				// Click on Continue
-				getDriver().findElement(By.id("customer")).click();
-				Thread.sleep(2000);
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div/div/h3")));
-				TestUtils.assertSearchText("XPATH", "//div/div/h3", "Token Confirmation");
+			// Click on Continue
+			getDriver().findElement(By.id("customer")).click();
+			Thread.sleep(2000);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div/div/h3")));
+			TestUtils.assertSearchText("XPATH", "//div/div/h3", "Token Confirmation");
 				
-				// Enter Token
-				getDriver().findElement(By.id("token")).clear();
-				getDriver().findElement(By.id("token")).sendKeys(token);
+			// Enter Token
+			getDriver().findElement(By.id("token")).clear();
+			getDriver().findElement(By.id("token")).sendKeys(token);
 				
-				//Click on Submit
+			//Click on Submit
 				
-				getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div[3]/button[2]/span")).click();
-		    	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div/div/h3")));
+			getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div[3]/button[2]/span")).click();
+		    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div/div/h3")));
 		    	
-		    	String msg = getDriver().findElement(By.xpath("//h3")).getText();
-		    	String msg2 = getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div/p[2]")).getText();
+		    String msg = getDriver().findElement(By.xpath("//h3")).getText();
+		    String msg2 = getDriver().findElement(By.xpath("//app-token-confirmation-modal/div/div/div/p[2]")).getText();
 		    	
-		    	testInfo.get().info(msg + "\n" + msg2);
+		    testInfo.get().info(msg + "\n" + msg2);
 				
 				
-				// Click Back button 
-				getDriver().findElement(By.xpath("//div/button/span[contains(text(),'Back')]")).click();
-				Thread.sleep(500);
+			// Click Back button 
+			getDriver().findElement(By.xpath("//div/button/span[contains(text(),'Back')]")).click();
+			Thread.sleep(500);
 				
 				
 }
