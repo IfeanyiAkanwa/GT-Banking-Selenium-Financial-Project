@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
+    <classes>
+      <class name="testCases.AccountTypes">
+        <methods>
+          <include name="cleanup"/>
+          <include name="captureStatus"/>
+          <include name="beforeClass"/>
+          <include name="afterClass"/>
+          <include name="setUp"/>
+          <include name="navigateToPersonalAccountType"/>
+          <include name="register"/>
+        </methods>
+      </class> <!-- testCases.AccountTypes -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

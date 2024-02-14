@@ -17,121 +17,14 @@
     "userIDGreaterThan12Digits" : "0802330456556",
     "userIDLessThan9Digits" : "0802565"
   },
-  "ForgotPassword" : {
-    "validSecretAnswer" : "test",
-    "validUsername" : "20513226601",
-    "alphanumericNum" : "6777gfsfsu",
-    "specialCharnum" : "$#%31245?",
-    "invalidSecretAnswer" : "$#%36",
-    "invalidUsername" : "$#%36"
-  },
-  "ForgotSecretAnswer" : {
-    "validUsername" : "205132266",
-    "alphanumericNum" : "6777gfsfsu",
-    "specialCharnum" : "$#%31245?",
-    "invalidUsername" : "$#%36"
-  },
-  "OpenDomiciliaryAccount" : {
-    "validSecretAnswer" : "test"
-  },
-  "OpenAdditionalAccount" : {
-    "numericSecretAnswer" : "56236",
-    "specialCharSecretAnswer" : "#$@^*@*",
-    "invalidSecretAnswer" : "hj6347",
-    "validSecretAnswer" : "test"
-  },
-  "StatementToThirdParty" : {
-    "applicantName" : "Christian Chukwu"
-  },
-  "AirtimeDataTopUp" : {
-    "number" : "08023305565",
-    "validSecretAnswer" : "test",
-    "token" : "123456",
-    "amount" : "100"
-  },
-  "SavedBeneficiary" : {
-  "amount" : "500",
-  "Remark" : "upkeep",
-  "token" : "123456", 
-  "BenInstitution": "GTBank",
-  "BenAddress": "Ademola Adetokunbo"
   
-  },
-  "NewBeneficiary" : { 
-  "account" : "0649225517",
-  "amount" : "500",
-  "Remark" : "upkeep",
-  "token" : "063192" 
-  },
-  "OwnAccountTransfer":{ 
-  "amount" : "100",
-  "Remark" : "Savings"
-  },
-  "OwnAccountTransferUnfunded":{ 
-  "amount" : "10000",
-  "Remark" : "Savings"
-  },
-  "TransferViaPhoneNumber" : {
-  "phoneNumber" : "08060176821",
-  "amount" : "500",
-  "Remark" : "upkeep",
-  "token" : "123456" 
-  },
-  "TransferViaEmail" : {
-  "email" : "chioma.anosike@yahoo.com",
-  "amount" : "500",
-  "Remark" : "upkeep",
-  "token" : "123456" 
-},
-"CardlessWithdrawal" : {
-  "amount" : "100000",
-  "PhoneNumber" : "08060176821",
-  "validSecretAnswer" : "08060176821" ,
-  "token": "123456"
-},
-"InvalidCardlessWithdrawal" : {
-  "amount" : "000",
-  "PhoneNumber" : "08060176821",
-  "validSecretAnswer" : "08060176821" ,
-  "token": "123456"
-},
-"ENaira" : {
-  "amount" : "000",
-  "UserName" : "08060176821",
-  "Password" : "08060176821" ,
-  "Remark": "upkeep"
-},
-"StandingOrder" : {
-  "amount" : "100",
-   "Remark": "upkeep",
-   "token" : "182530"
-},
-"SelfPickUp" : {
-  "amount" : "100",
-   "Remark": "upkeep",
-   "token" : "182530",
-   "copies": "4" ,
-    "leaves": "50"
-     },
-"3rdPartyPickUP" : {
-  "amount" : "100",
-   "Remark": "upkeep",
-   "token": "585057",
-   "PickUpName": "Oluwakemi Adetona",
-   "copies": "4" ,
-   "leaves": "50"
-	},
-"QuickCredit" : {
-  "secretAnswer": "test",
-  "email": "test@gtbank.com",
-  "salary": "500000",
-   "token": "123456",
-   "amount" : "20000000"
-},
-"MaxAdvance" : {
-  "employerName": " NIGERIAN NATIONAL PETROLEUM CORPORATION (NNPC), HYSON, PPMC, IDSL AND SUBSIDIARIES ",
-  "salary": "200000000",
-   "token": "123456",
-   "position": "Accountant"
-}		
+  "Otp":{
+  	"otp": "34567"
+  }
+  
+  
+  
+  
+  
+ 	
 }

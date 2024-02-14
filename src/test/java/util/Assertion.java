@@ -23,15 +23,11 @@ public class Assertion extends TestBase {
 
 		TestUtils.testTitle("To verify that GTBank Logo is displayed");
 		Thread.sleep(500);
-		WebElement img = getDriver().findElement(By.xpath("//a/img[@alt='GTBank Logo']"));
+	 getDriver().findElement(By.xpath("//*[@id='GTCONigeria_no_RC']"));
 
-		String deviceImg = img.getAttribute("src");
-		String validImage = "app-logo.svg";
-		String emptyImage = "image";
-
-		if (deviceImg.endsWith(validImage)) {
+		if (getDriver().findElement(By.xpath("//*[@id='GTCONigeria_no_RC']")).isDisplayed()) {
 			testInfo.get().info("Logo is displayed");
-		} else if (deviceImg.endsWith(emptyImage)) {
+		} else {
 			testInfo.get().error("Logo is not displayed");
 		} 
 	}
@@ -340,6 +336,16 @@ public class Assertion extends TestBase {
 		{
 			testInfo.get().error("Beneficiary Nickname not found");
 		}
+	}
+	
+	public static void validateSelectedAccountType() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div/span")));
+		TestUtils.assertSearchText("XPATH", "//h1[contains(text(),'What do you want to do?')]", "What do you want to do?");
+		Thread.sleep(500);
+		TestUtils.assertSearchText("XPATH", "//span[contains(text(),'Open a New Account')]", "Open a New Account");
+		Thread.sleep(500);
+		TestUtils.assertSearchText("XPATH", "//span[contains(text(),'Open Additional Account')]", "Open Additional Account");
 	}
 	
 	

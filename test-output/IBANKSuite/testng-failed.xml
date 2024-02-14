@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" parallel="tests" name="Failed suite [IBANKSuite]" guice-stage="DEVELOPMENT">
+  <parameter name="server" value="local"/>
+  <parameter name="environment" value="chrome"/>
+  <parameter name="myBrowser" value="chrome"/>
+  <parameter name="toMails" value="kakaageraldine@gmail.com"/>
+  <parameter name="groupReport" value="/ibank.html"/>
+  <parameter name="config" value="parallel.conf.json"/>
+  <parameter name="testEnv" value="stagingData"/>
+  <test thread-count="1" parallel="tests" name="GTbankFXRate(failed)">
+    <parameter name="myBrowser" value="chrome"/>
+    <classes>
+      <class name="testCases.GTbankFXRate">
+        <methods>
+          <include name="cleanup"/>
+          <include name="captureStatus"/>
+          <include name="navigateToGTBankFxRate"/>
+          <include name="beforeClass"/>
+          <include name="afterClass"/>
+          <include name="setUp"/>
+          <include name="register"/>
+          <include name="FXRatesVisibility"/>
+        </methods>
+      </class> <!-- testCases.GTbankFXRate -->
+    </classes>
+  </test> <!-- GTbankFXRate(failed) -->
+</suite> <!-- Failed suite [IBANKSuite] -->

@@ -693,24 +693,7 @@ public class TestUtils extends TestBase {
 	    getDriver().findElement(element).clear();
 	    getDriver().findElement(element).sendKeys(text);
 	}
-	
-	public static void getStartedPage() throws Exception {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-		try {
-			if (getDriver().findElement(By.linkText("Continue to New Interface")).isDisplayed()) {
-				getDriver().findElement(By.linkText("Continue to New Interface")).click();
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
-				Thread.sleep(1000);
-			} 
-		} catch (Exception e) {
-			if (getDriver().findElement(By.id("username")).isDisplayed()) {
-				getDriver().findElement(By.xpath("(//button[@type='button'])[12]")).click();
-				Thread.sleep(1000);
-			}
-		}
 
-	}
-	
 	/**
 	 * @param By element - locator of the element
 	 * @param title - Title of the page

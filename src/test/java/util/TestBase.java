@@ -23,6 +23,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -39,7 +40,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.browserstack.local.Local;
 
-import testCases.Login;
+
 
 public class TestBase {
 	public static ExtentReports reports;
@@ -59,10 +60,10 @@ public class TestBase {
 
 		String myUrl = null;
 		if(testEnv.equalsIgnoreCase("stagingData")) {
-			myUrl = System.getProperty("instance-url", "http://gtweb6.gtbank.com:8080");
+			myUrl = System.getProperty("instance-url", "https://aowe-test-n9wqh.ondigitalocean.app/");
 		} else
 		{
-			myUrl = System.getProperty("instance-url", "http://gtweb6.gtbank.com:8080");
+			myUrl = System.getProperty("instance-url", "https://aowe-test-n9wqh.ondigitalocean.app/");
 		}
 
 		return myUrl;
@@ -181,48 +182,24 @@ public class TestBase {
 		getDriver().get(myUrl(testEnv));
 	}
 
-	@Parameters ({"testEnv"})
-	@Test 
-	public void Login(String testEnv) throws Exception {
+	@Parameters ("testEnv")
+	@Test
+	public void LandingPageTest(String testEnv) throws Exception, InterruptedException {
 		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-		File path = null;
-		File classpathRoot = new File(System.getProperty("user.dir"));
-		if (testEnv.equalsIgnoreCase("StagingData")) {
-			path = new File(classpathRoot, "stagingData/data.conf.json");
-		} else {
-			path = new File(classpathRoot, "prodData/data.conf.json");
-		}
-		JSONParser parser = new JSONParser();
-		JSONObject config = (JSONObject) parser.parse(new FileReader(path));
-		JSONObject envs = (JSONObject) config.get("Login");
-
-		String validUserID = (String) envs.get("validUserID");
-		String pw = (String) envs.get("pw");
 		
-		TestUtils.getStartedPage();
+		TestUtils.testTitle("Navigate to Landing Page");
 		
-		TestUtils.testTitle("Login with valid User ID : (" + validUserID + ") and valid password: (" + pw + ")");
-		Login.loginTest(testEnv, validUserID);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p.mat-body.small.ng-tns-c3-0")));
-		TestUtils.assertSearchText("XPATH", "//*[contains(text(),'Login Successful')]", "Login Successful");
-		getDriver().findElement(By.xpath("//mat-card/div/button/span/mat-icon")).click();
-		//Assert.assertEquals(getDriver().getTitle(), "Landing | GTB-iBank");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[contains(text(),'Bank accounts designed for a more sustainable future')]")));
 		Thread.sleep(1000);
+		TestUtils.assertSearchText("XPATH", "//span[contains(text(),'Open a GTBank account and enjoy convenient banking')]", "Open a GTBank account and enjoy convenient banking services "
+				+ "from our mobile, web and USSD channels.");
+		
+		// To confirm that GtBank Logo is displayed on the Landing Page
+		TestUtils.testTitle("To confirm Logo and Title of Landing page");
+		Assertion.logoDisplayTest();
+		Assert.assertEquals(getDriver().getTitle(), "Aowe");
 	}
 	
-	@Test 
-	public void ClickOnProceedToInternetBankingButtonTest() throws InterruptedException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
-		
-		TestUtils.testTitle("Click on Proceed to Internet Banking button on Landing page");
-		// Click on Proceed to Internet Banking button
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("clearLoader")));
-		getDriver().findElement(By.id("clearLoader")).click();
-		Thread.sleep(500);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Dashboard')]")));
-		TestUtils.assertSearchText("XPATH", "//a[contains(text(),'Dashboard')]", "Dashboard");
-		Thread.sleep(500);
-	}
 	
 	@AfterClass
 	public void afterClass() {

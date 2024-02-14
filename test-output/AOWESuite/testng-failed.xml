@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" parallel="tests" name="Failed suite [AOWESuite]" guice-stage="DEVELOPMENT">
+  <parameter name="server" value="local"/>
+  <parameter name="environment" value="chrome"/>
+  <parameter name="myBrowser" value="chrome"/>
+  <parameter name="toMails" value="kakaageraldine@gmail.com"/>
+  <parameter name="groupReport" value="/aowe.html"/>
+  <parameter name="config" value="parallel.conf.json"/>
+  <parameter name="testEnv" value="stagingData"/>
+  <test thread-count="1" parallel="tests" name="otpTest(failed)">
+    <classes>
+      <class name="testCases.OtpTest">
+        <methods>
+          <include name="cleanup"/>
+          <include name="captureStatus"/>
+          <include name="otpInput"/>
+          <include name="beforeClass"/>
+          <include name="afterClass"/>
+          <include name="setUp"/>
+          <include name="register"/>
+        </methods>
+      </class> <!-- testCases.OtpTest -->
+    </classes>
+  </test> <!-- otpTest(failed) -->
+</suite> <!-- Failed suite [AOWESuite] -->
